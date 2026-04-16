@@ -1,0 +1,20 @@
+/*
+ * Payload Admin 自定义样式
+ * 限制后台最大宽度，避免超宽屏布局过散
+ */
+
+/* 限制整个后台 app 容器宽度并居中 */
+html body {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 让导航栏也跟随居中 */
+.template-default__nav,
+.nav__wrap,
+.payload-default-nav {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}

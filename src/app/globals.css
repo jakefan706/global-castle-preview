@@ -1,26 +1,591 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   设计系统 — Global Castle
+   参考：动画设计规范.md
+   ============================================================ */
+
+@theme {
+  /* 颜色 */
+  --color-primary: #67c0bf;
+  --color-primary-dark: #5ab0af;
+  --color-primary-light: #e8f7f7;
+  --color-accent-blue: #4a90d9;
+  --color-accent-green: #2ecc71;
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-border: #e5e7eb;
+  --color-background: #ffffff;
+
+  /* 字体 */
+  --font-sans: var(--font-plus-jakarta-sans), "Plus Jakarta Sans", sans-serif;
+
+  /* 圆角 */
+  --radius-button: 4px;
+
+  /* 动画 keyframes */
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-fade-in-slow: fade-in 0.8s ease-out forwards;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+  --animate-fade-up-slow: fade-up 0.8s ease-out forwards;
+  --animate-fade-in-left: fade-in-left 0.8s ease-out forwards;
+  --animate-fade-in-right: fade-in-right 0.8s ease-out forwards;
+  --animate-scale-in: scale-in 0.3s ease-out forwards;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Keyframe 定义 */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-zoom-active {
+  from { transform: scale(1.08); }
+  to   { transform: scale(1); }
+}
+
+@keyframes hero-current-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes hero-previous-fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* 无障碍：关闭动画 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
+/* ============================================================
+   全局基础样式
+   ============================================================ */
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 初始隐藏（等待滚动揭示） */
+.reveal {
+  opacity: 0;
+}
+
+.reveal.visible {
+  animation: var(--animate-fade-up-slow);
+}
+
+.reveal-fade.visible {
+  animation: var(--animate-fade-in-slow);
+}
+
+.reveal-left.visible {
+  animation: var(--animate-fade-in-left);
+}
+
+.reveal-right.visible {
+  animation: var(--animate-fade-in-right);
+}
+
+/* ============================================================
+   按钮组件（参考 sensialu.com 的 box-shadow inset 效果）
+   ============================================================ */
+
+/* 主按钮 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-button);
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 300ms ease, box-shadow 300ms ease, background-color 300ms ease, border-color 300ms ease;
+  box-shadow:
+    0 16px 30px rgba(103, 192, 191, 0.24),
+    inset 0 0 0 0 rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.28), transparent 42%);
+  opacity: 0.9;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.btn-primary > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow:
+    0 20px 36px rgba(103, 192, 191, 0.3),
+    inset 0 0 0 40px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.btn-primary:hover::before {
+  transform: translateX(18%);
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* 次按钮（边框样式） */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-button);
+  border: 2px solid var(--color-primary);
+  cursor: pointer;
+  transition: all 300ms ease;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* 按钮白色版本（用于深色背景） */
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background-color: #ffffff;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: var(--radius-button);
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 300ms ease, box-shadow 300ms ease, background-color 300ms ease, color 300ms ease;
+  box-shadow:
+    0 16px 28px rgba(255, 255, 255, 0.18),
+    0 10px 24px rgba(7, 24, 39, 0.12);
+  text-decoration: none;
+}
+
+.btn-white::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.55), transparent 44%);
+  opacity: 0.7;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+.btn-white > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-white:hover {
+  background-color: rgba(255, 255, 255, 0.94);
+  color: var(--color-primary-dark);
+  transform: translateY(-3px);
+  box-shadow:
+    0 18px 34px rgba(255, 255, 255, 0.2),
+    0 14px 26px rgba(7, 24, 39, 0.14);
+}
+
+.btn-white:hover::before {
+  transform: translateX(18%);
+  opacity: 1;
+}
+
+/* ============================================================
+   链接（带下划线滑入效果）
+   ============================================================ */
+
+.link-underline {
+  position: relative;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.link-underline:hover {
+  color: var(--color-primary);
+}
+
+.link-underline:hover::after {
+  opacity: 1;
+}
+
+/* ============================================================
+   页脚图标（box-shadow inset 填充 —— sensialu.com 风格）
+   ============================================================ */
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
+  transition: all 500ms ease;
+  box-shadow: inset 0 0 0 0 var(--color-primary);
+}
+
+.social-icon:hover {
+  box-shadow: inset 0 0 0 30px var(--color-primary);
+  color: #ffffff;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(8, 19, 38, 0.06) 0%, rgba(8, 19, 38, 0.06) 44%, rgba(8, 19, 38, 0.16) 100%);
+}
+
+.hero-zoom-slide-current {
+  z-index: 2;
+  animation: hero-current-fade 1400ms ease both;
+}
+
+.hero-zoom-slide-current .hero-zoom-slide-image {
+  animation: hero-zoom-active 6000ms ease-out both;
+}
+
+.hero-zoom-slide-previous {
+  z-index: 1;
+  animation: hero-previous-fade 1400ms ease both;
+}
+
+.hero-zoom-slide-previous .hero-zoom-slide-image {
+  transform: scale(1);
+}
+
+.hero-kicker {
+  opacity: 0;
+  animation: fade-in 0.5s ease-out 0.15s forwards;
+}
+
+.hero-title {
+  opacity: 0;
+  animation: fade-in-left 0.8s ease-out forwards;
+}
+
+.hero-title-readable {
+  text-shadow:
+    0 3px 12px rgba(7, 24, 39, 0.24),
+    0 10px 30px rgba(7, 24, 39, 0.3),
+    0 18px 52px rgba(7, 24, 39, 0.16);
+}
+
+.hero-subtitle-panel {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+    0 14px 32px rgba(7, 24, 39, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: fade-in 0.5s ease-out 0.3s forwards;
+  text-shadow:
+    0 2px 8px rgba(7, 24, 39, 0.18),
+    0 8px 22px rgba(7, 24, 39, 0.14);
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: float-in 0.5s ease-out 0.6s forwards;
+}
+
+.hero-cta-button {
+  min-width: 240px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  box-shadow:
+    0 4px 10px rgba(7, 24, 39, 0.1),
+    0 10px 24px rgba(7, 24, 39, 0.08);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease;
+}
+
+.hero-cta-button::before {
+  display: none;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-1px);
+}
+
+.hero-cta-button:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 4px rgba(7, 24, 39, 0.05);
+}
+
+.hero-cta-primary {
+  background: linear-gradient(180deg, #72c9c8 0%, #67c0bf 100%);
+  border-color: #67c0bf;
+}
+
+.hero-cta-primary:hover {
+  background: linear-gradient(180deg, #7dd0cf 0%, #6abfbe 100%);
+  box-shadow:
+    0 6px 14px rgba(103, 192, 191, 0.16),
+    0 14px 28px rgba(103, 192, 191, 0.12);
+}
+
+.hero-cta-secondary {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(255, 255, 255, 0.96);
+  color: #62b9b8;
+}
+
+.hero-cta-secondary:hover {
+  background: #ffffff;
+  color: #57afae;
+  box-shadow:
+    0 6px 14px rgba(255, 255, 255, 0.12),
+    0 14px 28px rgba(7, 24, 39, 0.08);
+}
+
+.gc-card {
+  box-shadow: 0 14px 40px rgba(13, 31, 60, 0.06);
+}
+
+.gc-card:hover {
+  transform: translateY(-4px);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 20px 45px rgba(13, 31, 60, 0.1);
+}
+
+.gc-advantage-card {
+  background: linear-gradient(180deg, rgba(103, 192, 191, 0.15) 0%, rgba(103, 192, 191, 0.09) 100%);
+  box-shadow:
+    0 12px 28px rgba(13, 31, 60, 0.05),
+    inset 0 0 0 1px rgba(103, 192, 191, 0.14);
+}
+
+.gc-advantage-card:hover {
+  transform: translateY(-5px);
+  background: linear-gradient(180deg, rgba(103, 192, 191, 0.2) 0%, rgba(103, 192, 191, 0.12) 100%);
+  box-shadow:
+    0 18px 34px rgba(13, 31, 60, 0.08),
+    inset 0 0 0 1px rgba(103, 192, 191, 0.2);
+}
+
+.gc-card,
+.gc-product-card,
+.gc-input,
+.gc-textarea {
+  opacity: 1;
+}
+
+.gc-product-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(103, 192, 191, 0);
+  transition: background 300ms ease;
+}
+
+.gc-product-card:hover::after {
+  background: rgba(103, 192, 191, 0.14);
+}
+
+.gc-input,
+.gc-textarea {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #dbe4eb;
+  background: #ffffff;
+  color: #333333;
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.gc-input::placeholder,
+.gc-textarea::placeholder {
+  color: #95a0ad;
+}
+
+.gc-input:focus,
+.gc-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(103, 192, 191, 0.16);
+}
+
+.gc-textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.stats-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.gc-stat-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  padding: 3.5rem 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.025) 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+    0 0 50px rgba(103, 192, 191, 0.08);
+}
+
+.gc-stat-card::before,
+.gc-stat-card::after {
+  content: '';
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg, rgba(103, 192, 191, 0.22), rgba(103, 192, 191, 0.03));
+  opacity: 0;
+  transition: transform 500ms ease, opacity 500ms ease, box-shadow 500ms ease;
+  pointer-events: none;
+  box-shadow: 0 0 28px rgba(103, 192, 191, 0.16);
+}
+
+.gc-stat-card::before {
+  top: -34px;
+  left: -34px;
+  transform: translate(-42px, -42px) rotate(-8deg);
+}
+
+.gc-stat-card::after {
+  right: -34px;
+  bottom: -34px;
+  transform: translate(42px, 42px) rotate(8deg);
+}
+
+.gc-stat-card:hover::before,
+.gc-stat-card:hover::after {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0deg);
+}
+
+.gc-stat-card:hover .gc-stat-value {
+  transform: translateY(-3px);
+  transition: transform 300ms ease;
+  text-shadow: 0 0 24px rgba(103, 192, 191, 0.15);
+}
+
+.gc-stat-card:hover .gc-stat-label {
+  color: rgba(255, 255, 255, 0.92);
+  transition: color 300ms ease;
+}
+
+.gc-facility-shell {
+  position: relative;
+}
+
+.gc-facility-slide {
+  box-shadow: 0 10px 28px rgba(16, 34, 56, 0.12);
+  transition: transform 400ms ease, box-shadow 400ms ease;
+}
+
+.gc-facility-slide.is-active {
+  transform: translateY(-2px);
+}
+
+.gc-facility-slide:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 40px rgba(16, 34, 56, 0.2);
+}
+
+.gc-facility-caption {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.gc-facility-slide:hover .gc-facility-caption {
+  opacity: 1;
+  transform: translateY(0);
 }
