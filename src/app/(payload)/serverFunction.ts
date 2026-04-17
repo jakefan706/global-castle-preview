@@ -1,5 +1,16 @@
 'use server'
 
 import { handleServerFunctions } from '@payloadcms/next/layouts'
+import type { ServerFunctionClient } from 'payload'
 
-export const serverFunction = handleServerFunctions
+import config from '@/payload.config'
+
+import { importMap } from './admin/importMap.js'
+
+export const serverFunction: ServerFunctionClient = async ({ args, name }) =>
+  handleServerFunctions({
+    args,
+    config,
+    importMap,
+    name,
+  })

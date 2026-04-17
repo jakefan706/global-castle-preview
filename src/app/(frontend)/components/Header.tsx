@@ -19,13 +19,13 @@ const CATEGORIES = [
 ]
 
 const NAV_LINKS = [
-  { label: 'Home', href: '/', icon: 'home' },
+  { label: 'Home', href: '/', icon: 'home', hasDropdown: false },
   { label: 'Products', href: '/products', icon: 'grid', hasDropdown: true },
-  { label: 'Solutions', href: '/solutions', icon: 'spark' },
-  { label: 'Resources', href: '/resources', icon: 'book' },
-  { label: 'Blog', href: '/blog', icon: 'pen' },
-  { label: 'About Us', href: '/about', icon: 'company' },
-  { label: 'Contact', href: '/contact', icon: 'mail' },
+  { label: 'Solutions', href: '/solutions', icon: 'spark', hasDropdown: false },
+  { label: 'Resources', href: '/resources', icon: 'book', hasDropdown: false },
+  { label: 'Blog', href: '/blog', icon: 'pen', hasDropdown: false },
+  { label: 'About Us', href: '/about', icon: 'company', hasDropdown: false },
+  { label: 'Contact', href: '/contact', icon: 'mail', hasDropdown: false },
 ] as const
 
 function NavIcon({
@@ -172,7 +172,7 @@ export default function Header() {
                           className="h-4.5 w-4.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110"
                         />
                       </span>
-                      <span className={link.label === 'About Us' ? 'whitespace-nowrap' : ''}>{link.label}</span>
+                      <span className="whitespace-nowrap">{link.label}</span>
                       <svg
                         className={`h-3.5 w-3.5 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`}
                         fill="none"
@@ -225,7 +225,7 @@ export default function Header() {
                         className="h-4.5 w-4.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110"
                       />
                     </span>
-                    <span className={link.label === 'About Us' ? 'whitespace-nowrap' : ''}>{link.label}</span>
+                    <span className="whitespace-nowrap">{link.label}</span>
                   </Link>
                 ),
               )}
@@ -284,7 +284,7 @@ export default function Header() {
                 >
                   <span className="flex items-center gap-2">
                     <NavIcon type={link.icon} className="h-4.5 w-4.5" />
-                    <span className={link.label === 'About Us' ? 'whitespace-nowrap' : ''}>{link.label}</span>
+                    <span className="whitespace-nowrap">{link.label}</span>
                   </span>
                   <svg
                     className={`h-4 w-4 transition-transform duration-300 ${mobileProductsOpen ? 'rotate-180' : ''}`}
@@ -331,7 +331,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
               >
                 <NavIcon type={link.icon} className="h-4.5 w-4.5" />
-                <span className={link.label === 'About Us' ? 'whitespace-nowrap' : ''}>{link.label}</span>
+                <span className="whitespace-nowrap">{link.label}</span>
               </Link>
             ),
           )}
