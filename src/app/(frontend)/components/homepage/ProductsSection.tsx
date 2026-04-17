@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ALL_PRODUCT_CATEGORY_LINKS, FEATURED_CATEGORY_CARDS } from './homepage-data'
+import { FEATURED_CATEGORY_CARDS } from './homepage-data'
 import { useScrollReveal, useStaggeredReveal } from '../../hooks/use-scroll-reveal'
 
 function ArrowUpRightIcon({ className = '' }: { className?: string }) {
@@ -33,24 +33,9 @@ export default function ProductsSection() {
             className="mx-auto max-w-2xl text-[#666666] transition-all duration-700 delay-100 opacity-100"
             style={{ transform: 'translateY(0)' }}
           >
-            The homepage keeps the stronger six-category visual entry from the v0 design, while
-            the full catalog structure still follows the complete 11-category product system.
+            A capability-first homepage should spotlight the core drinkware categories buyers ask
+            about most often, while keeping the path to deeper product conversations simple.
           </p>
-        </div>
-
-        <div
-          className="mb-12 flex flex-wrap justify-center gap-x-4 gap-y-3 transition-all duration-700 delay-150 opacity-100"
-          style={{ transform: 'translateY(0)' }}
-        >
-          {ALL_PRODUCT_CATEGORY_LINKS.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/products?category=${category.slug}`}
-              className="rounded-[4px] border border-[#d8ecec] px-4 py-2 text-sm font-semibold text-[#4a6f6f] transition-colors duration-200 hover:border-[#67c0bf] hover:text-[#67c0bf]"
-            >
-              {category.name}
-            </Link>
-          ))}
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3 lg:grid-cols-3 lg:gap-8">

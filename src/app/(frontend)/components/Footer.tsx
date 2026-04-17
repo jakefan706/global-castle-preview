@@ -1,14 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-const PRODUCT_LINKS = [
-  { label: 'Stainless Steel Bottles', href: '/products?category=stainless-steel' },
-  { label: 'Aluminum Bottles', href: '/products?category=aluminum' },
-  { label: 'Plastic Bottles', href: '/products?category=plastic' },
-  { label: 'Ceramic Mugs', href: '/products?category=ceramic' },
-  { label: 'Glass Bottles', href: '/products?category=glass' },
-  { label: 'Tumblers', href: '/products?category=tumblers' },
-]
+import { FOOTER_PRODUCT_CATEGORIES, getCategoryHref } from './category-config'
 
 const COMPANY_LINKS = [
   { label: 'About Us', href: '/about' },
@@ -88,13 +80,13 @@ export default function Footer() {
               Products
             </h3>
             <ul className="space-y-3">
-              {PRODUCT_LINKS.map((link) => (
-                <li key={link.label}>
+              {FOOTER_PRODUCT_CATEGORIES.map((category) => (
+                <li key={category.slug}>
                   <Link
-                    href={link.href}
+                    href={getCategoryHref(category.slug)}
                     className="text-sm text-gray-400 hover:text-white transition-colors duration-150"
                   >
-                    {link.label}
+                    {category.name}
                   </Link>
                 </li>
               ))}

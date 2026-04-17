@@ -63,7 +63,7 @@
 ### 关键决定（已确认，不可更改）
 1. **去掉产品筛选功能** — 不做大而全的产品目录，每个分类只展示 10-15 款精选/热门产品
 2. **去掉 Hero 视频** — 改为静态大图 Banner（桌面 1920×1080 ≤400KB + 移动 768×1024 ≤200KB）
-3. **移除 CapacityRanges Collection** — 用户手动从 `项目执行计划书-v2.md` 中删除了 5.3 CapacityRanges 的定义，后续产品列表页不再使用容量筛选
+3. **移除 CapacityRanges Collection** — 用户手动从 `项目执行计划书-0418.md` 中删除了 5.3 CapacityRanges 的定义，后续产品列表页不再使用容量筛选
 4. **Solutions 是静态页面** — 不创建 CMS Collection，代码写死
 5. **爬虫数据不用** — `products_data/` 质量差，全部手动录入
 6. **v0.dev 做 UI → 确认风格 → 我来集成** 的工作流
@@ -153,7 +153,7 @@
 ## 6. 建议接手路径
 
 ### 应先查看的文件
-1. `/Users/abcd/Vibecoding/website/项目执行计划书-v2.md` — 完整项目计划，最新改动都在这里
+1. `/Users/abcd/Vibecoding/website/global-castle/docs/项目执行计划书-0418.md` — 完整项目计划，最新改动都在这里
 2. `/Users/abcd/Vibecoding/website/动画设计规范.md` — 动画系统规范
 3. `/Users/abcd/Vibecoding/website/global-castle/src/payload.config.ts` — Payload 配置
 4. `/Users/abcd/Vibecoding/website/global-castle/src/app/globals.css` — 设计系统（颜色、keyframes、按钮、链接、social-icon class）

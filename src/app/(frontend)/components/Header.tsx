@@ -3,20 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const CATEGORIES = [
-  { name: 'Stainless Steel Bottles', slug: 'stainless-steel' },
-  { name: 'Aluminum Bottles', slug: 'aluminum' },
-  { name: 'Plastic Bottles', slug: 'plastic' },
-  { name: 'Ceramic Mugs', slug: 'ceramic' },
-  { name: 'Glass Bottles', slug: 'glass' },
-  { name: 'Tumblers', slug: 'tumblers' },
-  { name: 'Travel Mugs', slug: 'travel-mugs' },
-  { name: 'Sports Bottles', slug: 'sports' },
-  { name: 'Kids Bottles', slug: 'kids' },
-  { name: 'Eco-Friendly', slug: 'eco-friendly' },
-  { name: 'Custom Drinkware', slug: 'custom' },
-]
+import { ALL_PRODUCT_CATEGORIES, getCategoryHref } from './category-config'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', icon: 'home', hasDropdown: false },
@@ -198,10 +185,10 @@ export default function Header() {
                           All Products →
                         </Link>
                         <div className="mx-4 my-1 h-px bg-gray-100" />
-                        {CATEGORIES.map((cat) => (
+                        {ALL_PRODUCT_CATEGORIES.map((cat) => (
                           <Link
                             key={cat.slug}
-                            href={`/products?category=${cat.slug}`}
+                            href={getCategoryHref(cat.slug)}
                             className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
                             onClick={() => setDropdownOpen(false)}
                           >
@@ -310,10 +297,10 @@ export default function Header() {
                     >
                       All Products →
                     </Link>
-                    {CATEGORIES.map((cat) => (
+                    {ALL_PRODUCT_CATEGORIES.map((cat) => (
                       <Link
                         key={cat.slug}
-                        href={`/products?category=${cat.slug}`}
+                        href={getCategoryHref(cat.slug)}
                         className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#67c0bf]"
                         onClick={() => setMobileOpen(false)}
                       >

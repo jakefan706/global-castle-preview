@@ -1,12 +1,38 @@
 import type { Metadata } from 'next'
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import localFont from 'next/font/local'
 import '../globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import WhatsAppButton from './components/WhatsAppButton'
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
+const plusJakartaSans = localFont({
+  src: [
+    {
+      path: '../fonts/PlusJakartaSans-400.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/PlusJakartaSans-500.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/PlusJakartaSans-600.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/PlusJakartaSans-700.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../fonts/PlusJakartaSans-800.ttf',
+      weight: '800',
+      style: 'normal',
+    },
+  ],
   variable: '--font-plus-jakarta-sans',
   display: 'swap',
 })
