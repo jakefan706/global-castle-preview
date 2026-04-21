@@ -49,7 +49,7 @@ export default function FrontendLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} h-full`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${plusJakartaSans.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased">
         <Header />
         <main className="flex-1">{children}</main>

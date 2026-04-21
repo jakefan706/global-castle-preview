@@ -4,16 +4,24 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ALL_PRODUCT_CATEGORIES, getCategoryHref } from './category-config'
+import { SOLUTION_PAGES } from './solutions/solutions-data'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', icon: 'home', hasDropdown: false },
-  { label: 'Products', href: '/products', icon: 'grid', hasDropdown: true },
-  { label: 'Solutions', href: '/solutions', icon: 'spark', hasDropdown: false },
+  { label: 'Products', href: '/products', icon: 'grid', hasDropdown: true, dropdownKey: 'products' },
+  { label: 'Solutions', href: '/solutions', icon: 'spark', hasDropdown: true, dropdownKey: 'solutions' },
   { label: 'Resources', href: '/resources', icon: 'book', hasDropdown: false },
   { label: 'Blog', href: '/blog', icon: 'pen', hasDropdown: false },
   { label: 'About Us', href: '/about', icon: 'company', hasDropdown: false },
   { label: 'Contact', href: '/contact', icon: 'mail', hasDropdown: false },
 ] as const
+
+type DropdownKey = 'products' | 'solutions'
+
+const SOLUTIONS_NAV_LINKS = SOLUTION_PAGES.map((solution) => ({
+  label: solution.title,
+  href: `/solutions/${solution.slug}`,
+}))
 
 function NavIcon({
   type,
@@ -89,8 +97,9 @@ function NavIcon({
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<DropdownKey | null>(null)
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false)
+  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false)
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
@@ -106,13 +115,13 @@ export default function Header() {
     }
   }, [mobileOpen])
 
-  const handleDropdownEnter = () => {
+  const handleDropdownEnter = (dropdown: DropdownKey) => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current)
-    setDropdownOpen(true)
+    setActiveDropdown(dropdown)
   }
 
   const handleDropdownLeave = () => {
-    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 100)
+    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 100)
   }
 
   return (
@@ -155,7 +164,7 @@ export default function Header() {
                   <div
                     key={link.label}
                     className="relative"
-                    onMouseEnter={handleDropdownEnter}
+                    onMouseEnter={() => handleDropdownEnter(link.dropdownKey)}
                     onMouseLeave={handleDropdownLeave}
                   >
                     <button
@@ -171,7 +180,9 @@ export default function Header() {
                       </span>
                       <span className="whitespace-nowrap">{link.label}</span>
                       <svg
-                        className={`h-3.5 w-3.5 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`}
+                        className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                          activeDropdown === link.dropdownKey ? 'rotate-180' : ''
+                        }`}
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -183,28 +194,53 @@ export default function Header() {
 
                     <div
                       className={`absolute top-full left-1/2 mt-1 w-72 -translate-x-1/2 rounded-[4px] border border-gray-100 bg-white shadow-[0_18px_40px_rgba(0,0,0,0.12)] overflow-hidden origin-top transition-all duration-300 ${
-                        dropdownOpen ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
+                        activeDropdown === link.dropdownKey ? 'pointer-events-auto translate-y-0 opacity-100' : 'pointer-events-none -translate-y-2 opacity-0'
                       }`}
                     >
                       <div className="py-2">
-                        <Link
-                          href="/products"
-                          className="block px-4 py-3 text-sm font-semibold text-[#67c0bf] transition-colors duration-150 hover:bg-[#f0fafa]"
-                          onClick={() => setDropdownOpen(false)}
-                        >
-                          All Products →
-                        </Link>
-                        <div className="mx-4 my-1 h-px bg-gray-100" />
-                        {ALL_PRODUCT_CATEGORIES.map((cat) => (
-                          <Link
-                            key={cat.slug}
-                            href={getCategoryHref(cat.slug)}
-                            className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
-                            onClick={() => setDropdownOpen(false)}
-                          >
-                            {cat.name}
-                          </Link>
-                        ))}
+                        {link.dropdownKey === 'products' ? (
+                          <>
+                            <Link
+                              href="/products"
+                              className="block px-4 py-3 text-sm font-semibold text-[#67c0bf] transition-colors duration-150 hover:bg-[#f0fafa]"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              All Products →
+                            </Link>
+                            <div className="mx-4 my-1 h-px bg-gray-100" />
+                            {ALL_PRODUCT_CATEGORIES.map((cat) => (
+                              <Link
+                                key={cat.slug}
+                                href={getCategoryHref(cat.slug)}
+                                className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {cat.name}
+                              </Link>
+                            ))}
+                          </>
+                        ) : (
+                          <>
+                            <Link
+                              href="/solutions"
+                              className="block px-4 py-3 text-sm font-semibold text-[#67c0bf] transition-colors duration-150 hover:bg-[#f0fafa]"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              All Solutions →
+                            </Link>
+                            <div className="mx-4 my-1 h-px bg-gray-100" />
+                            {SOLUTIONS_NAV_LINKS.map((solution) => (
+                              <Link
+                                key={solution.href}
+                                href={solution.href}
+                                className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {solution.label}
+                              </Link>
+                            ))}
+                          </>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -286,14 +322,26 @@ export default function Header() {
               <div key={link.label}>
                 <button
                   className="flex w-full items-center justify-between px-6 py-3.5 text-base font-semibold text-[#333] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
-                  onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                  onClick={() =>
+                    link.dropdownKey === 'products'
+                      ? setMobileProductsOpen(!mobileProductsOpen)
+                      : setMobileSolutionsOpen(!mobileSolutionsOpen)
+                  }
                 >
                   <span className="flex items-center gap-2">
                     <NavIcon type={link.icon} className="h-4.5 w-4.5" />
                     <span className="whitespace-nowrap">{link.label}</span>
                   </span>
                   <svg
-                    className={`h-4 w-4 transition-transform duration-300 ${mobileProductsOpen ? 'rotate-180' : ''}`}
+                    className={`h-4 w-4 transition-transform duration-300 ${
+                      link.dropdownKey === 'products'
+                        ? mobileProductsOpen
+                          ? 'rotate-180'
+                          : ''
+                        : mobileSolutionsOpen
+                          ? 'rotate-180'
+                          : ''
+                    }`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -305,27 +353,57 @@ export default function Header() {
 
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    mobileProductsOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    link.dropdownKey === 'products'
+                      ? mobileProductsOpen
+                        ? 'max-h-[500px] opacity-100'
+                        : 'max-h-0 opacity-0'
+                      : mobileSolutionsOpen
+                        ? 'max-h-[500px] opacity-100'
+                        : 'max-h-0 opacity-0'
                   }`}
                 >
                   <div className="bg-gray-50 py-1">
-                    <Link
-                      href="/products"
-                      className="block px-8 py-2.5 text-sm font-semibold text-[#67c0bf]"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      All Products →
-                    </Link>
-                    {ALL_PRODUCT_CATEGORIES.map((cat) => (
-                      <Link
-                        key={cat.slug}
-                        href={getCategoryHref(cat.slug)}
-                        className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#67c0bf]"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {cat.name}
-                      </Link>
-                    ))}
+                    {link.dropdownKey === 'products' ? (
+                      <>
+                        <Link
+                          href="/products"
+                          className="block px-8 py-2.5 text-sm font-semibold text-[#67c0bf]"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          All Products →
+                        </Link>
+                        {ALL_PRODUCT_CATEGORIES.map((cat) => (
+                          <Link
+                            key={cat.slug}
+                            href={getCategoryHref(cat.slug)}
+                            className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#67c0bf]"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {cat.name}
+                          </Link>
+                        ))}
+                      </>
+                    ) : (
+                      <>
+                        <Link
+                          href="/solutions"
+                          className="block px-8 py-2.5 text-sm font-semibold text-[#67c0bf]"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          All Solutions →
+                        </Link>
+                        {SOLUTIONS_NAV_LINKS.map((solution) => (
+                          <Link
+                            key={solution.href}
+                            href={solution.href}
+                            className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#67c0bf]"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {solution.label}
+                          </Link>
+                        ))}
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
