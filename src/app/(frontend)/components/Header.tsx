@@ -126,20 +126,30 @@ export default function Header() {
       >
         <div className="mx-auto max-w-[1440px] px-3 sm:px-4 lg:px-6">
           <div className="grid h-14 grid-cols-[auto_1fr_auto] items-center lg:h-16">
-            <Link href="/" className="flex items-center gap-3 justify-self-start">
-              <Image
-                src="/images/logo-transparent-v2.png"
-                alt="Global Castle Industrial"
-                width={148}
-                height={42}
-                className={`h-7.5 w-auto object-contain transition-opacity duration-300 lg:h-8.5 ${
-                  scrolled ? 'opacity-100' : 'opacity-95'
-                }`}
-                priority
-              />
+            <Link href="/" className="justify-self-start lg:w-[258px] xl:w-[272px]">
+              <div className="flex flex-col items-start justify-center lg:-translate-y-0.5">
+                <Image
+                  src="/images/logo-transparent-v2.png"
+                  alt="Global Castle Industrial"
+                  width={148}
+                  height={42}
+                  className={`h-7.5 w-auto object-contain transition-opacity duration-300 lg:h-8.5 ${
+                    scrolled ? 'opacity-100' : 'opacity-95'
+                  }`}
+                  priority
+                />
+
+                <p
+                  className={`mt-0.5 hidden whitespace-nowrap pl-0.5 text-[8px] font-medium leading-none tracking-[0.01em] sm:block lg:text-[9px] xl:text-[9.5px] ${
+                    scrolled ? 'text-[#8c99a5]' : 'text-white/64'
+                  }`}
+                >
+                  by Global Castle - Your OEM Partner
+                </p>
+              </div>
             </Link>
 
-            <nav className="hidden justify-self-center lg:flex items-center justify-center gap-1 xl:gap-2">
+            <nav className="hidden justify-self-center lg:ml-4 lg:flex lg:items-center lg:justify-center lg:gap-1 xl:ml-6 xl:gap-2">
               {NAV_LINKS.map((link) =>
                 link.hasDropdown ? (
                   <div
@@ -247,8 +257,17 @@ export default function Header() {
         aria-hidden={!mobileOpen}
       >
         <div className="flex items-center justify-between border-b border-gray-100 p-4">
-          <div className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Global Castle Industrial" width={120} height={36} className="h-8 w-auto" />
+          <div className="flex flex-col items-start justify-center">
+            <Image
+              src="/images/logo-transparent-v2.png"
+              alt="Global Castle Industrial"
+              width={120}
+              height={36}
+              className="h-8 w-auto -translate-y-0.5 object-contain"
+            />
+            <p className="mt-0.5 pl-0.5 text-[9px] leading-[1.15] text-[#8c99a5]">
+              by Global Castle - Your OEM Partner
+            </p>
           </div>
           <button
             className="p-2 text-[#666] transition-colors duration-150 hover:text-[#333]"

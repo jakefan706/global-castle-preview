@@ -59,6 +59,21 @@
   to   { opacity: 1; transform: scale(1); }
 }
 
+@keyframes gallery-switch {
+  from { opacity: 0; transform: scale(1.004); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gallery-main-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gallery-crossfade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 @keyframes float-in {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -499,6 +514,18 @@ html {
 .gc-textarea {
   resize: vertical;
   min-height: 8rem;
+}
+
+.gc-gallery-switch {
+  animation: gallery-switch 300ms ease-out both;
+}
+
+.gc-gallery-main-fade {
+  animation: gallery-main-fade 380ms ease-out both;
+}
+
+.gc-gallery-crossfade {
+  animation: gallery-crossfade 520ms ease-in-out both;
 }
 
 .stats-pattern {

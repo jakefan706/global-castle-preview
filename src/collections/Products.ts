@@ -31,6 +31,14 @@ export const Products: CollectionConfig = {
         description: '产品详细描述，支持图文混排，用于详情页叙事段落',
       },
     },
+    {
+      name: 'customizeMOQ',
+      type: 'text',
+      label: 'Customize MOQ',
+      admin: {
+        description: '详情页展示的定制起订量，例如 500pcs',
+      },
+    },
     // 图片
     {
       name: 'mainImage',
