@@ -72,12 +72,6 @@ export const Products: CollectionConfig = {
       label: 'Category',
     },
     {
-      name: 'capacityRange',
-      type: 'relationship',
-      relationTo: 'capacity-ranges',
-      label: 'Capacity Range',
-    },
-    {
       name: 'applications',
       type: 'relationship',
       relationTo: 'applications',

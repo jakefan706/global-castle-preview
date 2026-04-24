@@ -9,7 +9,6 @@ import { fileURLToPath } from 'url'
 
 import { Products } from './collections/Products'
 import { Categories } from './collections/Categories'
-import { CapacityRanges } from './collections/CapacityRanges'
 import { Applications } from './collections/Applications'
 import { BlogPosts } from './collections/BlogPosts'
 import { Certifications } from './collections/Certifications'
@@ -27,6 +26,12 @@ export default buildConfig({
     meta: {
       titleSuffix: '- Global Castle Admin',
     },
+    components: {
+      beforeNavLinks: ['./app/(payload)/components/AdminSidebarBrand'],
+      graphics: {
+        Logo: './app/(payload)/components/AdminLoginLogo',
+      },
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -36,7 +41,6 @@ export default buildConfig({
     Users,
     Products,
     Categories,
-    CapacityRanges,
     Applications,
     BlogPosts,
     Certifications,

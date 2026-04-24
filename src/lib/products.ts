@@ -12,7 +12,6 @@ type ProductRecord = LooseObject & {
   material?: string
   customizeMOQ?: string
   category?: unknown
-  capacityRange?: unknown
   applications?: unknown
   mainImage?: unknown
   gallery?: unknown
@@ -1210,16 +1209,6 @@ function getCategorySlug(category: unknown) {
   return 'stainless-steel-tumblers'
 }
 
-function getCapacityLabel(range: unknown) {
-  if (!range) return ''
-
-  if (isLooseObject(range) && typeof range.name === 'string') {
-    return range.name
-  }
-
-  return ''
-}
-
 function normalizeApplications(value: unknown) {
   if (!Array.isArray(value)) return []
 
@@ -1263,7 +1252,7 @@ function normalizeProduct(product: ProductRecord): NormalizedProduct {
   const categoryName = getCategoryName(product.category)
   const categorySlug = getCategorySlug(product.category)
   const applications = normalizeApplications(product.applications)
-  const capacityLabel = getCapacityLabel(product.capacityRange)
+  const capacityLabel = ''
   const material = toMaterialLabel(product.material)
   const mainImage = normalizeMedia(product.mainImage, product.name || GC_ST_420_FALLBACK.name)
   const gallery = Array.isArray(product.gallery) && product.gallery.length

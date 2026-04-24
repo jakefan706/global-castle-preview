@@ -4,7 +4,7 @@ export const BlogPosts: CollectionConfig = {
   slug: 'blog-posts',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'publishedDate', 'featured'],
+    defaultColumns: ['coverImage', 'title', 'category', 'publishedDate', 'featured'],
   },
   fields: [
     {

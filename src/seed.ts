@@ -8,7 +8,6 @@
  *
  * 已写入数据（2026-04-07）：
  *   - 11 个 Categories
- *   - 7 个 CapacityRanges
  *   - 10 个 Applications
  */
 
@@ -28,16 +27,6 @@ const CATEGORIES = [
   { name: 'Accessories', slug: 'accessories', sortOrder: 9, featuredOnHomepage: true },
   { name: 'Eco-Friendly', slug: 'eco-friendly', sortOrder: 10 },
   { name: 'TECH', slug: 'tech', sortOrder: 11 },
-]
-
-const CAPACITY_RANGES = [
-  { name: 'Under 300ml', minMl: 0, maxMl: 300 },
-  { name: '300–500ml', minMl: 300, maxMl: 500 },
-  { name: '500–700ml', minMl: 500, maxMl: 700 },
-  { name: '700ml–1L', minMl: 700, maxMl: 1000 },
-  { name: '1L–1.5L', minMl: 1000, maxMl: 1500 },
-  { name: '1.5L–2L', minMl: 1500, maxMl: 2000 },
-  { name: 'Over 2L', minMl: 2000, maxMl: 9999 },
 ]
 
 const APPLICATIONS = [
@@ -71,12 +60,6 @@ async function seed() {
   console.log('📂 Categories...')
   for (const cat of CATEGORIES) {
     const r = await post(token, 'categories', cat)
-    console.log(r.doc ? `  ✓ ${r.doc.name}` : `  ✗ ${JSON.stringify(r)}`)
-  }
-
-  console.log('\n📏 CapacityRanges...')
-  for (const range of CAPACITY_RANGES) {
-    const r = await post(token, 'capacity-ranges', range)
     console.log(r.doc ? `  ✓ ${r.doc.name}` : `  ✗ ${JSON.stringify(r)}`)
   }
 

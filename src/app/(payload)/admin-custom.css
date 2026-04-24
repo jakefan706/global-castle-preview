@@ -1,20 +1,416 @@
 /*
- * Payload Admin 自定义样式
- * 限制后台最大宽度，避免超宽屏布局过散
+ * Payload Admin theme adjustments for Global Castle.
+ * Keep the interface restrained while aligning brand, color, and hierarchy.
  */
 
-/* 限制整个后台 app 容器宽度并居中 */
+:root {
+  --gc-admin-accent: #00868b;
+  --gc-admin-accent-strong: #006f73;
+  --gc-admin-accent-soft: rgba(0, 134, 139, 0.14);
+  --gc-admin-accent-line: rgba(0, 134, 139, 0.22);
+  --gc-admin-surface: #f4f8f8;
+  --gc-admin-panel: #fbfdfd;
+  --gc-admin-sidebar: #eef5f5;
+  --gc-admin-border: rgba(15, 23, 42, 0.12);
+  --gc-admin-text-soft: #4b5d67;
+}
+
 html body {
   max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
+  background:
+    linear-gradient(180deg, rgba(0, 134, 139, 0.04), transparent 180px),
+    #f6f8f9;
 }
 
-/* 让导航栏也跟随居中 */
-.template-default__nav,
-.nav__wrap,
-.payload-default-nav {
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
+body,
+input,
+textarea,
+select,
+button {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--gc-admin-accent-strong);
+}
+
+a:hover {
+  color: var(--gc-admin-accent);
+}
+
+.btn--style-primary {
+  --bg-color: var(--gc-admin-accent);
+  --hover-bg: var(--gc-admin-accent-strong);
+  --color: #fff;
+  --hover-color: #fff;
+}
+
+.btn--style-primary,
+.btn--style-primary:hover,
+.btn--style-primary:focus,
+.btn--style-primary:focus-visible,
+.btn--style-primary:active,
+.btn--style-primary .btn__label,
+.btn--style-primary .btn__content,
+.btn--style-primary .btn__content *,
+.btn--style-primary .btn__icon,
+.btn--style-primary .btn__icon .stroke,
+.btn--style-primary .btn__icon .fill {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+.btn--style-secondary {
+  --btn-border: 1px solid var(--gc-admin-accent-line);
+  --hover-btn-border: 1px solid var(--gc-admin-accent);
+  --hover-color: var(--gc-admin-accent-strong);
+}
+
+.btn--style-pill {
+  --bg-color: var(--gc-admin-accent-soft);
+  --color: var(--gc-admin-accent-strong);
+  --hover-bg: rgba(0, 134, 139, 0.2);
+}
+
+.btn:focus-visible,
+.popup-button:focus-visible,
+input:focus,
+input:focus-within,
+textarea:focus,
+textarea:focus-within,
+select:focus,
+select:focus-within {
+  outline: none;
+}
+
+input:focus,
+input:focus-within,
+textarea:focus,
+textarea:focus-within,
+select:focus,
+select:focus-within,
+.react-select__control--is-focused,
+.app-header__account:focus-visible:after {
+  border-color: var(--gc-admin-accent) !important;
+  box-shadow: 0 0 0 3px rgba(0, 134, 139, 0.12) !important;
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.app-header__bg {
+  opacity: 1;
+  background: linear-gradient(90deg, rgba(0, 134, 139, 0.08), transparent 40%);
+}
+
+.template-default,
+.collection-edit,
+.collection-list,
+.dashboard {
+  background: transparent;
+}
+
+.gc-admin-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1rem 1rem;
+  margin: 0 0 1rem;
+  border: 1px solid var(--gc-admin-border);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(0, 134, 139, 0.08), rgba(255, 255, 255, 0.9)),
+    var(--gc-admin-panel);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+.gc-admin-sidebar-brand__logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.gc-admin-sidebar-brand__copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.gc-admin-sidebar-brand__title {
+  color: #12323a;
+  font-size: 1.04rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.gc-admin-sidebar-brand__meta {
+  color: var(--gc-admin-text-soft);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.nav-group {
+  margin-bottom: 0.6rem;
+}
+
+.nav-group__toggle {
+  color: #26434a;
+  font-weight: 600;
+}
+
+.nav-group__toggle:hover,
+.nav-group__toggle:focus-visible {
+  color: var(--gc-admin-accent-strong);
+}
+
+.nav-group__indicator svg .stroke {
+  stroke: rgba(0, 134, 139, 0.35);
+}
+
+[class*='nav'] a[aria-current='page'],
+[class*='nav'] a[href]:hover {
+  color: var(--gc-admin-accent-strong);
+}
+
+[class*='nav'] a[aria-current='page'] {
+  background: var(--gc-admin-accent-soft);
+  border-radius: 10px;
+}
+
+.login {
+  min-height: calc(100vh - 2rem);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  background: #f6f8f9;
+}
+
+.template-minimal {
+  width: 100%;
+}
+
+.template-minimal > .template-minimal__wrap,
+.template-minimal__wrap {
+  width: min(100%, 560px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.login__brand {
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid var(--gc-admin-border);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(0, 134, 139, 0.14), rgba(255, 255, 255, 0.92)),
+    #f8fcfc;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.gc-admin-login-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.gc-admin-login-brand__logo {
+  width: 260px;
+  height: auto;
+  object-fit: contain;
+}
+
+.gc-admin-login-brand__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.gc-admin-login-brand__eyebrow {
+  color: var(--gc-admin-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gc-admin-login-brand__title {
+  color: #0f2f37;
+  font-size: clamp(1.75rem, 2vw, 2.3rem);
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+.gc-admin-login-brand__meta {
+  max-width: 26rem;
+  color: var(--gc-admin-text-soft);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.template-minimal form.login__form {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--gc-admin-border);
+  border-radius: 20px;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+}
+
+.template-minimal form.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.6rem;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  justify-self: stretch;
+}
+
+.template-minimal .login__form__inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.template-minimal .login-fields {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.template-minimal .login-fields .render-fields {
+  gap: 0.65rem;
+}
+
+.template-minimal .login-fields .field-type {
+  margin-bottom: 0.7rem;
+  width: 100%;
+  min-width: 0;
+}
+
+.template-minimal h1,
+.template-minimal h2 {
+  color: #12323a;
+}
+
+.template-minimal input,
+.template-minimal textarea,
+.template-minimal select,
+.field-type input,
+.field-type textarea,
+.field-type select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  border-color: rgba(15, 23, 42, 0.12);
+  border-radius: 10px;
+  background: #fcfefe;
+  box-shadow: none;
+  min-height: 48px;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+.template-minimal label {
+  font-size: 0.98rem;
+}
+
+.template-minimal form.login__form > .btn--style-primary {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 48px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.template-minimal form.login__form > a,
+.template-minimal form.login__form > .forgot-password {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+}
+
+.collection-list__wrap,
+.collection-edit__main,
+.dashboard__wrap,
+.list-header,
+.auth-fields {
+  background: transparent;
+}
+
+.list-header__title,
+h1,
+h2,
+h3 {
+  color: #12323a;
+}
+
+.table,
+.card,
+.auth-fields,
+.collapsible--style-default,
+.collection-edit__auth {
+  border-color: rgba(15, 23, 42, 0.1);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.04);
+}
+
+.collapsible--style-default > .collapsible__toggle-wrap,
+.auth-fields {
+  background: var(--gc-admin-panel);
+}
+
+.pill {
+  border-radius: 999px;
+}
+
+@media (max-width: 1024px) {
+  .template-minimal > .template-minimal__wrap,
+  .template-minimal__wrap {
+    width: min(100%, 560px);
+  }
+
+  .login__brand {
+    padding: 1.5rem;
+  }
+
+  .gc-admin-login-brand__logo {
+    width: 210px;
+  }
+}
+
+@media (max-width: 640px) {
+  .login {
+    padding: 1rem;
+  }
+
+  .template-minimal .login-fields {
+    max-width: none;
+  }
+
+  .gc-admin-sidebar-brand {
+    padding: 0.85rem;
+  }
 }
