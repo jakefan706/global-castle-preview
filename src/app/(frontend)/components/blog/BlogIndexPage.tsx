@@ -104,7 +104,7 @@ function FeaturedStory({ post }: { post: NormalizedBlogPost }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Lead Article
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -120,7 +120,7 @@ function FeaturedStory({ post }: { post: NormalizedBlogPost }) {
         <article className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-end">
           <div className="order-2 lg:order-1">
             <div className="flex flex-wrap items-center gap-3 text-sm text-[#c3c8cc]">
-              <span className="font-semibold uppercase tracking-[0.18em] text-[#67c0bf]">
+              <span className="font-semibold uppercase tracking-[0.18em] text-[#00868b]">
                 {getBlogCategoryLabel(post.category)}
               </span>
               <span className="h-1 w-1 rounded-full bg-white/30" />
@@ -154,7 +154,7 @@ function FeaturedStory({ post }: { post: NormalizedBlogPost }) {
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,9,11,0.08)_0%,rgba(5,9,11,0.24)_52%,rgba(5,9,11,0.82)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
                 <div>
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#67c0bf]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#00868b]">
                     Global Castle Journal
                   </p>
                   <p className="mt-2 text-sm text-white/78">
@@ -277,7 +277,7 @@ export default function BlogIndexPage({ blog }: { blog: BlogIndexData }) {
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,18,20,0.08)_0%,rgba(15,18,20,0.2)_40%,rgba(15,18,20,0.84)_100%)]" />
               <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#67c0bf]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#00868b]">
                   Issue Overview
                 </p>
                 <div className="mt-4 grid gap-4 border-t border-white/15 pt-4 sm:grid-cols-3">
@@ -410,7 +410,7 @@ export default function BlogIndexPage({ blog }: { blog: BlogIndexData }) {
       <section className="bg-[#1f1b17] py-16 text-white lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.94fr_1.06fr] lg:items-end lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Inquiry Desk
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] sm:text-4xl">
@@ -425,7 +425,7 @@ export default function BlogIndexPage({ blog }: { blog: BlogIndexData }) {
             </p>
             <Link
               href="/#contact"
-              className="mt-6 inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
             >
               <span>Start Your Inquiry</span>
               <ArrowIcon />

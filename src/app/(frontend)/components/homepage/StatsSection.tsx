@@ -47,7 +47,7 @@ function StatItem({
     >
       <div className="gc-stat-value mb-2 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
         {formatCount(count)}
-        <span className="text-[#67c0bf]">{suffix}</span>
+        <span className="text-[#00868b]">{suffix}</span>
       </div>
       <p className="gc-stat-label text-sm text-white/80 sm:text-base">{label}</p>
     </div>

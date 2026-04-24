@@ -31,7 +31,7 @@ export default function SolutionsHubPage() {
 
         <div className="relative z-10 mx-auto flex min-h-[calc(76vh-6rem)] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
           <div className="max-w-3xl animate-fade-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00868b]">
               Custom Drinkware Solutions
             </p>
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -42,7 +42,7 @@ export default function SolutionsHubPage() {
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(103,192,191,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]">
+              <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]">
                 <span>Start a Custom Program</span>
                 <ArrowIcon />
               </Link>
@@ -59,7 +59,7 @@ export default function SolutionsHubPage() {
         <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           {SOLUTIONS_HUB.proofPoints.map((point) => (
             <div key={point.label} className="border-t border-white/18 pt-5">
-              <p className="text-3xl font-bold text-[#67c0bf]">{point.value}</p>
+              <p className="text-3xl font-bold text-[#00868b]">{point.value}</p>
               <p className="mt-2 text-sm leading-6 text-[#c5d1da]">{point.label}</p>
             </div>
           ))}
@@ -69,7 +69,7 @@ export default function SolutionsHubPage() {
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Support Model
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -85,14 +85,14 @@ export default function SolutionsHubPage() {
               <Link
                 key={solution.slug}
                 href={`/solutions/${solution.slug}`}
-                className="group rounded-[4px] border border-[#dbe5ec] bg-[#f7fafb] p-5 transition-all duration-250 hover:scale-[1.01] hover:border-[#9bcfce] hover:bg-white hover:shadow-[0_18px_40px_rgba(12,27,48,0.09)]"
+                className="group rounded-[4px] border border-[#dbe5ec] bg-[#f7fafb] p-5 transition-all duration-250 hover:scale-[1.01] hover:border-[#81bfc1] hover:bg-white hover:shadow-[0_18px_40px_rgba(12,27,48,0.09)]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#67c0bf]">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
                   {solution.eyebrow}
                 </p>
                 <h3 className="mt-3 text-xl font-semibold text-[#333333]">{solution.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#666666]">{solution.summary}</p>
-                <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#4eaead]">
+                <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#00868b]">
                   <span>View solution</span>
                   <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </div>
@@ -116,7 +116,7 @@ export default function SolutionsHubPage() {
           </div>
 
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Capability Proof
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -125,7 +125,7 @@ export default function SolutionsHubPage() {
             <div className="mt-8 space-y-5">
               {SOLUTIONS_HUB.capabilityProof.map((proof) => (
                 <div key={proof} className="flex gap-4">
-                  <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#67c0bf]/12 text-[#67c0bf]">
+                  <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#00868b]/12 text-[#00868b]">
                     <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="m4 10 4 4 8-8" />
                     </svg>
@@ -141,7 +141,7 @@ export default function SolutionsHubPage() {
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Workflow
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -152,7 +152,7 @@ export default function SolutionsHubPage() {
           <div className="mt-12 grid gap-5 md:grid-cols-4">
             {SOLUTIONS_HUB.workflow.map((item) => (
               <div key={item.step} className="border-l border-[#dce8ee] pl-5">
-                <p className="text-sm font-bold text-[#67c0bf]">{item.step}</p>
+                <p className="text-sm font-bold text-[#00868b]">{item.step}</p>
                 <h3 className="mt-4 text-xl font-semibold text-[#333333]">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#666666]">{item.text}</p>
               </div>
@@ -165,14 +165,14 @@ export default function SolutionsHubPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
                 Product Bridge
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
                 Connect each solution with a practical product range.
               </h2>
             </div>
-            <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#4eaead] transition-colors duration-200 hover:text-[#3f9998]">
+            <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#00868b] transition-colors duration-200 hover:text-[#006d72]">
               <span>Explore all products</span>
               <ArrowIcon />
             </Link>
@@ -206,7 +206,7 @@ export default function SolutionsHubPage() {
       <section className="bg-[#081827] py-20 text-white lg:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Start A Project
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -216,7 +216,7 @@ export default function SolutionsHubPage() {
               We can help evaluate product fit, customization direction, packaging options, MOQ, and sample lead time.
             </p>
           </div>
-          <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(103,192,191,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]">
+          <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]">
             <span>Start Your Custom Project</span>
             <ArrowIcon />
           </Link>

@@ -142,8 +142,8 @@ export default function ProductGallery({
                 onClick={() => handleThumbnailSelect(index)}
                 className={`group relative aspect-square cursor-pointer overflow-hidden rounded-[4px] border transition-all duration-250 ${
                   selected
-                    ? 'border-[#67c0bf] shadow-[0_0_0_3px_rgba(103,192,191,0.18)]'
-                    : 'border-[#dde6ee] bg-[#f3f7fa] hover:-translate-y-0.5 hover:border-[#9bcfce] hover:shadow-[0_10px_22px_rgba(12,27,48,0.08)]'
+                    ? 'border-[#00868b] shadow-[0_0_0_3px_rgba(0, 134, 139,0.18)]'
+                    : 'border-[#dde6ee] bg-[#f3f7fa] hover:-translate-y-0.5 hover:border-[#81bfc1] hover:shadow-[0_10px_22px_rgba(12,27,48,0.08)]'
                 }`}
                 aria-label={`Show image ${index + 1} of ${gallery.length}`}
                 aria-pressed={selected}

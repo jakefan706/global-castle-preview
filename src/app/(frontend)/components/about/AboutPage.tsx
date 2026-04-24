@@ -43,7 +43,7 @@ export default function AboutPage() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8 lg:pb-24">
           <div className="max-w-3xl animate-fade-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00868b]">
               {companyIntro.eyebrow}
             </p>
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -67,7 +67,7 @@ export default function AboutPage() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#company-overview"
-                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(103,192,191,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]"
+                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
               >
                 <span>Explore Company Profile</span>
                 <ArrowIcon />
@@ -87,7 +87,7 @@ export default function AboutPage() {
       <section id="company-overview" className="scroll-mt-28 bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Company Overview
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -118,7 +118,7 @@ export default function AboutPage() {
       <section className="bg-[#f5f8fa] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Proof Of Capability
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 className="rounded-[4px] border border-[#dbe5ec] bg-white p-6 shadow-[0_16px_36px_rgba(12,27,48,0.05)]"
               >
                 <p className="text-4xl font-bold text-[#1f3345]">{stat.value}</p>
-                <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.12em] text-[#67c0bf]">
+                <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.12em] text-[#00868b]">
                   {stat.label}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-[#5f6d78]">{stat.detail}</p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Why Work With Us
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -173,7 +173,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
                 Facility & Production
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -200,7 +200,7 @@ export default function AboutPage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/74 via-[#081320]/18 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#67c0bf]">
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
                         Process Zone
                       </p>
                       <h3 className="mt-3 text-2xl font-semibold text-white">{highlight.title}</h3>
@@ -229,7 +229,7 @@ export default function AboutPage() {
                     />
                   </div>
                   <div className="p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#67c0bf]">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
                       Production Flow
                     </p>
                     <h3 className="mt-3 text-2xl font-semibold text-[#333333]">{highlight.title}</h3>
@@ -245,7 +245,7 @@ export default function AboutPage() {
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Operational Rhythm
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -263,7 +263,7 @@ export default function AboutPage() {
                 key={item.step}
                 className="grid gap-4 border-b border-[#dfe9ef] pb-5 last:border-b-0 last:pb-0 sm:grid-cols-[52px_1fr]"
               >
-                <div className="text-lg font-bold text-[#67c0bf]">{item.step}</div>
+                <div className="text-lg font-bold text-[#00868b]">{item.step}</div>
                 <div>
                   <h3 className="text-xl font-semibold text-[#333333]">{item.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#5f6d78]">{item.text}</p>
@@ -277,7 +277,7 @@ export default function AboutPage() {
       <section className="bg-[#f5f8fa] py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Certifications & Support
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -294,7 +294,7 @@ export default function AboutPage() {
             {certificationSupport.map((item) => (
               <div
                 key={item.name}
-                className="rounded-[4px] border border-[#dbe5ec] bg-white p-5 transition-all duration-200 hover:border-[#9bcfce] hover:shadow-[0_16px_30px_rgba(12,27,48,0.06)]"
+                className="rounded-[4px] border border-[#dbe5ec] bg-white p-5 transition-all duration-200 hover:border-[#81bfc1] hover:shadow-[0_16px_30px_rgba(12,27,48,0.06)]"
               >
                 <div className="relative h-14 w-20">
                   <Image
@@ -316,7 +316,7 @@ export default function AboutPage() {
       <section className="bg-[#081827] py-20 text-white lg:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Start An Inquiry
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -329,7 +329,7 @@ export default function AboutPage() {
           </div>
           <Link
             href="/#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(103,192,191,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]"
+            className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
           >
             <span>Start Your Inquiry</span>
             <ArrowIcon />

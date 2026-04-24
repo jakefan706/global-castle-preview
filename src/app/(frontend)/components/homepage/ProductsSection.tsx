@@ -69,7 +69,7 @@ export default function ProductsSection() {
               </div>
 
               <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-[4px] bg-white/0 transition-all duration-300 group-hover:bg-white">
-                <ArrowUpRightIcon className="h-5 w-5 text-white transition-colors duration-300 group-hover:text-[#67c0bf]" />
+                <ArrowUpRightIcon className="h-5 w-5 text-white transition-colors duration-300 group-hover:text-[#00868b]" />
               </div>
             </Link>
           ))}

@@ -95,7 +95,7 @@ function FeatureCards() {
     <section className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
             Product Advantages
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -112,7 +112,7 @@ function FeatureCards() {
               key={card.title}
               className="group rounded-[4px] border border-[#cfdde7] bg-[#edf5f8] p-6 shadow-[0_16px_36px_rgba(12,27,48,0.06)] transition-all duration-300 hover:scale-[1.018] hover:border-[#8ec9c7] hover:bg-[#e1f0f3] hover:shadow-[0_22px_46px_rgba(12,27,48,0.14)]"
             >
-              <div className="mb-6 text-[#429f9f] transition-transform duration-300 group-hover:scale-[1.02]">
+              <div className="mb-6 text-[#00757a] transition-transform duration-300 group-hover:scale-[1.02]">
                 <svg viewBox="0 0 24 24" fill="none" className="h-14 w-14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   {card.icon}
                 </svg>
@@ -154,7 +154,7 @@ function CustomizationSection({
 
           <a
             href="#inquiry"
-            className="inline-flex cursor-pointer items-center gap-2 rounded-[4px] border border-[#67c0bf] bg-white px-5 py-3 text-sm font-semibold text-[#4eaead] shadow-[0_12px_26px_rgba(12,27,48,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#5ab0af] hover:text-[#429d9c] hover:shadow-[0_16px_30px_rgba(12,27,48,0.1)]"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-[4px] border border-[#00868b] bg-white px-5 py-3 text-sm font-semibold text-[#00868b] shadow-[0_12px_26px_rgba(12,27,48,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#006d72] hover:text-[#00757a] hover:shadow-[0_16px_30px_rgba(12,27,48,0.1)]"
           >
             <span>Start Your Custom Project</span>
             <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -164,7 +164,7 @@ function CustomizationSection({
         </div>
 
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
             Customization
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -183,7 +183,7 @@ function CustomizationSection({
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {group.values.map((value) => (
                     <div key={value} className="flex items-center gap-3 text-sm text-[#666666]">
-                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#67c0bf]/12 text-[#67c0bf]">
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#00868b]/12 text-[#00868b]">
                         <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="m4 10 4 4 8-8" />
                         </svg>
@@ -222,7 +222,7 @@ function TechnicalSpecs({ specs }: Pick<ProductDetailData, 'specs'>) {
     <section className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
             Technical Specs
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -253,7 +253,7 @@ function RelatedCapabilities({ categories }: { categories: ProductDetailData['re
     <section className="bg-white py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
             Related Categories
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -303,19 +303,19 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
           <nav className="mb-6" aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-[#7b8793]">
               <li>
-                <Link href="/" className="transition-colors hover:text-[#67c0bf]">
+                <Link href="/" className="transition-colors hover:text-[#00868b]">
                   Home
                 </Link>
               </li>
               <li className="text-[#b5c0ca]">/</li>
               <li>
-                <Link href="/products" className="transition-colors hover:text-[#67c0bf]">
+                <Link href="/products" className="transition-colors hover:text-[#00868b]">
                   Products
                 </Link>
               </li>
               <li className="text-[#b5c0ca]">/</li>
               <li>
-                <Link href={`/products?category=${product.categorySlug}`} className="transition-colors hover:text-[#67c0bf]">
+                <Link href={`/products?category=${product.categorySlug}`} className="transition-colors hover:text-[#00868b]">
                   {product.categoryName}
                 </Link>
               </li>
@@ -328,7 +328,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
             <ProductGallery images={product.gallery} title={product.name} />
 
             <div className="max-w-xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#67c0bf]">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#00868b]">
                 Product Detail
               </p>
               <h1 className="mt-4 text-2xl font-bold tracking-tight text-[#333333] sm:text-3xl">
@@ -363,7 +363,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
                 <ul className="mt-4 space-y-3">
                   {product.featureBullets.map((feature) => (
                     <li key={feature} className="flex gap-3 text-sm leading-6 text-[#666666]">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#67c0bf]" />
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#00868b]" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -373,13 +373,13 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <a
                   href="#inquiry"
-                  className="inline-flex items-center justify-center gap-2 rounded-[4px] border border-[#67c0bf] bg-[#67c0bf] px-8 py-3.5 text-base font-semibold text-white shadow-[0_12px_26px_rgba(103,192,191,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af] hover:shadow-[0_16px_28px_rgba(103,192,191,0.24)]"
+                  className="inline-flex items-center justify-center gap-2 rounded-[4px] border border-[#00868b] bg-[#00868b] px-8 py-3.5 text-base font-semibold text-white shadow-[0_12px_26px_rgba(0, 134, 139,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72] hover:shadow-[0_16px_28px_rgba(0, 134, 139,0.24)]"
                 >
                   <span>Start Your Custom Project -&gt;</span>
                 </a>
                 <a
                   href="#technical-specs"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#67c0bf] transition-colors duration-200 hover:text-[#4eaead]"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00868b] transition-colors duration-200 hover:text-[#00868b]"
                 >
                   <span>View technical specs</span>
                   <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -406,7 +406,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
       <section id="inquiry" className="bg-[#f5f8fa] py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 lg:px-8">
           <div className="space-y-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Inquiry
             </p>
             <h2 className="text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -418,7 +418,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
 
             <div className="space-y-4 pt-3">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#67c0bf]/10 text-[#67c0bf]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#00868b]/10 text-[#00868b]">
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 7h16v10H4z" />
                     <path d="m5 8 7 5 7-5" />
@@ -428,7 +428,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#67c0bf]/10 text-[#67c0bf]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#00868b]/10 text-[#00868b]">
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 8v4l3 3" />
                     <circle cx="12" cy="12" r="9" />
@@ -438,7 +438,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#67c0bf]/10 text-[#67c0bf]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-[4px] bg-[#00868b]/10 text-[#00868b]">
                   <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z" />
                     <circle cx="12" cy="10" r="2.5" />

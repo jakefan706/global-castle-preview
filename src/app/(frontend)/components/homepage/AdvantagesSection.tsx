@@ -88,7 +88,7 @@ export default function AdvantagesSection() {
                 }}
               >
                 <div className="mx-auto mb-5 flex items-center justify-center">
-                  <Icon className="h-14 w-14 text-[#67c0bf] lg:h-16 lg:w-16" />
+                  <Icon className="h-14 w-14 text-[#00868b] lg:h-16 lg:w-16" />
                 </div>
                 <h3 className="mb-2 text-lg font-semibold text-[#333333] lg:text-xl">{advantage.title}</h3>
                 <p className="text-sm leading-relaxed text-[#666666] lg:text-base">

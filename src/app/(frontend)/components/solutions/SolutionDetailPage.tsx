@@ -51,7 +51,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
           </nav>
 
           <div className="max-w-3xl animate-fade-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00868b]">
               {solution.eyebrow}
             </p>
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -61,7 +61,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
               {solution.summary}
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-              <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(103,192,191,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]">
+              <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]">
                 <span>Start Your Custom Project</span>
                 <ArrowIcon />
               </Link>
@@ -77,7 +77,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
       <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Program Focus
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -91,7 +91,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
           <div className="space-y-4">
             {solution.priorities.map((priority, index) => (
               <div key={priority} className="flex gap-4 border-b border-[#e3edf3] pb-4 last:border-b-0">
-                <span className="text-sm font-bold text-[#67c0bf]">{String(index + 1).padStart(2, '0')}</span>
+                <span className="text-sm font-bold text-[#00868b]">{String(index + 1).padStart(2, '0')}</span>
                 <p className="text-sm leading-7 text-[#4f5f6b] sm:text-base">{priority}</p>
               </div>
             ))}
@@ -102,7 +102,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
       <section className="bg-[#f4f8fa] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               What We Support
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
@@ -125,14 +125,14 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
                 Related Product Ranges
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
                 Start from a product category that fits this solution.
               </h2>
             </div>
-            <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#4eaead] transition-colors duration-200 hover:text-[#3f9998]">
+            <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#00868b] transition-colors duration-200 hover:text-[#006d72]">
               <span>View all products</span>
               <ArrowIcon />
             </Link>
@@ -168,13 +168,13 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
                 More Solutions
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
                 Keep building the full program around your sourcing brief.
               </h2>
-              <Link href="/#contact" className="mt-7 inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#67c0bf] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(103,192,191,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af]">
+              <Link href="/#contact" className="mt-7 inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]">
                 <span>Start an Inquiry</span>
                 <ArrowIcon />
               </Link>
@@ -185,9 +185,9 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
                 <Link
                   key={item.slug}
                   href={`/solutions/${item.slug}`}
-                  className="rounded-[4px] border border-white/12 bg-white/[0.06] p-5 transition-all duration-250 hover:border-[#67c0bf]/60 hover:bg-white/[0.1]"
+                  className="rounded-[4px] border border-white/12 bg-white/[0.06] p-5 transition-all duration-250 hover:border-[#00868b]/60 hover:bg-white/[0.1]"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#67c0bf]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
                     {item.eyebrow}
                   </p>
                   <h3 className="mt-3 text-base font-semibold text-white">{item.shortTitle}</h3>

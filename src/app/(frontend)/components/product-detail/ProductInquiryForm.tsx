@@ -80,7 +80,7 @@ export default function ProductInquiryForm({
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#67c0bf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Start Inquiry
             </p>
             <h3 className="mt-2 text-2xl font-semibold text-[#333333]">
@@ -164,7 +164,7 @@ export default function ProductInquiryForm({
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="w-full cursor-pointer rounded-[4px] border border-[#67c0bf] bg-[#67c0bf] px-6 py-4 text-base font-semibold text-white shadow-[0_12px_26px_rgba(103,192,191,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#5ab0af] hover:shadow-[0_16px_28px_rgba(103,192,191,0.24)] disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full cursor-pointer rounded-[4px] border border-[#00868b] bg-[#00868b] px-6 py-4 text-base font-semibold text-white shadow-[0_12px_26px_rgba(0, 134, 139,0.2)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72] hover:shadow-[0_16px_28px_rgba(0, 134, 139,0.24)] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {status === 'submitting' ? 'Sending...' : 'Send Inquiry'}
           </button>

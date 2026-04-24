@@ -52,7 +52,7 @@ export default function ContactInquiryForm() {
     return (
       <div className="flex min-h-[700px] flex-col justify-between rounded-[4px] border border-[#1f4d57] bg-[linear-gradient(180deg,#0b2330_0%,#091924_100%)] p-7 text-white shadow-[0_28px_72px_rgba(4,17,24,0.38)] sm:p-8 lg:min-h-[760px]">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#73d0cf]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
             Inquiry Received
           </p>
           <h3 className="mt-5 max-w-lg text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
@@ -83,7 +83,7 @@ export default function ContactInquiryForm() {
     <div className="rounded-[4px] border border-[#1f4d57] bg-[linear-gradient(180deg,#0d2430_0%,#0a1821_100%)] p-7 text-white shadow-[0_28px_72px_rgba(4,17,24,0.38)] sm:p-8">
       <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#73d0cf]">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
             Main Inquiry Zone
           </p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em] text-white">
@@ -175,7 +175,7 @@ export default function ContactInquiryForm() {
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="inline-flex cursor-pointer items-center justify-center rounded-[4px] border border-[#73d0cf] bg-[#73d0cf] px-6 py-4 text-base font-semibold text-[#06242d] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#64c2c1] disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex cursor-pointer items-center justify-center rounded-[4px] border border-[#00868b] bg-[#00868b] px-6 py-4 text-base font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {status === 'submitting' ? 'Sending inquiry...' : 'Submit Project Inquiry'}
           </button>

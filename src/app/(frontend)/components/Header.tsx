@@ -138,7 +138,7 @@ export default function Header() {
             <Link href="/" className="justify-self-start lg:w-[258px] xl:w-[272px]">
               <div className="flex flex-col items-start justify-center lg:-translate-y-0.5">
                 <Image
-                  src="/images/logo-transparent-v2.png"
+                  src="/images/logo-teal.png"
                   alt="Global Castle Industrial"
                   width={148}
                   height={42}
@@ -170,7 +170,7 @@ export default function Header() {
                     <button
                       className={`group flex items-center gap-2 rounded-[4px] px-4 py-2.5 text-[15px] xl:text-[16px] font-semibold tracking-[-0.01em] transition-all duration-250 ${
                         scrolled ? 'text-[#2a3d4e]' : 'text-white'
-                      } hover:bg-white/10 hover:text-[#67c0bf]`}
+                      } hover:bg-white/10 hover:text-[#00868b]`}
                     >
                       <span className="inline-flex h-5 w-5 items-center justify-center overflow-hidden">
                         <NavIcon
@@ -202,7 +202,7 @@ export default function Header() {
                           <>
                             <Link
                               href="/products"
-                              className="block px-4 py-3 text-sm font-semibold text-[#67c0bf] transition-colors duration-150 hover:bg-[#f0fafa]"
+                              className="block px-4 py-3 text-sm font-semibold text-[#00868b] transition-colors duration-150 hover:bg-[#f0fafa]"
                               onClick={() => setActiveDropdown(null)}
                             >
                               All Products →
@@ -212,7 +212,7 @@ export default function Header() {
                               <Link
                                 key={cat.slug}
                                 href={getCategoryHref(cat.slug)}
-                                className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
+                                className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#00868b]"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 {cat.name}
@@ -223,7 +223,7 @@ export default function Header() {
                           <>
                             <Link
                               href="/solutions"
-                              className="block px-4 py-3 text-sm font-semibold text-[#67c0bf] transition-colors duration-150 hover:bg-[#f0fafa]"
+                              className="block px-4 py-3 text-sm font-semibold text-[#00868b] transition-colors duration-150 hover:bg-[#f0fafa]"
                               onClick={() => setActiveDropdown(null)}
                             >
                               All Solutions →
@@ -233,7 +233,7 @@ export default function Header() {
                               <Link
                                 key={solution.href}
                                 href={solution.href}
-                                className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
+                                className="block px-4 py-2.5 text-sm text-[#555] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#00868b]"
                                 onClick={() => setActiveDropdown(null)}
                               >
                                 {solution.label}
@@ -250,7 +250,7 @@ export default function Header() {
                     href={link.href}
                     className={`group flex items-center gap-2 rounded-[4px] px-4 py-2.5 text-[15px] xl:text-[16px] font-semibold tracking-[-0.01em] transition-all duration-250 ${
                       scrolled ? 'text-[#2a3d4e]' : 'text-white'
-                    } hover:bg-white/10 hover:text-[#67c0bf]`}
+                    } hover:bg-white/10 hover:text-[#00868b]`}
                   >
                     <span className="inline-flex h-5 w-5 items-center justify-center overflow-hidden">
                       <NavIcon
@@ -295,7 +295,7 @@ export default function Header() {
         <div className="flex items-center justify-between border-b border-gray-100 p-4">
           <div className="flex flex-col items-start justify-center">
             <Image
-              src="/images/logo-transparent-v2.png"
+              src="/images/logo-teal.png"
               alt="Global Castle Industrial"
               width={120}
               height={36}
@@ -321,7 +321,7 @@ export default function Header() {
             link.hasDropdown ? (
               <div key={link.label}>
                 <button
-                  className="flex w-full items-center justify-between px-6 py-3.5 text-base font-semibold text-[#333] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
+                  className="flex w-full items-center justify-between px-6 py-3.5 text-base font-semibold text-[#333] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#00868b]"
                   onClick={() =>
                     link.dropdownKey === 'products'
                       ? setMobileProductsOpen(!mobileProductsOpen)
@@ -367,7 +367,7 @@ export default function Header() {
                       <>
                         <Link
                           href="/products"
-                          className="block px-8 py-2.5 text-sm font-semibold text-[#67c0bf]"
+                          className="block px-8 py-2.5 text-sm font-semibold text-[#00868b]"
                           onClick={() => setMobileOpen(false)}
                         >
                           All Products →
@@ -376,7 +376,7 @@ export default function Header() {
                           <Link
                             key={cat.slug}
                             href={getCategoryHref(cat.slug)}
-                            className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#67c0bf]"
+                            className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#00868b]"
                             onClick={() => setMobileOpen(false)}
                           >
                             {cat.name}
@@ -387,7 +387,7 @@ export default function Header() {
                       <>
                         <Link
                           href="/solutions"
-                          className="block px-8 py-2.5 text-sm font-semibold text-[#67c0bf]"
+                          className="block px-8 py-2.5 text-sm font-semibold text-[#00868b]"
                           onClick={() => setMobileOpen(false)}
                         >
                           All Solutions →
@@ -396,7 +396,7 @@ export default function Header() {
                           <Link
                             key={solution.href}
                             href={solution.href}
-                            className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#67c0bf]"
+                            className="block px-8 py-2.5 text-sm text-[#666] transition-colors duration-150 hover:text-[#00868b]"
                             onClick={() => setMobileOpen(false)}
                           >
                             {solution.label}
@@ -411,7 +411,7 @@ export default function Header() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="flex items-center gap-2 px-6 py-3.5 text-base font-semibold text-[#333] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#67c0bf]"
+                className="flex items-center gap-2 px-6 py-3.5 text-base font-semibold text-[#333] transition-colors duration-150 hover:bg-[#f0fafa] hover:text-[#00868b]"
                 onClick={() => setMobileOpen(false)}
               >
                 <NavIcon type={link.icon} className="h-4.5 w-4.5" />

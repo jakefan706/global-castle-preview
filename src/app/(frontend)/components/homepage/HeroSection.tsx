@@ -127,7 +127,7 @@ export default function HeroSection() {
       >
         <h1 className="hero-title hero-title-readable mb-6 text-4xl font-bold leading-tight text-[#e6eaee] sm:text-5xl lg:text-6xl xl:text-[5.25rem] text-balance">
           Premium Drinkware for
-          <span className="block text-[#67c0bf]">Global Partners</span>
+          <span className="block text-[#00868b]">Global Partners</span>
         </h1>
 
         <div className="hero-subtitle-panel mx-auto mb-10 max-w-3xl px-5 py-4 sm:px-6">
@@ -155,7 +155,7 @@ export default function HeroSection() {
               aria-label={`Show banner ${index + 1}`}
               onClick={() => setCurrentBanner(index)}
               className={`h-1.5 rounded-[4px] transition-all duration-300 ${
-                index === currentBanner ? 'w-8 bg-[#67c0bf]' : 'w-2 bg-[#d5dde4]/70'
+                index === currentBanner ? 'w-8 bg-[#00868b]' : 'w-2 bg-[#d5dde4]/70'
               }`}
             />
           ))}

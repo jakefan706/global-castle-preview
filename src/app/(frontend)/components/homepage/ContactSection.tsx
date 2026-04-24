@@ -106,8 +106,8 @@ export default function ContactSection() {
 
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-[4px] border border-[#e4e9f0] bg-white p-3">
-                <div className="mb-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] bg-[#67c0bf]/10">
-                  <span className="text-[#67c0bf]">
+                <div className="mb-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] bg-[#00868b]/10">
+                  <span className="text-[#00868b]">
                     <MailIcon />
                   </span>
                 </div>
@@ -118,8 +118,8 @@ export default function ContactSection() {
               </div>
 
               <div className="rounded-[4px] border border-[#e4e9f0] bg-white p-3">
-                <div className="mb-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] bg-[#67c0bf]/10">
-                  <span className="text-[#67c0bf]">
+                <div className="mb-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] bg-[#00868b]/10">
+                  <span className="text-[#00868b]">
                     <PhoneIcon />
                   </span>
                 </div>
@@ -130,8 +130,8 @@ export default function ContactSection() {
               </div>
 
               <div className="rounded-[4px] border border-[#e4e9f0] bg-white p-3">
-                <div className="mb-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] bg-[#67c0bf]/10">
-                  <span className="text-[#67c0bf]">
+                <div className="mb-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-[4px] bg-[#00868b]/10">
+                  <span className="text-[#00868b]">
                     <MapPinIcon />
                   </span>
                 </div>

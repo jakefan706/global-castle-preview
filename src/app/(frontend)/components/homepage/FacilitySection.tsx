@@ -40,7 +40,7 @@ export default function FacilitySection() {
         }`}
         style={{ transform: 'translateY(0)' }}
       >
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#67c0bf]">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#00868b]">
           Manufacturing Capability
         </p>
         <h2 className="mx-auto max-w-3xl text-3xl font-bold text-[#333333] sm:text-4xl">
@@ -95,7 +95,7 @@ export default function FacilitySection() {
               aria-label={`Go to ${slide.title}`}
               onClick={() => setCurrentSlide(index)}
               className={`h-1.5 rounded-[4px] transition-all duration-300 ${
-                index === currentSlide ? 'w-7 bg-[#67c0bf]' : 'w-1.5 bg-[#c7d2de]'
+                index === currentSlide ? 'w-7 bg-[#00868b]' : 'w-1.5 bg-[#c7d2de]'
               }`}
             />
           ))}

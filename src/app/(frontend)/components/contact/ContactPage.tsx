@@ -29,12 +29,12 @@ export default function ContactPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-[#071722] pt-28 text-white sm:pt-32">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(95,199,197,0.16),transparent_34%),linear-gradient(180deg,#0a2130_0%,#071722_58%,#09141b_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,134,139,0.18),transparent_34%),linear-gradient(180deg,#0a2130_0%,#071722_58%,#09141b_100%)]" />
         <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
 
         <div className="relative mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8 lg:pb-16">
           <div className="max-w-4xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#73d0cf]">
+            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00868b]">
               {CONTACT_HERO.eyebrow}
             </p>
             <h1 className="mt-6 max-w-3xl text-[3rem] font-semibold leading-[0.92] tracking-[-0.05em] text-white sm:text-[4rem] lg:text-[4.7rem]">
@@ -47,7 +47,7 @@ export default function ContactPage() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href={CONTACT_HERO.primaryCta.href}
-                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#73d0cf] px-7 py-3.5 text-sm font-semibold text-[#05222c] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#64c2c1]"
+                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
               >
                 <span>{CONTACT_HERO.primaryCta.label}</span>
                 <ArrowIcon />
@@ -68,7 +68,7 @@ export default function ContactPage() {
                 key={item.label}
                 className="border-l border-[#25515b] pl-5"
               >
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#73d0cf]">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00868b]">
                   {item.label}
                 </p>
                 <p className="mt-5 text-sm leading-7 text-[#d2dde1]">{item.detail}</p>
@@ -88,7 +88,7 @@ export default function ContactPage() {
 
             <div className="grid gap-6">
               <aside className="rounded-[4px] border border-[#1e3944] bg-[#0d1d27] p-6 text-white shadow-[0_18px_48px_rgba(4,17,24,0.22)] sm:p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#73d0cf]">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
                   {CONTACT_DETAILS.eyebrow}
                 </p>
                 <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-white">
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 <div className="mt-7 space-y-4">
                   {CONTACT_DETAILS.cards.map((card) => (
                     <div key={card.label} className="border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#73d0cf]">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#00868b]">
                         {card.label}
                       </p>
                       <p className="mt-2 text-lg font-semibold text-white">{card.value}</p>
@@ -112,7 +112,7 @@ export default function ContactPage() {
               </aside>
 
               <aside className="rounded-[4px] border border-[#c5d4db] bg-[#edf4f7] p-6 text-[#1d2f3b] sm:p-7">
-                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#328f96]">
+                <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#006d72]">
                   Buyer Guidance
                 </p>
                 <h2 className="mt-4 text-2xl font-semibold tracking-[-0.03em] text-[#15242d]">
@@ -129,7 +129,7 @@ export default function ContactPage() {
                       <div className="mt-4 space-y-3">
                         {group.items.map((item) => (
                           <div key={item} className="flex gap-3 text-sm leading-6 text-[#4f6470]">
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#328f96]" />
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#006d72]" />
                             <span>{item}</span>
                           </div>
                         ))}
@@ -146,7 +146,7 @@ export default function ContactPage() {
       <section className="bg-[#eef5f7] py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#328f96]">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#006d72]">
               Response and Coordination
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#13232c] sm:text-4xl">
@@ -166,7 +166,7 @@ export default function ContactPage() {
                   className="rounded-[4px] border border-[#d0dde3] bg-white p-6 shadow-[0_16px_36px_rgba(10,32,46,0.05)]"
                 >
                   <p className="text-3xl font-semibold tracking-[-0.04em] text-[#13232c]">{item.window}</p>
-                  <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.14em] text-[#328f96]">
+                  <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.14em] text-[#006d72]">
                     {item.title}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-[#5a6d79]">{item.detail}</p>
@@ -176,7 +176,7 @@ export default function ContactPage() {
 
             <div className="rounded-[4px] border border-[#d0dde3] bg-white p-6 shadow-[0_16px_36px_rgba(10,32,46,0.05)] sm:p-7">
               <div className="max-w-3xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#328f96]">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#006d72]">
                   {LOGISTICS_COORDINATION.eyebrow}
                 </p>
                 <h3 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[#13232c]">
