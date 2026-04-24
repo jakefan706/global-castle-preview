@@ -9,6 +9,9 @@ import {
   RESPONSE_COMMITMENT,
 } from './contact-data'
 
+const OFFICE_MAP_EMBED_URL =
+  'https://www.google.com/maps?q=30.283212,120.179958&hl=en&z=16&output=embed'
+
 function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
     <svg
@@ -195,6 +198,34 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:items-end lg:gap-14 lg:px-8">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#006d72]">
+              Factory and Office Location
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[#13232c] sm:text-4xl">
+              Visit coordination can be planned once product direction and meeting scope are clear.
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-[#5a6d79] sm:text-base">
+              For buyers arranging a video call, office visit, or factory-side discussion, the map
+              below provides the reference point already used across the site. Visit schedules can
+              be coordinated alongside product review, sample planning, and export discussion.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-[4px] border border-[#d2dee4] bg-[#edf4f7] shadow-[0_16px_36px_rgba(10,32,46,0.05)]">
+            <iframe
+              title="Global Castle office and factory location"
+              src={OFFICE_MAP_EMBED_URL}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-[360px] w-full border-0 lg:h-[460px]"
+            />
           </div>
         </div>
       </section>
