@@ -39,16 +39,17 @@ export default function FacilitySection() {
           isVisible ? 'opacity-100' : 'opacity-100'
         }`}
         style={{ transform: 'translateY(0)' }}
-      >
+        >
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-[#00868b]">
-          Manufacturing Capability
+          Manufacturing & OEM/ODM
         </p>
         <h2 className="mx-auto max-w-3xl text-3xl font-bold text-[#333333] sm:text-4xl">
-          Our State-of-the-Art Production Facility
+          Advanced Manufacturing & Integrated Solutions
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#666666]">
-          Factory-backed production, decoration, assembly, and quality control spaces built for
-          reliable drinkware programs at scale.
+        <p className="mx-auto mt-5 max-w-4xl text-base leading-8 text-[#666666]">
+          A versatile production ecosystem designed for high-volume OEM/ODM projects. From
+          precision molding and custom decoration to rigorous quality control, we ensure every
+          piece of drinkware and tableware meets the highest retail standards.
         </p>
       </div>
 

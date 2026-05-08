@@ -7,8 +7,9 @@ export default function AdminSidebarBrand() {
         src="/logo-teal.png"
         alt="Global Castle"
         className="gc-admin-sidebar-brand__logo"
-        width={64}
-        height={64}
+        width={352}
+        height={63}
+        unoptimized
       />
       <div className="gc-admin-sidebar-brand__copy">
         <span className="gc-admin-sidebar-brand__title">Global Castle</span>

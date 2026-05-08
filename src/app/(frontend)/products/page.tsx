@@ -190,33 +190,33 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                     </div>
                   </Link>
 
-                  <div className="grid gap-5 p-6">
-                    <div className="grid gap-3 text-sm text-[#4f6470] sm:grid-cols-2">
+                  <div className="grid gap-4 p-4">
+                    <div className="grid gap-2.5 text-[13px] text-[#4f6470] sm:grid-cols-2">
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a9aa5]">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
                           Item Number
                         </p>
-                        <p className="mt-1 font-medium text-[#13232c]">{product.itemNumber}</p>
+                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">{product.itemNumber}</p>
                       </div>
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a9aa5]">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
                           Material
                         </p>
-                        <p className="mt-1 font-medium text-[#13232c]">{product.material}</p>
+                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">{product.material}</p>
                       </div>
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a9aa5]">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
                           Capacity
                         </p>
-                        <p className="mt-1 font-medium text-[#13232c]">
+                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">
                           {product.capacityLabel || 'To be confirmed'}
                         </p>
                       </div>
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8a9aa5]">
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
                           Customize MOQ
                         </p>
-                        <p className="mt-1 font-medium text-[#13232c]">
+                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">
                           {product.customizeMOQ || 'Discuss project scope'}
                         </p>
                       </div>

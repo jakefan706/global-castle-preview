@@ -3,7 +3,6 @@ import localFont from 'next/font/local'
 import '../globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import WhatsAppButton from './components/WhatsAppButton'
 
 const plusJakartaSans = localFont({
   src: [
@@ -40,7 +39,7 @@ const plusJakartaSans = localFont({
 export const metadata: Metadata = {
   title: 'Global Castle Industrial Co., Ltd. | B2B Drinkware Manufacturer',
   description:
-    'Professional B2B manufacturer of stainless steel bottles, tumblers, aluminum bottles, and custom drinkware. Serving global gift distributors, wholesalers, and brands.',
+    'Strategic OEM and ODM manufacturing partner for premium drinkware, tableware, and dining essentials serving global brands, chains, and wholesalers.',
 }
 
 export default function FrontendLayout({
@@ -54,7 +53,6 @@ export default function FrontendLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <WhatsAppButton />
       </body>
     </html>
   )

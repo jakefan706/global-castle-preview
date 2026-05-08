@@ -101,8 +101,9 @@ export default function HeroSection() {
           <div key={`previous-${previousBanner}`} className="hero-zoom-slide-previous absolute inset-0 overflow-hidden">
             <Image
               src={HERO_BANNERS[previousBanner]}
-              alt="Global Castle premium drinkware hero banner"
+              alt="UrbanEco OEM and ODM manufacturing showcase"
               fill
+              sizes="100vw"
               className="hero-zoom-slide-image object-cover"
             />
           </div>
@@ -111,9 +112,10 @@ export default function HeroSection() {
         <div key={`current-${currentBanner}`} className="hero-zoom-slide-current absolute inset-0 overflow-hidden">
           <Image
             src={HERO_BANNERS[currentBanner]}
-            alt="Global Castle premium drinkware hero banner"
+            alt="UrbanEco OEM and ODM manufacturing showcase"
             fill
             priority={currentBanner === 0}
+            sizes="100vw"
             className="hero-zoom-slide-image object-cover"
           />
         </div>
@@ -126,15 +128,15 @@ export default function HeroSection() {
         style={{ transform: `translate3d(0, ${scrollParallax.content}px, 0)` }}
       >
         <h1 className="hero-title hero-title-readable mb-6 text-4xl font-bold leading-tight text-[#e6eaee] sm:text-5xl lg:text-6xl xl:text-[5.25rem] text-balance">
-          Premium Drinkware for
-          <span className="block text-[#00868b]">Global Partners</span>
+          Your Strategic OEM/ODM Partner
+          <span className="block text-[#00868b]">for Drinkware & Tableware</span>
         </h1>
 
         <div className="hero-subtitle-panel mx-auto mb-10 max-w-3xl px-5 py-4 sm:px-6">
           <p className="hero-subtitle mb-0 text-lg text-[#d5dde4] sm:text-xl text-pretty">
-            Your trusted B2B partner for high-quality stainless steel bottles, tumblers,
-            ceramic mugs, and glassware. Serving wholesalers, gift companies, and coffee
-            chains across Europe and America.
+            Expert manufacturing across a diverse range of stainless steel, ceramic, and dining
+            essentials. We provide retail-ready excellence for wholesalers and global chains,
+            backed by 20 years of industry expertise.
           </p>
         </div>
 
@@ -142,8 +144,8 @@ export default function HeroSection() {
           <Link href="/products" className="btn-primary hero-cta-button hero-cta-primary px-9 py-4 text-base">
             View Products
           </Link>
-          <Link href="#contact" className="btn-white hero-cta-button hero-cta-secondary px-9 py-4 text-base">
-            Send Inquiry
+          <Link href="/resources#download-center" className="btn-white hero-cta-button hero-cta-secondary px-9 py-4 text-base">
+            Request Catalog 2026
           </Link>
         </div>
 

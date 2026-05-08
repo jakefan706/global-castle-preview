@@ -31,14 +31,15 @@ export default function TrustSection() {
               className="mb-4 text-3xl font-bold text-[#333333] transition-all duration-700 sm:text-4xl opacity-100"
               style={{ transform: 'translateY(0)' }}
             >
-              Quality Certifications
+              Global Compliance & Safety Standards
             </h2>
             <p
               className="mx-auto max-w-2xl text-[#666666] transition-all duration-700 delay-100 opacity-100"
               style={{ transform: 'translateY(0)' }}
             >
-              The structure is now in place. You can swap these placeholder certification and
-              partner assets later without changing the layout.
+              Our commitment to quality is backed by rigorous international testing. From
+              food-contact safety to social responsibility, we ensure every product meets the
+              highest standards for the European and American markets.
             </p>
           </div>
 
@@ -59,6 +60,7 @@ export default function TrustSection() {
                     src={cert.logo}
                     alt={`${cert.name} certification`}
                     fill
+                    sizes="(min-width: 1024px) 112px, 80px"
                     className="object-contain grayscale transition-all duration-300 hover:grayscale-0"
                   />
                 </div>
@@ -79,8 +81,8 @@ export default function TrustSection() {
               className="mx-auto max-w-2xl text-[#666666] transition-all duration-700 delay-100 opacity-100"
               style={{ transform: 'translateY(0)' }}
             >
-              Replace these with real customer or program marks when you are ready. The visual
-              treatment already matches the approved homepage direction.
+              Supporting a diverse range of partners, from global distributors to specialty coffee
+              chains, with reliable high-volume production and bespoke OEM solutions.
             </p>
           </div>
 
@@ -105,6 +107,7 @@ export default function TrustSection() {
                       src={partner.logo}
                       alt={partner.name}
                       fill
+                      sizes="(min-width: 1024px) 180px, 140px"
                       className="object-contain grayscale transition-all duration-300 hover:grayscale-0"
                     />
                   </div>

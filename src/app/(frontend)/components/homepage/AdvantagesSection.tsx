@@ -61,14 +61,14 @@ export default function AdvantagesSection() {
             }`}
             style={{ transform: shouldAnimate ? 'translateY(0)' : 'translateY(0)' }}
           >
-            Why Choose Global Castle
+            Why Partner with UrbanEco?
           </h2>
           <p
             className="mx-auto max-w-2xl text-[#666666] transition-all duration-700 delay-100 opacity-100"
             style={{ transform: 'translateY(0)' }}
           >
-            A homepage built for B2B buyers should quickly prove capability, reliability, and
-            fit. This section keeps that message clear.
+            A decade of manufacturing excellence, providing a comprehensive range of drinkware and
+            tableware solutions for the world&apos;s leading brands.
           </p>
         </div>
 

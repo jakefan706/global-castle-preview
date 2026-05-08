@@ -2,36 +2,36 @@ export { FEATURED_CATEGORY_CARDS } from '../category-config'
 
 export const ADVANTAGES = [
   {
-    title: 'Manufacturing Control',
+    title: 'Factory-Direct Manufacturing',
     description:
-      'Factory-backed production, stable lead times, and practical support from sampling to shipment.',
+      'Scalable production with stable lead times. We offer professional manufacturing support and quality control from sampling to FOB delivery, ensuring your order is retail-ready.',
     icon: 'factory',
   },
   {
-    title: 'Certified Quality',
+    title: 'Global Standards & Compliance',
     description:
-      'Food-contact compliance and structured QA processes for retail, gifting, and branded programs.',
+      'Strict adherence to FDA, LFGB, and international food-contact safety standards. Our structured QA process ensures every piece of drinkware and tableware meets premium market demands.',
     icon: 'shield',
   },
   {
-    title: 'Flexible OEM/ODM',
+    title: 'Comprehensive OEM/ODM Solutions',
     description:
-      'Logo decoration, surface finishing, packaging, and customization options built for B2B demand.',
+      "From stainless steel and ceramics to integrated tableware collections. We provide bespoke logo decoration, surface finishing, and packaging tailored to your brand's unique identity.",
     icon: 'sparkles',
   },
   {
-    title: 'Export Experience',
+    title: 'Professional B2B Expertise',
     description:
-      'A partner focused on global distributors, wholesalers, and brand teams across major markets.',
+      'Proven track record in supporting global wholesalers, coffee chains, and distributors. We understand the complexities of large-scale procurement and brand consistency.',
     icon: 'globe',
   },
 ] as const
 
 export const STATS = [
-  { end: 20, suffix: '+', label: 'Years in Drinkware Export' },
-  { end: 60, suffix: '+', label: 'Countries Served' },
-  { end: 12, suffix: '+', label: 'Key Certifications & Testing Standards' },
-  { end: 2000000, suffix: '+', label: 'Annual Production Capacity' },
+  { end: 20, suffix: '+', label: 'Years of Industry Expertise' },
+  { end: 12, suffix: '+', label: 'Global Safety Certifications' },
+  { end: 2000000, suffix: '+', label: 'Units Annual Output' },
+  { end: 10, suffix: '-Day', label: 'Rapid Sampling Lead-time' },
 ] as const
 
 export const CERTIFICATIONS = [

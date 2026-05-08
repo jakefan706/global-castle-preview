@@ -27,14 +27,14 @@ export default function ProductsSection() {
             className="mb-4 text-3xl font-bold text-[#333333] transition-all duration-700 sm:text-4xl opacity-100"
             style={{ transform: 'translateY(0)' }}
           >
-            Products
+            Explore Our Collections
           </h2>
           <p
             className="mx-auto max-w-2xl text-[#666666] transition-all duration-700 delay-100 opacity-100"
             style={{ transform: 'translateY(0)' }}
           >
-            A capability-first homepage should spotlight the core drinkware categories buyers ask
-            about most often, while keeping the path to deeper product conversations simple.
+            From high-performance vacuum flasks to elegant tableware collections. We offer a
+            one-stop sourcing solution tailored for global brands and professional retailers.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function ProductsSection() {
             href="/products"
             className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm text-white"
           >
-            <span>Explore All 11 Categories</span>
+            <span>Explore All Collections</span>
             <ArrowUpRightIcon className="h-5 w-5" />
           </Link>
         </div>

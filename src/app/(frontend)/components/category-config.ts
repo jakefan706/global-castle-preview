@@ -24,55 +24,51 @@ export const ALL_PRODUCT_CATEGORIES: CategoryLink[] = [
 
 export const FEATURED_CATEGORY_CARDS: FeaturedCategoryCard[] = [
   {
-    name: 'Stainless Steel Bottles',
+    name: 'Stainless Steel Series',
     slug: 'stainless-steel-bottles',
     image: '/images/products/steel-bottles.jpg',
-    description: 'Double-wall vacuum insulated options for gifting, retail, and private label.',
+    description: 'Vacuum flasks, travel tumblers, and insulated formats built for high-volume private label programs.',
   },
   {
-    name: 'Stainless Steel Tumblers',
-    slug: 'stainless-steel-tumblers',
-    image: '/images/products/tumblers.jpg',
-    description: 'Popular tumbler formats for coffee chains, subscription boxes, and promotions.',
-  },
-  {
-    name: 'Ceramic Mugs',
+    name: 'Ceramic & Stoneware',
     slug: 'ceramic-mugs',
     image: '/images/products/ceramic-mugs.jpg',
-    description: 'Classic ceramic drinkware with dependable printability and gifting appeal.',
+    description: 'Retail-ready mugs, serving pieces, and glazed tabletop formats with strong decoration potential.',
   },
   {
-    name: 'Glass Bottles & Mugs',
+    name: 'Glassware Essentials',
     slug: 'glass-bottles-mugs',
     image: '/images/products/glassware.jpg',
-    description: 'Premium glass drinkware for modern lifestyle, tea, and cafe-focused collections.',
+    description: 'Clean-lined glass bottles, mugs, and drink service pieces for contemporary lifestyle assortments.',
   },
   {
-    name: 'Plastic Bottles',
-    slug: 'plastic-bottles',
+    name: 'Eco-friendly & Sustainable',
+    slug: 'eco-friendly',
     image: '/images/products/plastic-cups.jpg',
-    description: 'Lightweight BPA-free options for events, kids ranges, and outdoor promotions.',
+    description: 'Material-conscious product directions designed to support reusable, lower-waste lifestyle collections.',
   },
   {
-    name: 'Accessories',
+    name: 'Professional Tableware',
+    slug: 'food-containers',
+    image: '/images/products/tumblers.jpg',
+    description: 'Dining-ready service pieces and practical kitchen formats developed for hospitality and retail buyers.',
+  },
+  {
+    name: 'Gift Sets & Packaging',
     slug: 'accessories',
     image: '/images/products/gift-sets.jpg',
-    description: 'Caps, sleeves, packaging add-ons, and bundled sets that complete the offer.',
+    description: 'Presentation-led bundle concepts, custom inserts, and packaging systems that sharpen shelf appeal.',
   },
 ]
 
-const FOOTER_PRODUCT_CATEGORY_SLUGS = new Set([
-  'stainless-steel-bottles',
-  'stainless-steel-tumblers',
-  'plastic-bottles',
-  'ceramic-mugs',
-  'glass-bottles-mugs',
-  'accessories',
-])
-
-export const FOOTER_PRODUCT_CATEGORIES = ALL_PRODUCT_CATEGORIES.filter((category) =>
-  FOOTER_PRODUCT_CATEGORY_SLUGS.has(category.slug),
-)
+export const FOOTER_PRODUCT_CATEGORIES: CategoryLink[] = [
+  { name: 'Stainless Steel Series', slug: 'stainless-steel-bottles' },
+  { name: 'Ceramic Tableware & Mugs', slug: 'ceramic-mugs' },
+  { name: 'Glassware Collections', slug: 'glass-bottles-mugs' },
+  { name: 'Dining & Kitchen Essentials', slug: 'food-containers' },
+  { name: 'Eco-Friendly Solutions', slug: 'eco-friendly' },
+  { name: 'Custom Gift Sets', slug: 'accessories' },
+]
 
 export function getCategoryHref(slug: string) {
   return `/products?category=${slug}`

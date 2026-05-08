@@ -118,8 +118,9 @@ select:focus-within,
 
 .gc-admin-sidebar-brand {
   display: flex;
-  align-items: center;
-  gap: 0.85rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
   padding: 0.95rem 1rem 1rem;
   margin: 0 0 1rem;
   border: 1px solid var(--gc-admin-border);
@@ -131,8 +132,8 @@ select:focus-within,
 }
 
 .gc-admin-sidebar-brand__logo {
-  width: 64px;
-  height: 64px;
+  width: 176px;
+  height: auto;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -141,6 +142,7 @@ select:focus-within,
   display: flex;
   flex-direction: column;
   min-width: 0;
+  gap: 0.15rem;
 }
 
 .gc-admin-sidebar-brand__title {
