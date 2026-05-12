@@ -43,6 +43,11 @@ type NormalizedProduct = {
   packagingOptions: string[]
   relatedCategories: Array<{ name: string; slug: string; image: string }>
   inquiryMessage: string
+  cardSceneImage: NormalizedMedia
+  cardBadge: {
+    label: string
+    tone: 'orange' | 'blue'
+  } | null
 }
 
 const FALLBACK_MAIN_IMAGE: NormalizedMedia = {
@@ -204,6 +209,8 @@ function createSampleProduct({
   relatedCategorySlugs: string[]
   inquiryMessage: string
 }): NormalizedProduct {
+  const gallery = buildSquareGallery(image, name)
+
   return {
     id: null,
     slug: slugifyItemNumber(itemNumber),
@@ -216,7 +223,7 @@ function createSampleProduct({
     capacityLabel,
     applications,
     mainImage: getSquareMedia(image, name),
-    gallery: buildSquareGallery(image, name),
+    gallery,
     featureBullets,
     specs,
     logoMethods,
@@ -224,6 +231,8 @@ function createSampleProduct({
     packagingOptions,
     relatedCategories: getRelatedCategories(relatedCategorySlugs),
     inquiryMessage,
+    cardSceneImage: gallery[1] || getSquareMedia(image, `${name} scene view`),
+    cardBadge: null,
   }
 }
 
@@ -262,6 +271,11 @@ const GC_ST_420_FALLBACK: NormalizedProduct = {
   relatedCategories: RELATED_CATEGORY_FALLBACKS,
   inquiryMessage:
     'I am interested in GC-ST-420. Please share MOQ, customization options, packaging choices, and sample lead time.',
+  cardSceneImage: FALLBACK_GALLERY[1] || FALLBACK_MAIN_IMAGE,
+  cardBadge: {
+    label: 'CLASSIC',
+    tone: 'blue',
+  },
 }
 
 const SAMPLE_PRODUCTS: NormalizedProduct[] = [
@@ -305,7 +319,8 @@ const SAMPLE_PRODUCTS: NormalizedProduct[] = [
     inquiryMessage:
       'I am interested in GC-SB-721. Please share MOQ, sample lead time, branding methods, and packaging options.',
   }),
-  createSampleProduct({
+  {
+    ...createSampleProduct({
     itemNumber: 'GC-PB-338',
     name: 'Tritan Sports Water Bottle',
     material: 'BPA-Free Plastic',
@@ -343,7 +358,12 @@ const SAMPLE_PRODUCTS: NormalizedProduct[] = [
     ],
     inquiryMessage:
       'I am interested in GC-PB-338. Please share MOQ, color options, printing methods, and packaging support.',
-  }),
+    }),
+    cardBadge: {
+      label: 'New',
+      tone: 'orange',
+    },
+  },
   createSampleProduct({
     itemNumber: 'GC-PC-244',
     name: 'Reusable Party Cup Tumbler',
@@ -1288,6 +1308,19 @@ function normalizeProduct(product: ProductRecord): NormalizedProduct {
     packagingOptions: GC_ST_420_FALLBACK.packagingOptions,
     relatedCategories: RELATED_CATEGORY_FALLBACKS,
     inquiryMessage: `I am interested in ${itemNumber}. Please share MOQ, lead time, branding options, and packaging details.`,
+    cardSceneImage: gallery[1] || mainImage,
+    cardBadge:
+      product.newArrival === true
+        ? {
+            label: 'New',
+            tone: 'orange',
+          }
+        : product.featured === true
+          ? {
+              label: 'CLASSIC',
+              tone: 'blue',
+            }
+          : null,
   }
 
   return {

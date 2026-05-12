@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ALL_PRODUCT_CATEGORIES, getCategoryHref } from './category-config'
-import { SOLUTION_PAGES } from './solutions/solutions-data'
+import { SOLUTION_PAGES, SUPPORT_MODEL_FLOW } from './solutions/solutions-data'
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', icon: 'home', hasDropdown: false },
@@ -18,10 +18,18 @@ const NAV_LINKS = [
 
 type DropdownKey = 'products' | 'solutions'
 
-const SOLUTIONS_NAV_LINKS = SOLUTION_PAGES.map((solution) => ({
-  label: solution.title,
-  href: `/solutions/${solution.slug}`,
-}))
+const SOLUTIONS_NAV_LINKS = SUPPORT_MODEL_FLOW.map((item) => {
+  const solution = SOLUTION_PAGES.find((entry) => entry.slug === item.slug)
+
+  if (!solution) {
+    return null
+  }
+
+  return {
+    label: solution.title,
+    href: `/solutions/${solution.slug}`,
+  }
+}).filter(Boolean) as Array<{ label: string; href: string }>
 
 function NavIcon({
   type,

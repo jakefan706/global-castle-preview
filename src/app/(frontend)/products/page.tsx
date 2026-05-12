@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { ALL_PRODUCT_CATEGORIES } from '../components/category-config'
+import ProductsGrid from './ProductsGrid'
 import { getProductIndex } from '@/lib/products'
 
 export const metadata = {
@@ -104,11 +104,12 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                 Product Catalog
               </p>
               <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#13232c] sm:text-5xl">
-                A working product directory for B2B drinkware sourcing.
+                Comprehensive Catalog for Professional Sourcing
               </h1>
               <p className="mt-5 max-w-2xl text-sm leading-7 text-[#5a6d79] sm:text-base">
-                Review categories, compare key commercial specs, and move into the product detail
-                page once a format looks relevant for your program.
+                Explore our high-performance collections, compare technical specifications, and
+                customize your sourcing requirements. All products are retail-ready and optimized
+                for global brands.
               </p>
             </div>
 
@@ -117,7 +118,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#13232c] px-6 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0b151b]"
               >
-                <span>Start Project Inquiry</span>
+                <span>Request a Custom Quote</span>
                 <ArrowIcon />
               </Link>
               <div className="rounded-[4px] border border-[#d5e1e7] bg-white px-5 py-3 text-sm text-[#5a6d79]">
@@ -165,66 +166,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           </div>
 
           {filteredProducts.length ? (
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {filteredProducts.map((product) => (
-                <article
-                  key={product.slug}
-                  className="grid overflow-hidden rounded-[4px] border border-[#d7e1e7] bg-white shadow-[0_16px_36px_rgba(10,32,46,0.05)]"
-                >
-                  <Link
-                    href={`/products/${product.slug}`}
-                    className="group relative block aspect-square overflow-hidden bg-[#eaf2f5]"
-                  >
-                    <Image
-                      src={product.mainImage.url}
-                      alt={product.mainImage.alt}
-                      fill
-                      sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#091923]/82 via-[#091923]/16 to-transparent p-5">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#9fe0e2]">
-                        {product.categoryName}
-                      </p>
-                      <h3 className="mt-2 text-xl font-semibold text-white">{product.name}</h3>
-                    </div>
-                  </Link>
-
-                  <div className="grid gap-4 p-4">
-                    <div className="grid gap-2.5 text-[13px] text-[#4f6470] sm:grid-cols-2">
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
-                          Item Number
-                        </p>
-                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">{product.itemNumber}</p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
-                          Material
-                        </p>
-                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">{product.material}</p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
-                          Capacity
-                        </p>
-                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">
-                          {product.capacityLabel || 'To be confirmed'}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
-                          Customize MOQ
-                        </p>
-                        <p className="mt-0.5 leading-5 font-medium text-[#13232c]">
-                          {product.customizeMOQ || 'Discuss project scope'}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <ProductsGrid products={filteredProducts} />
           ) : (
             <div className="rounded-[4px] border border-[#d5e1e7] bg-white p-8 shadow-[0_16px_36px_rgba(10,32,46,0.05)] sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#006d72]">
@@ -258,26 +200,28 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           )}
         </div>
 
-        <div className="rounded-[4px] border border-[#d5e1e7] bg-white p-6 shadow-[0_16px_36px_rgba(10,32,46,0.05)] sm:p-8">
+        <div className="overflow-hidden rounded-[4px] border border-[#d5e1e7] bg-[linear-gradient(135deg,#0b1f2a_0%,#123648_55%,#0d6f74_100%)] p-6 shadow-[0_20px_48px_rgba(10,32,46,0.12)] sm:p-8">
           <div className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#006d72]">
-                Catalog Guidance
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#7fe1d8]">
+                Expanded Range
               </p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-[#13232c] sm:text-3xl">
-                Use the catalog to narrow direction, then switch to detail or inquiry at the right
-                moment.
+              <h2 className="mt-3 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-3xl">
+                Looking for more? Download our full 2026 Master Catalog for more additional styles.
               </h2>
             </div>
-            <div className="grid gap-4 text-sm leading-7 text-[#5a6d79] sm:grid-cols-2">
+            <div className="grid gap-4 text-sm leading-7 text-[#d6e5ea] sm:grid-cols-[1fr_auto] sm:items-end">
               <p>
-                Open the product detail page when you want specifications, feature positioning,
-                packaging options, and related category context.
+                Browse the broader range, discover seasonal extensions, and request the latest
+                sourcing-ready catalog package from the team.
               </p>
-              <p>
-                Start a direct inquiry when you already know the target category, quantity,
-                branding method, or packaging requirements and want a practical response.
-              </p>
+              <Link
+                href="/resources#download-center"
+                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-white px-6 py-3 text-sm font-semibold text-[#123648] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#e6f4f3]"
+              >
+                <span>Download Full Catalog</span>
+                <ArrowIcon />
+              </Link>
             </div>
           </div>
         </div>

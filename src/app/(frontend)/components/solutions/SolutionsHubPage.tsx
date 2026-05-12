@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { FEATURED_CATEGORY_CARDS, getCategoryHref } from '../category-config'
-import { SOLUTION_PAGES, SOLUTIONS_HUB } from './solutions-data'
+import { SOLUTION_PAGES, SOLUTIONS_HUB, SUPPORT_MODEL_FLOW } from './solutions-data'
 
 function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
@@ -14,6 +14,10 @@ function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
 
 export default function SolutionsHubPage() {
   const bridgeCategories = FEATURED_CATEGORY_CARDS.slice(0, 6)
+  const supportModelCards = SUPPORT_MODEL_FLOW.map((item) => ({
+    ...item,
+    solution: SOLUTION_PAGES.find((solution) => solution.slug === item.slug),
+  })).filter((item) => item.solution)
 
   return (
     <>
@@ -24,9 +28,9 @@ export default function SolutionsHubPage() {
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-55"
+          className="object-cover opacity-72"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,19,32,0.92)_0%,rgba(7,19,32,0.68)_46%,rgba(7,19,32,0.2)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,19,32,0.78)_0%,rgba(7,19,32,0.5)_46%,rgba(7,19,32,0.12)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#081827] to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[calc(76vh-6rem)] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
@@ -35,10 +39,13 @@ export default function SolutionsHubPage() {
               Custom Drinkware Solutions
             </p>
             <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Built for distributors and brands that need more than a product list.
+              Strategic Manufacturing Partners for Brands that Demand Excellence.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#d8e3ea] sm:text-lg">
-              Global Castle helps turn drinkware categories into brand-ready programs with practical support across product selection, customization, packaging, quality review, and delivery coordination.
+              UrbanEco empowers global partners to build comprehensive brand programs. We provide
+              seamless support from trend-driven product selection and technical ODM development to
+              retail-ready packaging and rigorous quality assurance-all fine-tuned for the European
+              and American markets.
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -67,37 +74,56 @@ export default function SolutionsHubPage() {
       </section>
 
       <section className="bg-white py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 lg:px-8">
-          <div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
               Support Model
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              A practical path from category idea to shipment-ready program.
+              A Strategic Path from Product Concept to Retail-Ready Reality.
             </h2>
             <p className="mt-5 text-sm leading-7 text-[#666666] sm:text-base">
-              The solutions page is organized around the capabilities buyers ask about most often: private label setup, branding, packaging, OEM/ODM development, and delivery coordination.
+              Our support model is built around the core pillars of professional sourcing: bespoke
+              product development, brand identity, retail packaging, and rigorous export-standard
+              quality control.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {SOLUTION_PAGES.map((solution) => (
+          <div className="relative mt-14">
+            <div className="absolute left-[8%] right-[8%] top-5 hidden h-px bg-[#dbe5ec] xl:block" />
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {supportModelCards.map(({ step, role, solution }) =>
+              solution ? (
               <Link
                 key={solution.slug}
                 href={`/solutions/${solution.slug}`}
-                className="group rounded-[4px] border border-[#dbe5ec] bg-[#f7fafb] p-5 transition-all duration-250 hover:scale-[1.01] hover:border-[#81bfc1] hover:bg-white hover:shadow-[0_18px_40px_rgba(12,27,48,0.09)]"
+                className="group relative rounded-[4px] border border-[#dbe5ec] bg-[linear-gradient(180deg,#f8fbfc_0%,#ffffff_100%)] p-6 transition-all duration-250 hover:-translate-y-1 hover:border-[#81bfc1] hover:bg-white hover:shadow-[0_20px_44px_rgba(12,27,48,0.1)] xl:min-h-[360px]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
-                  {solution.eyebrow}
-                </p>
-                <h3 className="mt-3 text-xl font-semibold text-[#333333]">{solution.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#666666]">{solution.summary}</p>
-                <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#00868b]">
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#b7d6d9] bg-white text-sm font-bold text-[#00868b] shadow-[0_10px_24px_rgba(12,27,48,0.06)]">
+                      {step}
+                    </span>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8fa4ae]">
+                      {role}
+                    </p>
+                  </div>
+                  <p className="mt-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
+                    {solution.eyebrow}
+                  </p>
+                  <h3 className="mt-3 text-[1.85rem] font-semibold leading-[1.08] tracking-[-0.04em] text-[#333333]">
+                    {solution.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[#666666]">{solution.summary}</p>
+                </div>
+                <div className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#00868b]">
                   <span>View solution</span>
                   <ArrowIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </div>
               </Link>
-            ))}
+              ) : null,
+            )}
+            </div>
           </div>
         </div>
       </section>

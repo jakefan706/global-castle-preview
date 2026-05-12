@@ -26,11 +26,11 @@ export type SolutionPageData = {
 export const SOLUTION_PAGES: SolutionPageData[] = [
   {
     slug: 'private-label',
-    title: 'Private Label Drinkware Programs',
+    title: 'Integrated Private Label Collections',
     eyebrow: 'Private Label',
     shortTitle: 'Private Label',
     summary:
-      'Launch brand-ready drinkware ranges with proven bottle, tumbler, mug, and packaging formats.',
+      'Launch market-proven ranges across our entire portfolio of stainless steel, ceramic, and tableware. We provide the templates for success.',
     heroImage: '/images/products/tumblers.jpg',
     intro:
       'For distributors and brand teams, private label work needs dependable product formats, clear MOQ planning, and a supplier who can coordinate decoration and packing without slowing the program down.',
@@ -57,11 +57,11 @@ export const SOLUTION_PAGES: SolutionPageData[] = [
   },
   {
     slug: 'custom-branding',
-    title: 'Custom Branding & Surface Decoration',
-    eyebrow: 'Custom Branding',
-    shortTitle: 'Branding',
+    title: 'Brand Identity & Surface Decoration',
+    eyebrow: 'Brand Identity',
+    shortTitle: 'Brand Identity',
     summary:
-      'Coordinate logo methods, colors, finishes, and decoration details for polished branded drinkware.',
+      'Comprehensive branding solutions across our entire portfolio. From private label setup to advanced surface techniques like laser engraving, 3D printing, and specialized coatings.',
     heroImage: '/images/banner-sample-2560x900.jpg',
     intro:
       'Branding is more than placing a logo. It combines the decoration method, product material, surface finish, color direction, and usage context into one practical production brief.',
@@ -88,11 +88,11 @@ export const SOLUTION_PAGES: SolutionPageData[] = [
   },
   {
     slug: 'packaging',
-    title: 'Retail-Ready & Gift Packaging',
-    eyebrow: 'Packaging',
+    title: 'Retail-Ready & Bespoke Kitting',
+    eyebrow: 'Retail Packaging',
     shortTitle: 'Packaging',
     summary:
-      'Develop white box, color box, gift set, and retail-ready packaging paths for B2B drinkware programs.',
+      'Go beyond the box. We design and assemble retail-ready color boxes, gift sets, and custom kitting solutions that allow for immediate shelf placement.',
     heroImage: '/images/products/gift-sets.jpg',
     intro:
       'Packaging often decides whether a drinkware item is ready for retail shelves, gifting programs, or distributor catalog offers. We help connect product selection with practical packing direction.',
@@ -119,11 +119,11 @@ export const SOLUTION_PAGES: SolutionPageData[] = [
   },
   {
     slug: 'oem-odm-development',
-    title: 'OEM/ODM Drinkware Development',
-    eyebrow: 'OEM/ODM Development',
+    title: 'Technical OEM/ODM Development',
+    eyebrow: 'Technical Development',
     shortTitle: 'OEM/ODM',
     summary:
-      'Move from product concept to practical sample review with structured development support.',
+      'Transform unique ideas into technical prototypes. With 20 years of expertise, we guide you through material selection, molding, and structural engineering for proprietary designs.',
     heroImage: '/images/products/steel-bottles.jpg',
     intro:
       'When a program needs more than standard decoration, the development path must stay realistic. We help connect target use, structure, material, sample direction, and production feasibility.',
@@ -150,11 +150,11 @@ export const SOLUTION_PAGES: SolutionPageData[] = [
   },
   {
     slug: 'logistics-and-delivery',
-    title: 'Production Timing & Delivery Coordination',
-    eyebrow: 'Logistics & Delivery',
-    shortTitle: 'Delivery',
+    title: 'Quality & Supply Chain Support',
+    eyebrow: 'Quality & Supply Chain',
+    shortTitle: 'Supply Chain',
     summary:
-      'Plan production timing, inspection, export documents, and shipment coordination for repeat B2B orders.',
+      'Rigorous multi-stage inspections and export documentation. We offer flexible Incoterms (FOB/EXW/DDP) and logistics coordination to ensure a smooth transition to your destination.',
     heroImage: '/images/banner4.webp',
     intro:
       'Reliable delivery depends on clear timing, production checkpoints, packing readiness, and export coordination. The goal is to keep buyers informed before, during, and after production.',
@@ -182,7 +182,7 @@ export const SOLUTION_PAGES: SolutionPageData[] = [
 ]
 
 export const SOLUTIONS_HUB = {
-  heroImage: '/images/banner-sample-2560x900.jpg',
+  heroImage: '/images/solutions/result.webp',
   proofPoints: [
     {
       value: '20+',
@@ -226,6 +226,29 @@ export const SOLUTIONS_HUB = {
     'Product-category coverage from stainless steel bottles to accessories and gift sets.',
   ],
 } as const
+
+export const SUPPORT_MODEL_FLOW = [
+  {
+    slug: 'oem-odm-development',
+    step: '01',
+    role: 'Core Manufacturing',
+  },
+  {
+    slug: 'custom-branding',
+    step: '02',
+    role: 'Visual Identity',
+  },
+  {
+    slug: 'packaging',
+    step: '03',
+    role: 'Value-Added Services',
+  },
+  {
+    slug: 'logistics-and-delivery',
+    step: '04',
+    role: 'Commercial Assurance',
+  },
+] as const
 
 export function getSolutionBySlug(slug: string) {
   return SOLUTION_PAGES.find((solution) => solution.slug === slug)

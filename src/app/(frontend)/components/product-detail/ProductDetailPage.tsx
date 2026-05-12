@@ -352,7 +352,7 @@ export default function ProductDetailPage({ product }: { product: ProductDetailD
                 ) : null}
                 {product.customizeMOQ ? (
                   <div className="flex items-center gap-2">
-                    <span className="min-w-[108px] text-[#7b8793]">Customize MOQ:</span>
+                    <span className="min-w-[108px] text-[#7b8793]">Min. Order:</span>
                     <span className="font-medium text-[#333333]">{product.customizeMOQ}</span>
                   </div>
                 ) : null}

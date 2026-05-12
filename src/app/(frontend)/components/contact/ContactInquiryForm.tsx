@@ -1,6 +1,8 @@
 'use client'
 
+import { useEffect } from 'react'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 type InquiryFormState = {
   name: string
@@ -19,8 +21,40 @@ const INITIAL_FORM: InquiryFormState = {
 }
 
 export default function ContactInquiryForm() {
+  const searchParams = useSearchParams()
   const [form, setForm] = useState<InquiryFormState>(INITIAL_FORM)
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+
+  useEffect(() => {
+    const product = searchParams.get('product')?.trim()
+    const item = searchParams.get('item')?.trim()
+    const message = searchParams.get('message')?.trim()
+
+    if (!product && !item && !message) {
+      return
+    }
+
+    setForm((current) => {
+      if (current.message) {
+        return current
+      }
+
+      const generatedMessage =
+        message ||
+        [
+          product ? `Product: ${product}` : null,
+          item ? `Item Number: ${item}` : null,
+          'Please share MOQ, lead time, branding options, and sample availability.',
+        ]
+          .filter(Boolean)
+          .join('\n')
+
+      return {
+        ...current,
+        message: generatedMessage,
+      }
+    })
+  }, [searchParams])
 
   const handleChange = (field: keyof InquiryFormState, value: string) => {
     setForm((current) => ({ ...current, [field]: value }))
@@ -159,6 +193,14 @@ export default function ContactInquiryForm() {
             className="gc-textarea border-white/10 bg-white text-[#333333]"
           />
         </label>
+
+        {searchParams.get('item') || searchParams.get('product') ? (
+          <p className="rounded-[4px] border border-[#1f4d57] bg-white/5 px-4 py-3 text-sm text-[#cfe1e7]">
+            Product reference prefilled:
+            {' '}
+            {[searchParams.get('product'), searchParams.get('item')].filter(Boolean).join(' / ')}
+          </p>
+        ) : null}
 
         <div className="grid gap-4 border-t border-white/10 pt-5 text-sm text-[#a8bec7] sm:grid-cols-2">
           <p>Suggested inputs: bottle or tumbler type, quantity target, logo method, packaging format.</p>
