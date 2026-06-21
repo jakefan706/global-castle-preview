@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Link from 'next/link'
 
 import ContactInquiryForm from './ContactInquiryForm'
@@ -87,7 +88,13 @@ export default function ContactPage() {
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 xl:grid-cols-[1.22fr_0.78fr] xl:items-start">
-            <ContactInquiryForm />
+            <Suspense
+              fallback={
+                <div className="min-h-[700px] rounded-[4px] border border-[#1f4d57] bg-[linear-gradient(180deg,#0d2430_0%,#0a1821_100%)] p-7 shadow-[0_28px_72px_rgba(4,17,24,0.38)] sm:p-8 lg:min-h-[760px]" />
+              }
+            >
+              <ContactInquiryForm />
+            </Suspense>
 
             <div className="grid gap-6">
               <aside className="rounded-[4px] border border-[#1e3944] bg-[#0d1d27] p-6 text-white shadow-[0_18px_48px_rgba(4,17,24,0.22)] sm:p-7">

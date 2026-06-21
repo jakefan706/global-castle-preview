@@ -29,13 +29,14 @@ export default function ContactInquiryForm() {
     const product = searchParams.get('product')?.trim()
     const item = searchParams.get('item')?.trim()
     const message = searchParams.get('message')?.trim()
+    const email = searchParams.get('email')?.trim()
 
-    if (!product && !item && !message) {
+    if (!product && !item && !message && !email) {
       return
     }
 
     setForm((current) => {
-      if (current.message) {
+      if (current.message && (!email || current.email)) {
         return current
       }
 
@@ -51,6 +52,7 @@ export default function ContactInquiryForm() {
 
       return {
         ...current,
+        email: current.email || email || '',
         message: generatedMessage,
       }
     })

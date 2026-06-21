@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 
 import { CERTIFICATIONS, PARTNERS } from './homepage-data'
@@ -8,19 +7,12 @@ import { useScrollReveal, useStaggeredReveal } from '../../hooks/use-scroll-reve
 
 export default function TrustSection() {
   const [sectionRef, isVisible] = useScrollReveal<HTMLElement>({ threshold: 0.1 })
-  const certDelays = useStaggeredReveal(CERTIFICATIONS.length, 100)
+  const certDelays = useStaggeredReveal(CERTIFICATIONS.length, 70)
   const partnerDelays = useStaggeredReveal(PARTNERS.length, 50)
   const shouldAnimate = isVisible
-  const [offset, setOffset] = useState(0)
-  const marqueePartners = useMemo(() => [...PARTNERS, ...PARTNERS], [])
-
-  useEffect(() => {
-    const id = window.setInterval(() => {
-      setOffset((current) => (current >= PARTNERS.length ? 0 : current + 1))
-    }, 2200)
-
-    return () => window.clearInterval(id)
-  }, [])
+  const firstRow = CERTIFICATIONS.slice(0, 5)
+  const secondRow = CERTIFICATIONS.slice(5)
+  const marqueePartners = [...PARTNERS, ...PARTNERS]
 
   return (
     <section ref={sectionRef} className="bg-[#f5f7fa] py-20 lg:py-28">
@@ -38,32 +30,41 @@ export default function TrustSection() {
               style={{ transform: 'translateY(0)' }}
             >
               Our commitment to quality is backed by rigorous international testing. From
-              food-contact safety to social responsibility, we ensure every product meets the
-              highest standards for the European and American markets.
+              food-contact safety to factory audits and recycled-material references, we keep the
+              most relevant buyer-facing compliance marks visible for fast B2B review.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 lg:gap-10">
-            {CERTIFICATIONS.map((cert, index) => (
-              <div
-                key={cert.name}
-                className={`gc-card flex h-16 w-20 items-center justify-center rounded-[4px] bg-white p-3 transition-all duration-700 lg:h-20 lg:w-28 lg:p-4 ${
-                  shouldAnimate ? 'opacity-100' : 'opacity-100'
-                }`}
-                style={{
-                  transform: shouldAnimate ? 'translateY(0)' : 'translateY(0)',
-                  transitionDelay: `${shouldAnimate ? certDelays[index] + 200 : 0}ms`,
-                }}
-              >
-                <div className="relative h-full w-full">
-                  <Image
-                    src={cert.logo}
-                    alt={`${cert.name} certification`}
-                    fill
-                    sizes="(min-width: 1024px) 112px, 80px"
-                    className="object-contain grayscale transition-all duration-300 hover:grayscale-0"
-                  />
-                </div>
+          <div className="space-y-3">
+            {[firstRow, secondRow].map((row, rowIndex) => (
+              <div key={`cert-row-${rowIndex}`} className="flex flex-nowrap items-center justify-center gap-2.5 lg:gap-3">
+                {row.map((cert, itemIndex) => {
+                  const absoluteIndex = rowIndex * 5 + itemIndex
+
+                  return (
+                    <div
+                      key={cert.name}
+                      className={`relative overflow-hidden gc-card flex h-[152px] shrink-0 items-center justify-center rounded-[4px] border border-[#dbe5ec] bg-white px-4 py-3 shadow-[0_14px_32px_rgba(12,27,48,0.05)] lg:h-[157px] lg:px-5 ${
+                        shouldAnimate ? 'opacity-100' : 'opacity-100'
+                      }`}
+                      style={{
+                        transform: shouldAnimate ? 'translateY(0)' : 'translateY(0)',
+                        transitionDelay: `${shouldAnimate ? certDelays[absoluteIndex] + 160 : 0}ms`,
+                      }}
+                    >
+                      <div className="relative shrink-0" style={{ height: '120px', width: 'clamp(83px, 6.4vw, 136px)' }}>
+                        <Image
+                          src={cert.logo}
+                          alt={`${cert.name} certification`}
+                          fill
+                          unoptimized
+                          sizes="(min-width: 1280px) 170px, (min-width: 1024px) 154px, (min-width: 768px) 136px, 104px"
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             ))}
           </div>
@@ -86,29 +87,27 @@ export default function TrustSection() {
             </p>
           </div>
 
-          <div className="overflow-hidden">
-            <div
-              className="flex gap-4 transition-transform duration-[1400ms] ease-out"
-              style={{ transform: `translateX(calc(-${offset * 12.5}% - ${offset * 1}rem))` }}
-            >
+          <div className="gc-marquee-wrap overflow-hidden">
+            <div className="gc-partner-marquee gc-partner-marquee--active flex w-max items-center gap-3 lg:gap-4">
               {marqueePartners.map((partner, index) => (
                 <div
                   key={`${partner.name}-${index}`}
-                  className={`gc-card min-w-[180px] flex-1 flex h-20 items-center justify-center rounded-[4px] bg-white p-4 transition-all duration-700 lg:h-24 lg:p-6 ${
+                  className={`gc-card flex h-[118px] shrink-0 items-center justify-center rounded-[4px] bg-white px-6 py-5 shadow-[0_14px_32px_rgba(12,27,48,0.05)] transition-all duration-700 lg:h-[126px] lg:px-7 ${
                     shouldAnimate ? 'opacity-100' : 'opacity-100'
                   }`}
                   style={{
                     transform: shouldAnimate ? 'translateY(0)' : 'translateY(0)',
-                    transitionDelay: `${shouldAnimate ? partnerDelays[index % PARTNERS.length] + 400 : 0}ms`,
+                    transitionDelay: `${shouldAnimate ? partnerDelays[index % PARTNERS.length] + 320 : 0}ms`,
                   }}
                 >
-                  <div className="relative h-10 w-full lg:h-12">
+                  <div className="relative shrink-0" style={{ height: '72px', width: 'clamp(128px, 10vw, 190px)' }}>
                     <Image
                       src={partner.logo}
                       alt={partner.name}
                       fill
-                      sizes="(min-width: 1024px) 180px, 140px"
-                      className="object-contain grayscale transition-all duration-300 hover:grayscale-0"
+                      unoptimized
+                      sizes="(min-width: 1280px) 190px, (min-width: 1024px) 172px, (min-width: 768px) 150px, 128px"
+                      className="object-contain"
                     />
                   </div>
                 </div>

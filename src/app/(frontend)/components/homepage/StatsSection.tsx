@@ -28,7 +28,7 @@ function StatItem({
   isVisible: boolean
   delay: number
 }) {
-  const [count, trigger] = useCountUp({ end, duration: 2000 })
+  const [count, trigger] = useCountUp({ end, duration: 1100 })
 
   useEffect(() => {
     if (!isVisible) return
@@ -58,7 +58,7 @@ function StatItem({
 
 export default function StatsSection() {
   const [sectionRef, isVisible] = useScrollReveal<HTMLElement>({ threshold: 0.3 })
-  const delays = useStaggeredReveal(STATS.length, 150)
+  const delays = useStaggeredReveal(STATS.length, 80)
   const shouldAnimate = isVisible
 
   return (
@@ -73,7 +73,7 @@ export default function StatsSection() {
               end={stat.end}
               suffix={stat.suffix}
               label={stat.label}
-              isVisible={shouldAnimate || true}
+              isVisible={shouldAnimate}
               delay={delays[index]}
             />
           ))}

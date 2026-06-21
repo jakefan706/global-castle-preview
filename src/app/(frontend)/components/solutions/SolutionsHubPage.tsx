@@ -12,6 +12,60 @@ function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   )
 }
 
+function CapabilityIcon({
+  index,
+  className = 'h-5 w-5',
+}: {
+  index: number
+  className?: string
+}) {
+  if (index === 0) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3v3" />
+        <path d="M12 18v3" />
+        <path d="M4.9 4.9l2.1 2.1" />
+        <path d="M17 17l2.1 2.1" />
+        <path d="M3 12h3" />
+        <path d="M18 12h3" />
+        <path d="M4.9 19.1 7 17" />
+        <path d="M17 7l2.1-2.1" />
+        <circle cx="12" cy="12" r="4.2" />
+      </svg>
+    )
+  }
+
+  if (index === 1) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3l7 3v5c0 4.8-2.9 7.9-7 10-4.1-2.1-7-5.2-7-10V6l7-3Z" />
+        <path d="m9.5 12 1.7 1.7 3.3-3.5" />
+      </svg>
+    )
+  }
+
+  if (index === 2) {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 7.5h16" />
+        <path d="M4 12h16" />
+        <path d="M4 16.5h10" />
+        <path d="M18 14v5" />
+        <path d="m15.5 16.5 2.5-2.5 2.5 2.5" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="3.5" y="5" width="7" height="6.5" rx="1.5" />
+      <rect x="13.5" y="5" width="7" height="6.5" rx="1.5" />
+      <rect x="3.5" y="13" width="7" height="6.5" rx="1.5" />
+      <rect x="13.5" y="13" width="7" height="6.5" rx="1.5" />
+    </svg>
+  )
+}
+
 export default function SolutionsHubPage() {
   const bridgeCategories = FEATURED_CATEGORY_CARDS.slice(0, 6)
   const supportModelCards = SUPPORT_MODEL_FLOW.map((item) => ({
@@ -146,15 +200,13 @@ export default function SolutionsHubPage() {
               Capability Proof
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              Built around real decisions buyers need to make.
+              Streamlining Your Path to Market
             </h2>
             <div className="mt-8 space-y-5">
-              {SOLUTIONS_HUB.capabilityProof.map((proof) => (
+              {SOLUTIONS_HUB.capabilityProof.map((proof, index) => (
                 <div key={proof} className="flex gap-4">
-                  <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#00868b]/12 text-[#00868b]">
-                    <svg viewBox="0 0 20 20" fill="none" className="h-3.5 w-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m4 10 4 4 8-8" />
-                    </svg>
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#00868b]/12 text-[#00868b]">
+                    <CapabilityIcon index={index} className="h-7 w-7" />
                   </span>
                   <p className="text-sm leading-7 text-[#5f6d78] sm:text-base">{proof}</p>
                 </div>
@@ -171,37 +223,43 @@ export default function SolutionsHubPage() {
               Workflow
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              From sourcing brief to shipment coordination.
+              A Streamlined Path to Market Excellence.
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-4">
+          <div className="relative mt-12">
+            <div className="absolute left-[12%] right-[12%] top-8 hidden h-px bg-[linear-gradient(90deg,rgba(0,134,139,0.18)_0%,rgba(0,134,139,0.34)_35%,rgba(0,134,139,0.34)_65%,rgba(0,134,139,0.18)_100%)] md:block" />
+            <div className="grid gap-5 md:grid-cols-4">
             {SOLUTIONS_HUB.workflow.map((item) => (
-              <div key={item.step} className="border-l border-[#dce8ee] pl-5">
-                <p className="text-sm font-bold text-[#00868b]">{item.step}</p>
-                <h3 className="mt-4 text-xl font-semibold text-[#333333]">{item.title}</h3>
+              <div key={item.step} className="relative rounded-[4px] border border-[#bfd2dc] bg-[linear-gradient(180deg,#ffffff_0%,#f9fcfd_100%)] px-5 pb-6 pt-5 shadow-[0_18px_38px_rgba(12,27,48,0.06)]">
+                <div className="flex min-h-[3.5rem] items-start">
+                  <div className="inline-flex items-center">
+                    <span className="inline-flex h-12 min-w-[3.4rem] items-center justify-center rounded-full border border-[#0a6d72] bg-[#0a6d72] px-4 text-sm font-bold tracking-[0.18em] text-white shadow-[0_12px_24px_rgba(10,109,114,0.16)]">
+                      {item.step}
+                    </span>
+                  </div>
+                </div>
+                <h3 className="mt-2.5 text-xl font-semibold leading-[1.15] text-[#333333]">{item.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#666666]">{item.text}</p>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="bg-[#f4f8fa] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
+          <div className="mb-12 max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
                 Product Bridge
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-                Connect each solution with a practical product range.
+                Explore Our Curated Product Portfolios.
               </h2>
-            </div>
-            <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#00868b] transition-colors duration-200 hover:text-[#006d72]">
-              <span>Explore all products</span>
-              <ArrowIcon />
-            </Link>
+              <p className="mt-4 text-sm leading-7 text-[#667781] sm:text-base">
+                Retail-ready collections spanning hydration, tableware, gifting, and hospitality programs, selected to support modern global sourcing.
+              </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
@@ -209,43 +267,61 @@ export default function SolutionsHubPage() {
               <Link
                 key={category.slug}
                 href={getCategoryHref(category.slug)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#081827]"
+                className="group relative aspect-[4/3] overflow-hidden rounded-[4px] bg-[#081827] shadow-[0_16px_36px_rgba(8,24,39,0.08)]"
               >
                 <Image
                   src={category.image}
                   alt={category.name}
                   fill
                   sizes="(min-width: 768px) 30vw, 100vw"
-                  className="object-cover opacity-82 transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover opacity-82 transition-transform duration-500 group-hover:scale-[1.08]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/88 via-[#081320]/16 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/92 via-[#081320]/20 to-transparent transition-opacity duration-300 group-hover:from-[#081320]/94 group-hover:via-[#081320]/34" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="text-lg font-semibold text-white">{category.name}</h3>
                   <p className="mt-2 text-sm leading-6 text-white/78">{category.description}</p>
+                  <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white/0 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#dff6f4]">
+                    <span>View Collection</span>
+                    <ArrowIcon className="h-4 w-4" />
+                  </div>
                 </div>
               </Link>
             ))}
           </div>
+
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-2 rounded-[4px] border border-[#8dc7ca] bg-white px-6 py-3 text-sm font-semibold text-[#0a6d72] shadow-[0_12px_28px_rgba(8,24,39,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0a6d72] hover:bg-[#f4fbfb]"
+            >
+              <span>Explore all products</span>
+              <ArrowIcon />
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="bg-[#081827] py-20 text-white lg:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Start A Project
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Share your target product, quantity, branding needs, and timing.
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c5d1da] sm:text-base">
-              We can help evaluate product fit, customization direction, packaging options, MOQ, and sample lead time.
-            </p>
+      <section className="bg-[#eef4f6] py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="overflow-hidden rounded-[6px] border border-[#c6d8e0] bg-[linear-gradient(135deg,#0b1d2f_0%,#0c2437_56%,#123447_100%)] text-white shadow-[0_26px_60px_rgba(7,24,39,0.14)]">
+            <div className="grid items-center gap-8 px-6 py-10 sm:px-8 lg:grid-cols-[1fr_auto] lg:px-12 lg:py-12">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#35b9bd]">
+                  Start A Project
+                </p>
+                <h2 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                  Share your brief, and we will align product, branding, and delivery around your launch goals.
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c8d6de] sm:text-base">
+                  Tell us the category, target quantity, decoration requirements, packaging direction, and timing. We can quickly map the right product path, MOQ, sampling plan, and export workflow.
+                </p>
+              </div>
+              <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#11939a] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(17,147,154,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0d7e84]">
+                <span>Start Your Custom Project</span>
+                <ArrowIcon />
+              </Link>
+            </div>
           </div>
-          <Link href="/#contact" className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]">
-            <span>Start Your Custom Project</span>
-            <ArrowIcon />
-          </Link>
         </div>
       </section>
     </>

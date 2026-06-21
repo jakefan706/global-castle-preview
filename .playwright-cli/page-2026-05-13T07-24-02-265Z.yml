@@ -1,0 +1,775 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - link "Global Castle Industrial by Global Castle - Your OEM Partner" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e6]:
+          - img "Global Castle Industrial" [ref=e7]
+          - paragraph [ref=e8]: by Global Castle - Your OEM Partner
+      - navigation [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - img [ref=e12]
+          - generic [ref=e15]: Home
+        - generic [ref=e16]:
+          - button "Products" [ref=e17]:
+            - img [ref=e19]
+            - generic [ref=e24]: Products
+            - img [ref=e25]
+          - generic:
+            - generic:
+              - link "All Products →":
+                - /url: /products
+              - link "Stainless Steel Bottles":
+                - /url: /products?category=stainless-steel-bottles
+              - link "Stainless Steel Tumblers":
+                - /url: /products?category=stainless-steel-tumblers
+              - link "Plastic Bottles":
+                - /url: /products?category=plastic-bottles
+              - link "Plastic Cup & Tumbler":
+                - /url: /products?category=plastic-cup-tumbler
+              - link "Aluminum Bottles":
+                - /url: /products?category=aluminum-bottles
+              - link "Ceramic Mugs":
+                - /url: /products?category=ceramic-mugs
+              - link "Glass Bottles & Mugs":
+                - /url: /products?category=glass-bottles-mugs
+              - link "Food Containers":
+                - /url: /products?category=food-containers
+              - link "Accessories":
+                - /url: /products?category=accessories
+              - link "Eco-Friendly":
+                - /url: /products?category=eco-friendly
+              - link "TECH":
+                - /url: /products?category=tech
+        - generic [ref=e27]:
+          - button "Solutions" [ref=e28]:
+            - img [ref=e30]
+            - generic [ref=e32]: Solutions
+            - img [ref=e33]
+          - generic:
+            - generic:
+              - link "All Solutions →":
+                - /url: /solutions
+              - link "Technical OEM/ODM Development":
+                - /url: /solutions/oem-odm-development
+              - link "Brand Identity & Surface Decoration":
+                - /url: /solutions/custom-branding
+              - link "Retail-Ready & Bespoke Kitting":
+                - /url: /solutions/packaging
+              - link "Quality & Supply Chain Support":
+                - /url: /solutions/logistics-and-delivery
+        - link "Resources" [ref=e35] [cursor=pointer]:
+          - /url: /resources
+          - img [ref=e37]
+          - generic [ref=e40]: Resources
+        - link "Blog" [ref=e41] [cursor=pointer]:
+          - /url: /blog
+          - img [ref=e43]
+          - generic [ref=e46]: Blog
+        - link "About Us" [ref=e47] [cursor=pointer]:
+          - /url: /about
+          - img [ref=e49]
+          - generic [ref=e53]: About Us
+        - link "Contact" [ref=e54] [cursor=pointer]:
+          - /url: /contact
+          - img [ref=e56]
+          - generic [ref=e59]: Contact
+  - main [ref=e60]:
+    - generic [ref=e62]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - paragraph [ref=e66]: Product Catalog
+          - heading "Comprehensive Catalog for Professional Sourcing" [level=1] [ref=e67]
+          - paragraph [ref=e68]: Explore our high-performance collections, compare technical specifications, and customize your sourcing requirements. All products are retail-ready and optimized for global brands.
+        - generic [ref=e69]:
+          - link "Request a Custom Quote" [ref=e70] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e71]: Request a Custom Quote
+            - img [ref=e72]
+          - generic [ref=e74]: 22 products across all categories
+      - generic [ref=e76]:
+        - link "All Products" [ref=e77] [cursor=pointer]:
+          - /url: /products
+          - generic [ref=e79]: All Products
+        - link "Stainless Steel Bottles" [ref=e80] [cursor=pointer]:
+          - /url: /products?category=stainless-steel-bottles
+        - link "Stainless Steel Tumblers" [ref=e81] [cursor=pointer]:
+          - /url: /products?category=stainless-steel-tumblers
+        - link "Plastic Bottles" [ref=e82] [cursor=pointer]:
+          - /url: /products?category=plastic-bottles
+        - link "Plastic Cup & Tumbler" [ref=e83] [cursor=pointer]:
+          - /url: /products?category=plastic-cup-tumbler
+        - link "Aluminum Bottles" [ref=e84] [cursor=pointer]:
+          - /url: /products?category=aluminum-bottles
+        - link "Ceramic Mugs" [ref=e85] [cursor=pointer]:
+          - /url: /products?category=ceramic-mugs
+        - link "Glass Bottles & Mugs" [ref=e86] [cursor=pointer]:
+          - /url: /products?category=glass-bottles-mugs
+        - link "Food Containers" [ref=e87] [cursor=pointer]:
+          - /url: /products?category=food-containers
+        - link "Accessories" [ref=e88] [cursor=pointer]:
+          - /url: /products?category=accessories
+        - link "Eco-Friendly" [ref=e89] [cursor=pointer]:
+          - /url: /products?category=eco-friendly
+        - link "TECH" [ref=e90] [cursor=pointer]:
+          - /url: /products?category=tech
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - paragraph [ref=e94]: Results Workspace
+            - heading "All product entries" [level=2] [ref=e95]
+          - paragraph [ref=e96]: Start by checking category fit, item number, material, capacity, and MOQ. If a SKU looks close, open the detail page for specifications, customization, and inquiry.
+        - generic [ref=e97]:
+          - article [ref=e98]:
+            - link "View details for Double Wall Stainless Steel Tumbler" [ref=e99] [cursor=pointer]:
+              - img "Double Wall Stainless Steel Tumbler" [ref=e100]
+              - img "Stainless steel tumbler lid detail" [ref=e101]
+              - generic [ref=e104]: CLASSIC
+              - generic [ref=e106]:
+                - paragraph [ref=e107]: Stainless Steel Tumblers
+                - heading "Double Wall Stainless Steel Tumbler" [level=3] [ref=e108]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Double+Wall+Stainless+Steel+Tumbler&item=GC-ST-420&message=I+am+interested+in+GC-ST-420.+Please+share+MOQ%2C+customization+options%2C+packaging+choices%2C+and+sample+lead+time.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - paragraph [ref=e112]: Item Number
+                - paragraph [ref=e113]: GC-ST-420
+              - generic [ref=e114]:
+                - paragraph [ref=e115]: Material
+                - paragraph [ref=e116]: 18/8 Stainless Steel
+              - generic [ref=e117]:
+                - paragraph [ref=e118]: Capacity
+                - paragraph [ref=e119]: 420ml / 14oz
+              - generic [ref=e120]:
+                - paragraph [ref=e121]: Min. Order
+                - paragraph [ref=e122]: 500pcs
+          - article [ref=e123]:
+            - link "View details for Atlas Vacuum Stainless Bottle" [ref=e124] [cursor=pointer]:
+              - img "Atlas Vacuum Stainless Bottle" [ref=e125]
+              - img "Atlas Vacuum Stainless Bottle gallery view 2" [ref=e126]
+              - generic [ref=e128]:
+                - paragraph [ref=e129]: Stainless Steel Bottles
+                - heading "Atlas Vacuum Stainless Bottle" [level=3] [ref=e130]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Atlas+Vacuum+Stainless+Bottle&item=GC-SB-721&message=I+am+interested+in+GC-SB-721.+Please+share+MOQ%2C+sample+lead+time%2C+branding+methods%2C+and+packaging+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e132]:
+              - generic [ref=e133]:
+                - paragraph [ref=e134]: Item Number
+                - paragraph [ref=e135]: GC-SB-721
+              - generic [ref=e136]:
+                - paragraph [ref=e137]: Material
+                - paragraph [ref=e138]: 18/8 Stainless Steel
+              - generic [ref=e139]:
+                - paragraph [ref=e140]: Capacity
+                - paragraph [ref=e141]: 720ml / 24oz
+              - generic [ref=e142]:
+                - paragraph [ref=e143]: Min. Order
+                - paragraph [ref=e144]: 600pcs
+          - article [ref=e145]:
+            - link "View details for Tritan Sports Water Bottle" [ref=e146] [cursor=pointer]:
+              - img "Tritan Sports Water Bottle" [ref=e147]
+              - img "Tritan Sports Water Bottle gallery view 2" [ref=e148]
+              - generic [ref=e151]: New
+              - generic [ref=e153]:
+                - paragraph [ref=e154]: Plastic Bottles
+                - heading "Tritan Sports Water Bottle" [level=3] [ref=e155]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Tritan+Sports+Water+Bottle&item=GC-PB-338&message=I+am+interested+in+GC-PB-338.+Please+share+MOQ%2C+color+options%2C+printing+methods%2C+and+packaging+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e157]:
+              - generic [ref=e158]:
+                - paragraph [ref=e159]: Item Number
+                - paragraph [ref=e160]: GC-PB-338
+              - generic [ref=e161]:
+                - paragraph [ref=e162]: Material
+                - paragraph [ref=e163]: BPA-Free Plastic
+              - generic [ref=e164]:
+                - paragraph [ref=e165]: Capacity
+                - paragraph [ref=e166]: 680ml / 23oz
+              - generic [ref=e167]:
+                - paragraph [ref=e168]: Min. Order
+                - paragraph [ref=e169]: 1000pcs
+          - article [ref=e170]:
+            - link "View details for Reusable Party Cup Tumbler" [ref=e171] [cursor=pointer]:
+              - img "Reusable Party Cup Tumbler" [ref=e172]
+              - img "Reusable Party Cup Tumbler gallery view 2" [ref=e173]
+              - generic [ref=e175]:
+                - paragraph [ref=e176]: Plastic Cup & Tumbler
+                - heading "Reusable Party Cup Tumbler" [level=3] [ref=e177]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Reusable+Party+Cup+Tumbler&item=GC-PC-244&message=I+am+interested+in+GC-PC-244.+Please+share+MOQ%2C+cup+colors%2C+lid+options%2C+and+campaign+packaging+details.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - paragraph [ref=e181]: Item Number
+                - paragraph [ref=e182]: GC-PC-244
+              - generic [ref=e183]:
+                - paragraph [ref=e184]: Material
+                - paragraph [ref=e185]: BPA-Free Plastic
+              - generic [ref=e186]:
+                - paragraph [ref=e187]: Capacity
+                - paragraph [ref=e188]: 470ml / 16oz
+              - generic [ref=e189]:
+                - paragraph [ref=e190]: Min. Order
+                - paragraph [ref=e191]: 1200pcs
+          - article [ref=e192]:
+            - link "View details for Lightweight Aluminum Travel Bottle" [ref=e193] [cursor=pointer]:
+              - img "Lightweight Aluminum Travel Bottle" [ref=e194]
+              - img "Lightweight Aluminum Travel Bottle gallery view 2" [ref=e195]
+              - generic [ref=e197]:
+                - paragraph [ref=e198]: Aluminum Bottles
+                - heading "Lightweight Aluminum Travel Bottle" [level=3] [ref=e199]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Lightweight+Aluminum+Travel+Bottle&item=GC-AL-517&message=I+am+interested+in+GC-AL-517.+Please+share+MOQ%2C+finish+colors%2C+lid+styles%2C+and+retail+packaging+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e201]:
+              - generic [ref=e202]:
+                - paragraph [ref=e203]: Item Number
+                - paragraph [ref=e204]: GC-AL-517
+              - generic [ref=e205]:
+                - paragraph [ref=e206]: Material
+                - paragraph [ref=e207]: Aluminum
+              - generic [ref=e208]:
+                - paragraph [ref=e209]: Capacity
+                - paragraph [ref=e210]: 500ml / 17oz
+              - generic [ref=e211]:
+                - paragraph [ref=e212]: Min. Order
+                - paragraph [ref=e213]: 800pcs
+          - article [ref=e214]:
+            - link "View details for Stoneware Latte Ceramic Mug" [ref=e215] [cursor=pointer]:
+              - img "Stoneware Latte Ceramic Mug" [ref=e216]
+              - img "Stoneware Latte Ceramic Mug gallery view 2" [ref=e217]
+              - generic [ref=e219]:
+                - paragraph [ref=e220]: Ceramic Mugs
+                - heading "Stoneware Latte Ceramic Mug" [level=3] [ref=e221]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Stoneware+Latte+Ceramic+Mug&item=GC-CM-286&message=I+am+interested+in+GC-CM-286.+Please+share+MOQ%2C+glaze+options%2C+printing+methods%2C+and+gift+packaging+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e223]:
+              - generic [ref=e224]:
+                - paragraph [ref=e225]: Item Number
+                - paragraph [ref=e226]: GC-CM-286
+              - generic [ref=e227]:
+                - paragraph [ref=e228]: Material
+                - paragraph [ref=e229]: Ceramic
+              - generic [ref=e230]:
+                - paragraph [ref=e231]: Capacity
+                - paragraph [ref=e232]: 380ml / 13oz
+              - generic [ref=e233]:
+                - paragraph [ref=e234]: Min. Order
+                - paragraph [ref=e235]: 720pcs
+          - article [ref=e236]:
+            - link "View details for Borosilicate Tea Infuser Bottle" [ref=e237] [cursor=pointer]:
+              - img "Borosilicate Tea Infuser Bottle" [ref=e238]
+              - img "Borosilicate Tea Infuser Bottle gallery view 2" [ref=e239]
+              - generic [ref=e241]:
+                - paragraph [ref=e242]: Glass Bottles & Mugs
+                - heading "Borosilicate Tea Infuser Bottle" [level=3] [ref=e243]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Borosilicate+Tea+Infuser+Bottle&item=GC-GL-412&message=I+am+interested+in+GC-GL-412.+Please+share+MOQ%2C+infuser+options%2C+logo+methods%2C+and+premium+packaging+details.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e245]:
+              - generic [ref=e246]:
+                - paragraph [ref=e247]: Item Number
+                - paragraph [ref=e248]: GC-GL-412
+              - generic [ref=e249]:
+                - paragraph [ref=e250]: Material
+                - paragraph [ref=e251]: Glass
+              - generic [ref=e252]:
+                - paragraph [ref=e253]: Capacity
+                - paragraph [ref=e254]: 450ml / 15oz
+              - generic [ref=e255]:
+                - paragraph [ref=e256]: Min. Order
+                - paragraph [ref=e257]: 600pcs
+          - article [ref=e258]:
+            - link "View details for Vacuum Food Jar Container" [ref=e259] [cursor=pointer]:
+              - img "Vacuum Food Jar Container" [ref=e260]
+              - img "Vacuum Food Jar Container gallery view 2" [ref=e261]
+              - generic [ref=e263]:
+                - paragraph [ref=e264]: Food Containers
+                - heading "Vacuum Food Jar Container" [level=3] [ref=e265]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Vacuum+Food+Jar+Container&item=GC-FC-630&message=I+am+interested+in+GC-FC-630.+Please+share+MOQ%2C+insulation+details%2C+accessory+options%2C+and+packaging+suggestions.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e267]:
+              - generic [ref=e268]:
+                - paragraph [ref=e269]: Item Number
+                - paragraph [ref=e270]: GC-FC-630
+              - generic [ref=e271]:
+                - paragraph [ref=e272]: Material
+                - paragraph [ref=e273]: 18/8 Stainless Steel
+              - generic [ref=e274]:
+                - paragraph [ref=e275]: Capacity
+                - paragraph [ref=e276]: 630ml / 21oz
+              - generic [ref=e277]:
+                - paragraph [ref=e278]: Min. Order
+                - paragraph [ref=e279]: 500pcs
+          - article [ref=e280]:
+            - link "View details for Bottle Gift Set Accessory Kit" [ref=e281] [cursor=pointer]:
+              - img "Bottle Gift Set Accessory Kit" [ref=e282]
+              - img "Bottle Gift Set Accessory Kit gallery view 2" [ref=e283]
+              - generic [ref=e285]:
+                - paragraph [ref=e286]: Accessories
+                - heading "Bottle Gift Set Accessory Kit" [level=3] [ref=e287]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Bottle+Gift+Set+Accessory+Kit&item=GC-AC-118&message=I+am+interested+in+GC-AC-118.+Please+share+MOQ%2C+set+combinations%2C+packaging+formats%2C+and+branding+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e289]:
+              - generic [ref=e290]:
+                - paragraph [ref=e291]: Item Number
+                - paragraph [ref=e292]: GC-AC-118
+              - generic [ref=e293]:
+                - paragraph [ref=e294]: Material
+                - paragraph [ref=e295]: Mixed Materials
+              - generic [ref=e296]:
+                - paragraph [ref=e297]: Capacity
+                - paragraph [ref=e298]: To be confirmed
+              - generic [ref=e299]:
+                - paragraph [ref=e300]: Min. Order
+                - paragraph [ref=e301]: 400sets
+          - article [ref=e302]:
+            - link "View details for Recycled Material Daily Tumbler" [ref=e303] [cursor=pointer]:
+              - img "Recycled Material Daily Tumbler" [ref=e304]
+              - img "Recycled Material Daily Tumbler gallery view 2" [ref=e305]
+              - generic [ref=e307]:
+                - paragraph [ref=e308]: Eco-Friendly
+                - heading "Recycled Material Daily Tumbler" [level=3] [ref=e309]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Recycled+Material+Daily+Tumbler&item=GC-EF-355&message=I+am+interested+in+GC-EF-355.+Please+share+MOQ%2C+sustainable+material+notes%2C+packaging+choices%2C+and+branding+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e311]:
+              - generic [ref=e312]:
+                - paragraph [ref=e313]: Item Number
+                - paragraph [ref=e314]: GC-EF-355
+              - generic [ref=e315]:
+                - paragraph [ref=e316]: Material
+                - paragraph [ref=e317]: Recycled Stainless Steel & PP
+              - generic [ref=e318]:
+                - paragraph [ref=e319]: Capacity
+                - paragraph [ref=e320]: 355ml / 12oz
+              - generic [ref=e321]:
+                - paragraph [ref=e322]: Min. Order
+                - paragraph [ref=e323]: 700pcs
+          - article [ref=e324]:
+            - link "View details for Smart Temperature Display Bottle" [ref=e325] [cursor=pointer]:
+              - img "Smart Temperature Display Bottle" [ref=e326]
+              - img "Smart Temperature Display Bottle gallery view 2" [ref=e327]
+              - generic [ref=e329]:
+                - paragraph [ref=e330]: TECH
+                - heading "Smart Temperature Display Bottle" [level=3] [ref=e331]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Smart+Temperature+Display+Bottle&item=GC-TE-908&message=I+am+interested+in+GC-TE-908.+Please+share+MOQ%2C+lid+function+details%2C+branding+options%2C+and+premium+packaging+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e333]:
+              - generic [ref=e334]:
+                - paragraph [ref=e335]: Item Number
+                - paragraph [ref=e336]: GC-TE-908
+              - generic [ref=e337]:
+                - paragraph [ref=e338]: Material
+                - paragraph [ref=e339]: Smart Lid + Stainless Steel
+              - generic [ref=e340]:
+                - paragraph [ref=e341]: Capacity
+                - paragraph [ref=e342]: 480ml / 16oz
+              - generic [ref=e343]:
+                - paragraph [ref=e344]: Min. Order
+                - paragraph [ref=e345]: 500pcs
+          - article [ref=e346]:
+            - link "View details for Commuter Grip Stainless Tumbler" [ref=e347] [cursor=pointer]:
+              - img "Commuter Grip Stainless Tumbler" [ref=e348]
+              - img "Commuter Grip Stainless Tumbler gallery view 2" [ref=e349]
+              - generic [ref=e351]:
+                - paragraph [ref=e352]: Stainless Steel Tumblers
+                - heading "Commuter Grip Stainless Tumbler" [level=3] [ref=e353]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Commuter+Grip+Stainless+Tumbler&item=GC-ST-532&message=I+am+interested+in+GC-ST-532.+Please+share+MOQ%2C+finish+options%2C+lid+style+details%2C+and+packaging+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e355]:
+              - generic [ref=e356]:
+                - paragraph [ref=e357]: Item Number
+                - paragraph [ref=e358]: GC-ST-532
+              - generic [ref=e359]:
+                - paragraph [ref=e360]: Material
+                - paragraph [ref=e361]: 18/8 Stainless Steel
+              - generic [ref=e362]:
+                - paragraph [ref=e363]: Capacity
+                - paragraph [ref=e364]: 530ml / 18oz
+              - generic [ref=e365]:
+                - paragraph [ref=e366]: Min. Order
+                - paragraph [ref=e367]: 500pcs
+          - article [ref=e368]:
+            - link "View details for Summit Carry Loop Bottle" [ref=e369] [cursor=pointer]:
+              - img "Summit Carry Loop Bottle" [ref=e370]
+              - img "Summit Carry Loop Bottle gallery view 2" [ref=e371]
+              - generic [ref=e373]:
+                - paragraph [ref=e374]: Stainless Steel Bottles
+                - heading "Summit Carry Loop Bottle" [level=3] [ref=e375]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Summit+Carry+Loop+Bottle&item=GC-SB-846&message=I+am+interested+in+GC-SB-846.+Please+share+MOQ%2C+carry-lid+options%2C+branding+methods%2C+and+sample+timing.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e377]:
+              - generic [ref=e378]:
+                - paragraph [ref=e379]: Item Number
+                - paragraph [ref=e380]: GC-SB-846
+              - generic [ref=e381]:
+                - paragraph [ref=e382]: Material
+                - paragraph [ref=e383]: 18/8 Stainless Steel
+              - generic [ref=e384]:
+                - paragraph [ref=e385]: Capacity
+                - paragraph [ref=e386]: 820ml / 28oz
+              - generic [ref=e387]:
+                - paragraph [ref=e388]: Min. Order
+                - paragraph [ref=e389]: 800pcs
+          - article [ref=e390]:
+            - link "View details for Daily Flip Tritan Bottle" [ref=e391] [cursor=pointer]:
+              - img "Daily Flip Tritan Bottle" [ref=e392]
+              - img "Daily Flip Tritan Bottle gallery view 2" [ref=e393]
+              - generic [ref=e395]:
+                - paragraph [ref=e396]: Plastic Bottles
+                - heading "Daily Flip Tritan Bottle" [level=3] [ref=e397]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Daily+Flip+Tritan+Bottle&item=GC-PB-514&message=I+am+interested+in+GC-PB-514.+Please+share+MOQ%2C+body+colors%2C+print+methods%2C+and+event+packaging+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e399]:
+              - generic [ref=e400]:
+                - paragraph [ref=e401]: Item Number
+                - paragraph [ref=e402]: GC-PB-514
+              - generic [ref=e403]:
+                - paragraph [ref=e404]: Material
+                - paragraph [ref=e405]: BPA-Free Plastic
+              - generic [ref=e406]:
+                - paragraph [ref=e407]: Capacity
+                - paragraph [ref=e408]: 520ml / 18oz
+              - generic [ref=e409]:
+                - paragraph [ref=e410]: Min. Order
+                - paragraph [ref=e411]: 1200pcs
+          - article [ref=e412]:
+            - link "View details for Stackable Cold Cup Set Tumbler" [ref=e413] [cursor=pointer]:
+              - img "Stackable Cold Cup Set Tumbler" [ref=e414]
+              - img "Stackable Cold Cup Set Tumbler gallery view 2" [ref=e415]
+              - generic [ref=e417]:
+                - paragraph [ref=e418]: Plastic Cup & Tumbler
+                - heading "Stackable Cold Cup Set Tumbler" [level=3] [ref=e419]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Stackable+Cold+Cup+Set+Tumbler&item=GC-PC-662&message=I+am+interested+in+GC-PC-662.+Please+share+MOQ%2C+lid+combinations%2C+cup+colors%2C+and+promo-pack+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e421]:
+              - generic [ref=e422]:
+                - paragraph [ref=e423]: Item Number
+                - paragraph [ref=e424]: GC-PC-662
+              - generic [ref=e425]:
+                - paragraph [ref=e426]: Material
+                - paragraph [ref=e427]: BPA-Free Plastic
+              - generic [ref=e428]:
+                - paragraph [ref=e429]: Capacity
+                - paragraph [ref=e430]: 620ml / 21oz
+              - generic [ref=e431]:
+                - paragraph [ref=e432]: Min. Order
+                - paragraph [ref=e433]: 1500pcs
+          - article [ref=e434]:
+            - link "View details for Metro Slim Aluminum Bottle" [ref=e435] [cursor=pointer]:
+              - img "Metro Slim Aluminum Bottle" [ref=e436]
+              - img "Metro Slim Aluminum Bottle gallery view 2" [ref=e437]
+              - generic [ref=e439]:
+                - paragraph [ref=e440]: Aluminum Bottles
+                - heading "Metro Slim Aluminum Bottle" [level=3] [ref=e441]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Metro+Slim+Aluminum+Bottle&item=GC-AL-684&message=I+am+interested+in+GC-AL-684.+Please+share+MOQ%2C+body+finishes%2C+lid+choices%2C+and+souvenir+packaging+details.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e443]:
+              - generic [ref=e444]:
+                - paragraph [ref=e445]: Item Number
+                - paragraph [ref=e446]: GC-AL-684
+              - generic [ref=e447]:
+                - paragraph [ref=e448]: Material
+                - paragraph [ref=e449]: Aluminum
+              - generic [ref=e450]:
+                - paragraph [ref=e451]: Capacity
+                - paragraph [ref=e452]: 650ml / 22oz
+              - generic [ref=e453]:
+                - paragraph [ref=e454]: Min. Order
+                - paragraph [ref=e455]: 1000pcs
+          - article [ref=e456]:
+            - link "View details for Nordic Straight Wall Mug" [ref=e457] [cursor=pointer]:
+              - img "Nordic Straight Wall Mug" [ref=e458]
+              - img "Nordic Straight Wall Mug gallery view 2" [ref=e459]
+              - generic [ref=e461]:
+                - paragraph [ref=e462]: Ceramic Mugs
+                - heading "Nordic Straight Wall Mug" [level=3] [ref=e463]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Nordic+Straight+Wall+Mug&item=GC-CM-472&message=I+am+interested+in+GC-CM-472.+Please+share+MOQ%2C+glaze+combinations%2C+branding+methods%2C+and+seasonal+packaging+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e465]:
+              - generic [ref=e466]:
+                - paragraph [ref=e467]: Item Number
+                - paragraph [ref=e468]: GC-CM-472
+              - generic [ref=e469]:
+                - paragraph [ref=e470]: Material
+                - paragraph [ref=e471]: Ceramic
+              - generic [ref=e472]:
+                - paragraph [ref=e473]: Capacity
+                - paragraph [ref=e474]: 420ml / 14oz
+              - generic [ref=e475]:
+                - paragraph [ref=e476]: Min. Order
+                - paragraph [ref=e477]: 840pcs
+          - article [ref=e478]:
+            - link "View details for Double Wall Glass Coffee Mug" [ref=e479] [cursor=pointer]:
+              - img "Double Wall Glass Coffee Mug" [ref=e480]
+              - img "Double Wall Glass Coffee Mug gallery view 2" [ref=e481]
+              - generic [ref=e483]:
+                - paragraph [ref=e484]: Glass Bottles & Mugs
+                - heading "Double Wall Glass Coffee Mug" [level=3] [ref=e485]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Double+Wall+Glass+Coffee+Mug&item=GC-GL-568&message=I+am+interested+in+GC-GL-568.+Please+share+MOQ%2C+glass+decoration+options%2C+and+premium+gift+packaging+details.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e487]:
+              - generic [ref=e488]:
+                - paragraph [ref=e489]: Item Number
+                - paragraph [ref=e490]: GC-GL-568
+              - generic [ref=e491]:
+                - paragraph [ref=e492]: Material
+                - paragraph [ref=e493]: Borosilicate Glass
+              - generic [ref=e494]:
+                - paragraph [ref=e495]: Capacity
+                - paragraph [ref=e496]: 350ml / 12oz
+              - generic [ref=e497]:
+                - paragraph [ref=e498]: Min. Order
+                - paragraph [ref=e499]: 720pcs
+          - article [ref=e500]:
+            - link "View details for Clip Lid Lunch Container" [ref=e501] [cursor=pointer]:
+              - img "Clip Lid Lunch Container" [ref=e502]
+              - img "Clip Lid Lunch Container gallery view 2" [ref=e503]
+              - generic [ref=e505]:
+                - paragraph [ref=e506]: Food Containers
+                - heading "Clip Lid Lunch Container" [level=3] [ref=e507]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Clip+Lid+Lunch+Container&item=GC-FC-488&message=I+am+interested+in+GC-FC-488.+Please+share+MOQ%2C+seal+details%2C+set+options%2C+and+lunch-pack+packaging+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e509]:
+              - generic [ref=e510]:
+                - paragraph [ref=e511]: Item Number
+                - paragraph [ref=e512]: GC-FC-488
+              - generic [ref=e513]:
+                - paragraph [ref=e514]: Material
+                - paragraph [ref=e515]: Stainless Steel + PP
+              - generic [ref=e516]:
+                - paragraph [ref=e517]: Capacity
+                - paragraph [ref=e518]: 480ml / 16oz
+              - generic [ref=e519]:
+                - paragraph [ref=e520]: Min. Order
+                - paragraph [ref=e521]: 600pcs
+          - article [ref=e522]:
+            - link "View details for Travel Straw and Cleaner Set" [ref=e523] [cursor=pointer]:
+              - img "Travel Straw and Cleaner Set" [ref=e524]
+              - img "Travel Straw and Cleaner Set gallery view 2" [ref=e525]
+              - generic [ref=e527]:
+                - paragraph [ref=e528]: Accessories
+                - heading "Travel Straw and Cleaner Set" [level=3] [ref=e529]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Travel+Straw+and+Cleaner+Set&item=GC-AC-274&message=I+am+interested+in+GC-AC-274.+Please+share+MOQ%2C+set+contents%2C+pouch+branding%2C+and+compact+retail+packaging+options.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e531]:
+              - generic [ref=e532]:
+                - paragraph [ref=e533]: Item Number
+                - paragraph [ref=e534]: GC-AC-274
+              - generic [ref=e535]:
+                - paragraph [ref=e536]: Material
+                - paragraph [ref=e537]: Stainless Steel + Silicone
+              - generic [ref=e538]:
+                - paragraph [ref=e539]: Capacity
+                - paragraph [ref=e540]: To be confirmed
+              - generic [ref=e541]:
+                - paragraph [ref=e542]: Min. Order
+                - paragraph [ref=e543]: 800sets
+          - article [ref=e544]:
+            - link "View details for Bamboo Accent Travel Mug" [ref=e545] [cursor=pointer]:
+              - img "Bamboo Accent Travel Mug" [ref=e546]
+              - img "Bamboo Accent Travel Mug gallery view 2" [ref=e547]
+              - generic [ref=e549]:
+                - paragraph [ref=e550]: Eco-Friendly
+                - heading "Bamboo Accent Travel Mug" [level=3] [ref=e551]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Bamboo+Accent+Travel+Mug&item=GC-EF-614&message=I+am+interested+in+GC-EF-614.+Please+share+MOQ%2C+eco+material+notes%2C+bamboo+options%2C+and+kraft+packaging+support.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e553]:
+              - generic [ref=e554]:
+                - paragraph [ref=e555]: Item Number
+                - paragraph [ref=e556]: GC-EF-614
+              - generic [ref=e557]:
+                - paragraph [ref=e558]: Material
+                - paragraph [ref=e559]: Recycled Stainless Steel + Bamboo
+              - generic [ref=e560]:
+                - paragraph [ref=e561]: Capacity
+                - paragraph [ref=e562]: 410ml / 14oz
+              - generic [ref=e563]:
+                - paragraph [ref=e564]: Min. Order
+                - paragraph [ref=e565]: 600pcs
+          - article [ref=e566]:
+            - link "View details for Wireless Charging Desk Mug Set" [ref=e567] [cursor=pointer]:
+              - img "Wireless Charging Desk Mug Set" [ref=e568]
+              - img "Wireless Charging Desk Mug Set gallery view 2" [ref=e569]
+              - generic [ref=e571]:
+                - paragraph [ref=e572]: TECH
+                - heading "Wireless Charging Desk Mug Set" [level=3] [ref=e573]
+                - generic:
+                  - link "Request a Sample":
+                    - /url: /contact?product=Wireless+Charging+Desk+Mug+Set&item=GC-TE-642&message=I+am+interested+in+GC-TE-642.+Please+share+MOQ%2C+charging-base+options%2C+branding+details%2C+and+executive+packaging+formats.#project-inquiry
+                    - generic: Request a Sample
+                    - img
+            - generic [ref=e575]:
+              - generic [ref=e576]:
+                - paragraph [ref=e577]: Item Number
+                - paragraph [ref=e578]: GC-TE-642
+              - generic [ref=e579]:
+                - paragraph [ref=e580]: Material
+                - paragraph [ref=e581]: Stainless Steel + Charging Base
+              - generic [ref=e582]:
+                - paragraph [ref=e583]: Capacity
+                - paragraph [ref=e584]: 420ml / 14oz
+              - generic [ref=e585]:
+                - paragraph [ref=e586]: Min. Order
+                - paragraph [ref=e587]: 400sets
+      - generic [ref=e589]:
+        - generic [ref=e590]:
+          - paragraph [ref=e591]: Expanded Range
+          - heading "Looking for more? Download our full 2026 Master Catalog for more additional styles." [level=2] [ref=e592]
+        - generic [ref=e593]:
+          - paragraph [ref=e594]: Browse the broader range, discover seasonal extensions, and request the latest sourcing-ready catalog package from the team.
+          - link "Download Full Catalog" [ref=e595] [cursor=pointer]:
+            - /url: /resources#download-center
+            - generic [ref=e596]: Download Full Catalog
+            - img [ref=e597]
+  - contentinfo [ref=e599]:
+    - generic [ref=e601]:
+      - generic [ref=e602]:
+        - link "Global Castle Industrial" [ref=e603] [cursor=pointer]:
+          - /url: /
+          - img "Global Castle Industrial" [ref=e604]
+        - paragraph [ref=e605]: Professional B2B manufacturer specializing in premium drinkware, tableware, and dining essentials. Empowering global brands, wholesalers, and distributors with reliable supply chain solutions since 2005.
+        - generic [ref=e606]:
+          - link "LinkedIn" [ref=e607] [cursor=pointer]:
+            - /url: https://www.linkedin.com
+            - img [ref=e608]
+          - link "WhatsApp" [ref=e610] [cursor=pointer]:
+            - /url: https://wa.me/8618969038198
+            - img [ref=e611]
+          - link "Email" [ref=e613] [cursor=pointer]:
+            - /url: mailto:sales@cnurbaneco.com
+            - img [ref=e614]
+      - generic [ref=e616]:
+        - heading "Products" [level=3] [ref=e617]
+        - list [ref=e618]:
+          - listitem [ref=e619]:
+            - link "Stainless Steel Series" [ref=e620] [cursor=pointer]:
+              - /url: /products?category=stainless-steel-bottles
+          - listitem [ref=e621]:
+            - link "Ceramic Tableware & Mugs" [ref=e622] [cursor=pointer]:
+              - /url: /products?category=ceramic-mugs
+          - listitem [ref=e623]:
+            - link "Glassware Collections" [ref=e624] [cursor=pointer]:
+              - /url: /products?category=glass-bottles-mugs
+          - listitem [ref=e625]:
+            - link "Dining & Kitchen Essentials" [ref=e626] [cursor=pointer]:
+              - /url: /products?category=food-containers
+          - listitem [ref=e627]:
+            - link "Eco-Friendly Solutions" [ref=e628] [cursor=pointer]:
+              - /url: /products?category=eco-friendly
+          - listitem [ref=e629]:
+            - link "Custom Gift Sets" [ref=e630] [cursor=pointer]:
+              - /url: /products?category=accessories
+      - generic [ref=e631]:
+        - heading "Company" [level=3] [ref=e632]
+        - list [ref=e633]:
+          - listitem [ref=e634]:
+            - link "About Us" [ref=e635] [cursor=pointer]:
+              - /url: /about
+          - listitem [ref=e636]:
+            - link "Custom Solutions" [ref=e637] [cursor=pointer]:
+              - /url: /solutions
+          - listitem [ref=e638]:
+            - link "Resources" [ref=e639] [cursor=pointer]:
+              - /url: /resources
+          - listitem [ref=e640]:
+            - link "Request Full Catalog (PDF)" [ref=e641] [cursor=pointer]:
+              - /url: /resources#download-center
+          - listitem [ref=e642]:
+            - link "Blog" [ref=e643] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e644]:
+            - link "Contact" [ref=e645] [cursor=pointer]:
+              - /url: /contact
+      - generic [ref=e646]:
+        - heading "Contact" [level=3] [ref=e647]
+        - list [ref=e648]:
+          - listitem [ref=e649]:
+            - img [ref=e650]
+            - generic [ref=e653]: Hangzhou, Zhejiang Province, China
+          - listitem [ref=e654]:
+            - img [ref=e655]
+            - link "sales@cnurbaneco.com" [ref=e657] [cursor=pointer]:
+              - /url: mailto:sales@cnurbaneco.com
+          - listitem [ref=e658]:
+            - img [ref=e659]
+            - generic [ref=e661]:
+              - generic [ref=e662]: +86-571-8823 1580
+              - generic [ref=e663]: +86-189 6903 8198
+          - listitem [ref=e664]:
+            - img [ref=e665]
+            - link "WhatsApp Business" [ref=e667] [cursor=pointer]:
+              - /url: https://wa.me/8618969038198
+        - generic [ref=e669]:
+          - figure "wecom" [ref=e670]:
+            - img "WeCom QR code" [ref=e671]
+            - generic [ref=e672]: wecom
+          - figure "whatsapp" [ref=e673]:
+            - img "WhatsApp QR code" [ref=e674]
+            - generic [ref=e675]: whatsapp
+    - generic [ref=e677]:
+      - paragraph [ref=e678]: © 2026 Global Castle Industrial Co., Ltd. All rights reserved.
+      - paragraph [ref=e679]: Hangzhou, China · Premier B2B Dining & Lifestyle Supplier
+  - button "Open Next.js Dev Tools" [ref=e685] [cursor=pointer]:
+    - img [ref=e686]

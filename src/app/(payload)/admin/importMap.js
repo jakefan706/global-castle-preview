@@ -27,6 +27,13 @@ import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { default as default_dd72072736504c851e9f0973317839f6 } from '../../../app/(payload)/components/AdminLoginLogo'
+import { default as default_36d0d7e14f43b2a5c19458c8c1180f21 } from '../../../app/(payload)/components/AdminDraftRecovery'
+import { default as default_3041cf5a75b057664f2713f530b75468 } from '../../../app/(payload)/components/ProductImageManager'
+import { default as default_9e22c9aaf9ca6c93fd70e5654bb35a20 } from '../../../app/(payload)/components/MediaListView'
+import { default as default_223e4c27ecf61d51e8ce4e00a86efd56 } from '../../../app/(payload)/components/MediaThumbnailBrowser'
+import { default as default_67b723ecae85e9acd580ac69026d7641 } from '../../../app/(payload)/components/MediaUsageNotice'
+import { default as default_70dc9703627fda4f8fc4a24fd83f62d7 } from '../../../app/(payload)/components/MediaUsageStatusCell'
+import { default as default_2ce05fae91cd3d6be06ca83edf0f9afe } from '../../../app/(payload)/components/SafeMetaDescriptionField'
 import { default as default_e6036b1b5f292408e7851cbf346363d0 } from '../../../app/(payload)/components/AdminSidebarBrand'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
@@ -60,6 +67,13 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "./app/(payload)/components/AdminLoginLogo#default": default_dd72072736504c851e9f0973317839f6,
+  "./app/(payload)/components/AdminDraftRecovery#default": default_36d0d7e14f43b2a5c19458c8c1180f21,
+  "./app/(payload)/components/ProductImageManager#default": default_3041cf5a75b057664f2713f530b75468,
+  "./app/(payload)/components/MediaListView#default": default_9e22c9aaf9ca6c93fd70e5654bb35a20,
+  "./app/(payload)/components/MediaThumbnailBrowser#default": default_223e4c27ecf61d51e8ce4e00a86efd56,
+  "./app/(payload)/components/MediaUsageNotice#default": default_67b723ecae85e9acd580ac69026d7641,
+  "./app/(payload)/components/MediaUsageStatusCell#default": default_70dc9703627fda4f8fc4a24fd83f62d7,
+  "./app/(payload)/components/SafeMetaDescriptionField#default": default_2ce05fae91cd3d6be06ca83edf0f9afe,
   "./app/(payload)/components/AdminSidebarBrand#default": default_e6036b1b5f292408e7851cbf346363d0,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

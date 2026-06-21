@@ -3,9 +3,9 @@ import type { Metadata } from 'next'
 import ContactPage from '../components/contact/ContactPage'
 
 export const metadata: Metadata = {
-  title: 'Contact | Global Castle',
+  title: 'Contact UrbanEco | Global Castle',
   description:
-    'Start a B2B drinkware inquiry with Global Castle. Share product type, quantity, branding, packaging, and timing to begin a practical custom project discussion.',
+    'Start a sourcing program with UrbanEco. Share product specifications, customization goals, and volume requirements for premium drinkware, ceramics, and integrated tableware collections.',
 }
 
 export default function ContactRoute() {

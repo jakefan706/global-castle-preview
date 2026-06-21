@@ -28,7 +28,7 @@ type ProductDetailData = {
   logoMethods: string[]
   finishOptions: string[]
   packagingOptions: string[]
-  relatedCategories: Array<{ name: string; slug: string; image: string }>
+  relatedCategories: Array<{ name: string; slug: string; image: string; productSlug?: string }>
   inquiryMessage: string
 }
 
@@ -254,41 +254,43 @@ function RelatedCapabilities({ categories }: { categories: ProductDetailData['re
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-            Related Categories
+            Related Products
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-            Explore related drinkware capabilities
+            More from the same category
           </h2>
-          <p className="mt-4 text-sm leading-7 text-[#666666]">
-            Keep the buyer inside the product system with adjacent categories that often travel in the same sourcing conversation.
-          </p>
         </div>
 
         <div className="grid gap-5 md:grid-cols-4">
-          {categories.map((category) => (
-            <Link
-              key={category.slug}
-              href={`/products?category=${category.slug}`}
-              className="group relative aspect-square overflow-hidden rounded-[4px]"
-            >
-              <Image
-                src={category.image}
-                alt={category.name}
-                fill
-                sizes="(min-width: 768px) 22vw, 100vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/82 via-[#081320]/16 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
-                <h3 className="text-base font-semibold text-white">{category.name}</h3>
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/16 text-white backdrop-blur-sm transition-transform duration-300 group-hover:translate-x-1">
-                  <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M5 12h14M13 5l7 7-7 7" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          ))}
+          {categories.map((category) => {
+            const href = category.productSlug
+              ? `/products/${category.productSlug}`
+              : `/products?category=${category.slug}`
+            return (
+              <Link
+                key={category.productSlug || category.slug}
+                href={href}
+                className="group relative aspect-square overflow-hidden rounded-[4px]"
+              >
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  fill
+                  sizes="(min-width: 768px) 22vw, 100vw"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105 bg-[#f0f4f6]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/82 via-[#081320]/16 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4">
+                  <h3 className="text-base font-semibold text-white">{category.name}</h3>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/16 text-white backdrop-blur-sm transition-transform duration-300 group-hover:translate-x-1">
+                    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M13 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </section>

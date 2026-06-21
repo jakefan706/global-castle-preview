@@ -94,6 +94,11 @@
   to   { opacity: 0; }
 }
 
+@keyframes partner-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-50% - 0.5rem), 0, 0); }
+}
+
 /* 无障碍：关闭动画 */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -137,6 +142,38 @@ html {
 
 .reveal-right.visible {
   animation: var(--animate-fade-in-right);
+}
+
+.gc-marquee-wrap {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gc-marquee-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.gc-partner-marquee {
+  animation: partner-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.gc-partner-marquee--active {
+  animation: partner-marquee 40s linear infinite !important;
+  animation-duration: 40s !important;
+  animation-iteration-count: infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gc-partner-marquee {
+    animation: none;
+  }
+
+  .gc-partner-marquee--active {
+    animation: partner-marquee 40s linear infinite !important;
+    animation-duration: 40s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 /* ============================================================

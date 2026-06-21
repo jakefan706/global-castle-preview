@@ -4,6 +4,8 @@ import { ALL_PRODUCT_CATEGORIES } from '../components/category-config'
 import ProductsGrid from './ProductsGrid'
 import { getProductIndex } from '@/lib/products'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Products | Global Castle',
   description:

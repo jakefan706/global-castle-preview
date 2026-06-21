@@ -22,10 +22,10 @@ type ProductCard = {
     url: string
     alt: string
   }
-  cardBadge: {
+  cardBadges: Array<{
     label: string
     tone: 'orange' | 'blue'
-  } | null
+  }>
 }
 
 function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
@@ -71,11 +71,6 @@ export default function ProductsGrid({ products }: { products: ProductCard[] }) 
       {products.map((product) => {
         const isHovered = hoveredSlug === product.slug
         const inquiryHref = inquiryHrefMap.get(product.slug) || '/contact#project-inquiry'
-        const badgeClasses =
-          product.cardBadge?.tone === 'orange'
-            ? 'bg-[#ff8d3a] text-white'
-            : 'bg-[#14314b] text-white'
-
         return (
           <article
             key={product.slug}
@@ -101,23 +96,33 @@ export default function ProductsGrid({ products }: { products: ProductCard[] }) 
                 alt={product.mainImage.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className={`object-cover transition-all duration-500 ${isHovered ? 'scale-[1.04] opacity-0' : 'scale-100 opacity-100'}`}
+                className={`object-contain p-3 transition-all duration-500 ${isHovered ? 'scale-[1.04] opacity-0' : 'scale-100 opacity-100'}`}
               />
               <Image
                 src={product.cardSceneImage.url}
                 alt={product.cardSceneImage.alt}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
-                className={`object-cover transition-all duration-500 ${isHovered ? 'scale-100 opacity-100' : 'scale-[1.03] opacity-0'}`}
+                className={`object-contain p-3 transition-all duration-500 ${isHovered ? 'scale-100 opacity-100' : 'scale-[1.03] opacity-0'}`}
               />
 
-              {product.cardBadge ? (
+              {product.cardBadges.length ? (
                 <div className="absolute right-4 top-4 z-30">
-                  <span
-                    className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${badgeClasses}`}
-                  >
-                    {product.cardBadge.label}
-                  </span>
+                  <div className="flex flex-col items-end gap-2">
+                    {product.cardBadges.map((badge) => {
+                      const badgeClasses =
+                        badge.tone === 'orange' ? 'bg-[#ff8d3a] text-white' : 'bg-[#14314b] text-white'
+
+                      return (
+                        <span
+                          key={`${product.slug}-${badge.label}`}
+                          className={`inline-flex rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-[0.18em] ${badgeClasses}`}
+                        >
+                          {badge.label}
+                        </span>
+                      )
+                    })}
+                  </div>
                 </div>
               ) : null}
 
@@ -126,13 +131,8 @@ export default function ProductsGrid({ products }: { products: ProductCard[] }) 
               />
 
               <div className="absolute inset-x-0 bottom-0 z-20 p-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#9fe0e2]">
-                  {product.categoryName}
-                </p>
-                <h3 className="mt-2 text-xl font-semibold text-white">{product.name}</h3>
-
                 <div
-                  className={`mt-4 transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
+                  className={`transition-all duration-300 ${isHovered ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}
                 >
                   <Link
                     href={inquiryHref}
@@ -148,7 +148,8 @@ export default function ProductsGrid({ products }: { products: ProductCard[] }) 
               </div>
             </div>
 
-            <div className="grid gap-4 p-4">
+            <div className="grid gap-3 p-4">
+              <h3 className="text-base font-semibold text-[#13232c] leading-snug">{product.name}</h3>
               <div className="grid gap-2.5 text-[13px] text-[#4f6470] sm:grid-cols-2">
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8a9aa5]">
@@ -175,7 +176,7 @@ export default function ProductsGrid({ products }: { products: ProductCard[] }) 
                     Min. Order
                   </p>
                   <p className="mt-0.5 leading-5 font-medium text-[#13232c]">
-                    {product.customizeMOQ || 'Discuss project scope'}
+                    1500 PCS
                   </p>
                 </div>
               </div>

@@ -2,9 +2,17 @@ import type { CollectionConfig } from 'payload'
 
 export const BlogPosts: CollectionConfig = {
   slug: 'blog-posts',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['coverImage', 'title', 'category', 'publishedDate', 'featured'],
+    defaultColumns: ['coverImage', 'title', 'isPublished', 'category', 'publishedDate', 'featured'],
+    components: {
+      edit: {
+        beforeDocumentControls: ['./app/(payload)/components/AdminDraftRecovery#default'],
+      },
+    },
   },
   fields: [
     {
@@ -21,10 +29,11 @@ export const BlogPosts: CollectionConfig = {
     },
     {
       name: 'summary',
-      type: 'text',
+      type: 'textarea',
       label: 'Summary',
       admin: {
         description: '摘要，在列表页展示',
+        rows: 5,
       },
     },
     {
@@ -67,6 +76,16 @@ export const BlogPosts: CollectionConfig = {
       defaultValue: false,
       admin: {
         position: 'sidebar',
+      },
+    },
+    {
+      name: 'isPublished',
+      type: 'checkbox',
+      label: 'Published',
+      defaultValue: true,
+      admin: {
+        position: 'sidebar',
+        description: '关闭后仅在后台保留，不在前台 Blog 页面显示。',
       },
     },
   ],

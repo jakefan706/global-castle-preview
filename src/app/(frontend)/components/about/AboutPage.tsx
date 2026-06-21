@@ -1,13 +1,13 @@
+import type { ReactNode } from 'react'
+
 import Image from 'next/image'
 import Link from 'next/link'
 
 import {
-  certificationSupport,
+  commitments,
   companyIntro,
-  facilityHighlights,
+  companyOverview,
   proofStats,
-  timelineOrMilestones,
-  whyChooseUs,
 } from './about-data'
 
 function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
@@ -26,48 +26,41 @@ function ArrowIcon({ className = 'h-4 w-4' }: { className?: string }) {
   )
 }
 
+function SectionLabel({ children }: { children: ReactNode }) {
+  return (
+    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#0c7276]">{children}</p>
+  )
+}
+
 export default function AboutPage() {
   return (
     <>
       <section className="relative isolate overflow-hidden bg-[#081827] pt-28 text-white sm:pt-32">
         <Image
           src={companyIntro.heroImage}
-          alt="Global Castle production and export capability"
+          alt="UrbanEco manufacturing facility"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-42"
+          className="object-cover object-center opacity-40"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,19,32,0.95)_0%,rgba(7,19,32,0.75)_48%,rgba(7,19,32,0.28)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,19,32,0.94)_0%,rgba(7,19,32,0.8)_44%,rgba(7,19,32,0.24)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#081827] to-transparent" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8 lg:pb-24">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 pb-18 sm:px-6 lg:px-8 lg:pb-24">
           <div className="max-w-3xl animate-fade-up">
-            <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#00868b]">
-              {companyIntro.eyebrow}
-            </p>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <SectionLabel>{companyIntro.eyebrow}</SectionLabel>
+            <h1 className="mt-5 text-[2.6rem] font-semibold tracking-[-0.06em] text-white sm:text-[3.8rem] lg:text-[5rem]">
               {companyIntro.title}
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-[#d8e3ea] sm:text-lg">
               {companyIntro.description}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3 text-sm text-white/78">
-              {[companyIntro.foundedLabel, companyIntro.locationLabel, companyIntro.audienceLabel].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-white/18 bg-white/8 px-4 py-2 backdrop-blur-sm"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="#company-overview"
-                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
+                className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0,134,139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
               >
                 <span>Explore Company Profile</span>
                 <ArrowIcon />
@@ -85,255 +78,85 @@ export default function AboutPage() {
       </section>
 
       <section id="company-overview" className="scroll-mt-28 bg-white py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Company Overview
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              Built to support drinkware programs with production discipline and export awareness.
-            </h2>
-          </div>
-
-          <div className="space-y-6 text-sm leading-7 text-[#5f6d78] sm:text-base">
-            <p>
-              Global Castle is a B2B drinkware manufacturer focused on stainless steel bottles,
-              tumblers, mugs, and adjacent custom programs for distributors, wholesalers, gift
-              companies, and brand teams.
-            </p>
-            <p>
-              The company’s value is not only in supplying products, but in coordinating the
-              details that matter to professional buyers: customization direction, packaging
-              alignment, production readiness, quality review, and shipment planning.
-            </p>
-            <p>
-              The result is a more practical sourcing partner for customers who need a factory that
-              can support both everyday catalog demand and branded OEM projects with clearer
-              communication and steadier execution.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#f5f8fa] py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Proof Of Capability
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              The company profile should answer credibility questions quickly.
-            </h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {proofStats.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-[4px] border border-[#dbe5ec] bg-white p-6 shadow-[0_16px_36px_rgba(12,27,48,0.05)]"
-              >
-                <p className="text-4xl font-bold text-[#1f3345]">{stat.value}</p>
-                <h3 className="mt-4 text-base font-semibold uppercase tracking-[0.12em] text-[#00868b]">
-                  {stat.label}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-[#5f6d78]">{stat.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:gap-16 lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Why Work With Us
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              A more useful version of “why choose us” for professional buyers.
-            </h2>
-            <p className="mt-5 text-sm leading-7 text-[#5f6d78] sm:text-base">
-              This section is not written as brand promotion. Its job is to explain why the
-              factory setup, process control, and export focus matter in real sourcing work.
-            </p>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {whyChooseUs.map((item) => (
-              <div key={item.title} className="border-l border-[#dce8ee] pl-5">
-                <h3 className="text-xl font-semibold text-[#333333]">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-[#5f6d78]">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#edf4f7] py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-                Facility & Production
-              </p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-                The factory is presented as a working production system, not a gallery.
-              </h2>
-            </div>
-            <p className="max-w-xl text-sm leading-7 text-[#5f6d78]">
-              The strongest part of the reference page is its workshop emphasis. Here, that idea is
-              translated into a more architectural layout focused on execution capacity.
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-[1.16fr_0.84fr]">
-            <div className="grid gap-6 sm:grid-cols-2">
-              {facilityHighlights.slice(0, 2).map((highlight) => (
-                <article key={highlight.title} className="overflow-hidden rounded-[4px] bg-white shadow-[0_18px_40px_rgba(12,27,48,0.06)]">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#081827]">
-                    <Image
-                      src={highlight.image}
-                      alt={highlight.title}
-                      fill
-                      sizes="(min-width: 1024px) 28vw, 100vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/74 via-[#081320]/18 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-5">
-                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
-                        Process Zone
-                      </p>
-                      <h3 className="mt-3 text-2xl font-semibold text-white">{highlight.title}</h3>
-                    </div>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-sm leading-7 text-[#5f6d78]">{highlight.detail}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <div className="grid gap-6">
-              {facilityHighlights.slice(2).map((highlight) => (
-                <article
-                  key={highlight.title}
-                  className="grid overflow-hidden rounded-[4px] bg-white shadow-[0_18px_40px_rgba(12,27,48,0.06)] sm:grid-cols-[220px_1fr]"
-                >
-                  <div className="relative min-h-[220px] overflow-hidden bg-[#081827]">
-                    <Image
-                      src={highlight.image}
-                      alt={highlight.title}
-                      fill
-                      sizes="(min-width: 640px) 220px, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
-                      Production Flow
-                    </p>
-                    <h3 className="mt-3 text-2xl font-semibold text-[#333333]">{highlight.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-[#5f6d78]">{highlight.detail}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16 lg:px-8">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Operational Rhythm
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              How the company works once a sourcing conversation begins.
+            <SectionLabel>{companyOverview.eyebrow}</SectionLabel>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#16313f] sm:text-4xl">
+              {companyOverview.title}
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[#5f6d78] sm:text-base">
-              A company page is more useful when it shows how work actually moves, from inquiry
-              alignment to shipment coordination, instead of only listing credentials.
-            </p>
           </div>
 
-          <div className="space-y-5">
-            {timelineOrMilestones.map((item) => (
+          <div className="space-y-6 text-sm leading-8 text-[#5c6e79] sm:text-base">
+            {companyOverview.description.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[#dbe5ea] bg-[#f5f8fa] py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <SectionLabel>Proof of Capability</SectionLabel>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#16313f] sm:text-4xl">
+              UrbanEco by the Numbers
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {proofStats.map((stat) => (
               <div
-                key={item.step}
-                className="grid gap-4 border-b border-[#dfe9ef] pb-5 last:border-b-0 last:pb-0 sm:grid-cols-[52px_1fr]"
+                key={stat.title}
+                className="rounded-[4px] border border-[#dbe5ec] bg-white p-6 shadow-[0_16px_36px_rgba(12,27,48,0.05)]"
               >
-                <div className="text-lg font-bold text-[#00868b]">{item.step}</div>
-                <div>
-                  <h3 className="text-xl font-semibold text-[#333333]">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#5f6d78]">{item.text}</p>
-                </div>
+                <p className="text-4xl font-semibold tracking-[-0.05em] text-[#16313f]">
+                  {stat.value}
+                </p>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#0c7276]">
+                  {stat.label}
+                </p>
+                <h3 className="mt-3 text-base font-semibold text-[#16313f]">{stat.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-[#5c6e79]">{stat.detail}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f5f8fa] py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16 lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Certifications & Support
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              Certification references are presented as procurement support, not decoration.
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <SectionLabel>Our Commitments</SectionLabel>
+            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-[#16313f] sm:text-4xl">
+              What we protect for every program
             </h2>
-            <p className="mt-5 text-sm leading-7 text-[#5f6d78] sm:text-base">
-              Buyers often need confidence around documentation, food-contact expectations, quality
-              review, and audit readiness. This section keeps that proof visible without turning it
-              into a generic logo wall.
-            </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {certificationSupport.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-[4px] border border-[#dbe5ec] bg-white p-5 transition-all duration-200 hover:border-[#81bfc1] hover:shadow-[0_16px_30px_rgba(12,27,48,0.06)]"
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {commitments.map((item) => (
+              <article
+                key={item.title}
+                className="group overflow-hidden rounded-[4px] border border-[#dbe5ec] bg-white shadow-[0_16px_36px_rgba(12,27,48,0.05)]"
               >
-                <div className="relative h-14 w-20">
+                <div className="relative aspect-[16/9] bg-[#081827]">
                   <Image
-                    src={item.logo}
-                    alt={`${item.name} certification logo`}
+                    src={item.media}
+                    alt={item.title}
                     fill
-                    sizes="80px"
-                    className="object-contain object-left"
+                    sizes="(min-width: 1024px) 32vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/72 via-[#081320]/16 to-transparent" />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-[#333333]">{item.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#5f6d78]">{item.detail}</p>
-              </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] text-[#16313f]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-[#5c6e79]">{item.description}</p>
+                </div>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="bg-[#081827] py-20 text-white lg:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-              Start An Inquiry
-            </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Share product type, quantity, branding needs, packaging direction, and timing.
-            </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c5d1da] sm:text-base">
-              We can help evaluate product fit, customization scope, MOQ, packaging options,
-              quality checkpoints, and delivery coordination for your next drinkware program.
-            </p>
-          </div>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]"
-          >
-            <span>Start Your Inquiry</span>
-            <ArrowIcon />
-          </Link>
         </div>
       </section>
     </>

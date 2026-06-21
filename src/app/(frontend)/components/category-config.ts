@@ -27,37 +27,37 @@ export const FEATURED_CATEGORY_CARDS: FeaturedCategoryCard[] = [
     name: 'Stainless Steel Series',
     slug: 'stainless-steel-bottles',
     image: '/images/products/steel-bottles.jpg',
-    description: 'Vacuum flasks, travel tumblers, and insulated formats built for high-volume private label programs.',
+    description: 'High-performance vacuum flasks and travel tumblers engineered for durability and superior insulation in high-volume OEM programs.',
   },
   {
     name: 'Ceramic & Stoneware',
     slug: 'ceramic-mugs',
     image: '/images/products/ceramic-mugs.jpg',
-    description: 'Retail-ready mugs, serving pieces, and glazed tabletop formats with strong decoration potential.',
+    description: 'Bespoke dinnerware and mugs featuring artisanal glazes and robust stoneware, tailored for premium hospitality and retail brands.',
   },
   {
     name: 'Glassware Essentials',
     slug: 'glass-bottles-mugs',
     image: '/images/products/glassware.jpg',
-    description: 'Clean-lined glass bottles, mugs, and drink service pieces for contemporary lifestyle assortments.',
+    description: 'Elegant, borosilicate glass solutions for modern hydration with clean designs that blend functionality and contemporary lifestyle appeal.',
   },
   {
     name: 'Eco-friendly & Sustainable',
     slug: 'eco-friendly',
     image: '/images/products/plastic-cups.jpg',
-    description: 'Material-conscious product directions designed to support reusable, lower-waste lifestyle collections.',
+    description: 'Responsibly sourced, low-impact materials designed for brands committed to sustainability and the circular economy.',
   },
   {
     name: 'Professional Tableware',
     slug: 'food-containers',
     image: '/images/products/tumblers.jpg',
-    description: 'Dining-ready service pieces and practical kitchen formats developed for hospitality and retail buyers.',
+    description: 'Comprehensive dining essentials from plates to serving pieces, built for the rigorous demands of professional hospitality environments.',
   },
   {
     name: 'Gift Sets & Packaging',
     slug: 'accessories',
     image: '/images/products/gift-sets.jpg',
-    description: 'Presentation-led bundle concepts, custom inserts, and packaging systems that sharpen shelf appeal.',
+    description: 'Brand-ready kitting solutions with custom-designed inserts and premium packaging that elevate the unboxing experience.',
   },
 ]
 

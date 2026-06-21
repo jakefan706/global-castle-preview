@@ -107,7 +107,7 @@ export default function ProductGallery({
                 alt={transitionImage.alt}
                 fill
                 sizes="(min-width: 1024px) 42vw, 100vw"
-                className="object-cover"
+                className="object-contain p-4"
               />
             </div>
           ) : null}
@@ -119,7 +119,7 @@ export default function ProductGallery({
               fill
               priority
               sizes="(min-width: 1024px) 42vw, 100vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-[1.04]"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#081320]/18 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -153,7 +153,7 @@ export default function ProductGallery({
                   alt={image.alt}
                   fill
                   sizes="(min-width: 640px) 10vw, 22vw"
-                  className={`object-cover transition-transform duration-250 ${
+                  className={`object-contain p-1 transition-transform duration-250 ${
                     selected ? 'scale-[1.08]' : 'scale-[1.06] group-hover:scale-[1.11]'
                   }`}
                 />

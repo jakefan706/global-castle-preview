@@ -81,7 +81,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
               Program Focus
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              A focused capability for practical B2B drinkware sourcing.
+              {solution.programFocusTitle ?? 'A focused capability for practical B2B drinkware sourcing.'}
             </h2>
             <p className="mt-5 text-sm leading-7 text-[#666666] sm:text-base">
               {solution.intro}
@@ -106,7 +106,7 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
               What We Support
             </p>
             <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-              Clear decisions before sampling and production.
+              {solution.supportTitle ?? 'Clear decisions before sampling and production.'}
             </h2>
           </div>
 
@@ -129,8 +129,13 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
                 Related Product Ranges
               </p>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#333333] sm:text-4xl">
-                Start from a product category that fits this solution.
+                {solution.relatedTitle ?? 'Start from a product category that fits this solution.'}
               </h2>
+              {solution.relatedDescription ? (
+                <p className="mt-4 text-sm leading-7 text-[#667781] sm:text-base">
+                  {solution.relatedDescription}
+                </p>
+              ) : null}
             </div>
             <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#00868b] transition-colors duration-200 hover:text-[#006d72]">
               <span>View all products</span>
@@ -164,36 +169,45 @@ export default function SolutionDetailPage({ solution }: { solution: SolutionPag
         </div>
       </section>
 
-      <section className="bg-[#081827] py-20 text-white lg:py-24">
+      <section className="bg-[#eef4f6] py-16 lg:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#00868b]">
-                More Solutions
-              </p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                Keep building the full program around your sourcing brief.
-              </h2>
-              <Link href="/#contact" className="mt-7 inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#00868b] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(0, 134, 139,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#006d72]">
-                <span>Start an Inquiry</span>
-                <ArrowIcon />
-              </Link>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-3">
-              {adjacentSolutions.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`/solutions/${item.slug}`}
-                  className="rounded-[4px] border border-white/12 bg-white/[0.06] p-5 transition-all duration-250 hover:border-[#00868b]/60 hover:bg-white/[0.1]"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00868b]">
-                    {item.eyebrow}
+          <div className="overflow-hidden rounded-[6px] border border-[#c6d8e0] bg-[linear-gradient(135deg,#0b1d2f_0%,#0c2437_56%,#123447_100%)] text-white shadow-[0_26px_60px_rgba(7,24,39,0.14)]">
+            <div className="px-6 py-10 sm:px-8 lg:px-12 lg:py-12">
+              <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#35b9bd]">
+                    More Solutions
                   </p>
-                  <h3 className="mt-3 text-base font-semibold text-white">{item.shortTitle}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#c5d1da]">{item.summary}</p>
-                </Link>
-              ))}
+                  <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    {solution.moreSolutionsTitle ?? 'Keep building the full program around your sourcing brief.'}
+                  </h2>
+                  {solution.moreSolutionsDescription ? (
+                    <p className="mt-4 max-w-2xl text-sm leading-7 text-[#c8d6de] sm:text-base">
+                      {solution.moreSolutionsDescription}
+                    </p>
+                  ) : null}
+                  <Link href="/#contact" className="mt-7 inline-flex items-center justify-center gap-2 rounded-[4px] bg-[#11939a] px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(17,147,154,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0d7e84]">
+                    <span>{solution.inquiryButtonLabel ?? 'Start an Inquiry'}</span>
+                    <ArrowIcon />
+                  </Link>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {adjacentSolutions.map((item) => (
+                    <Link
+                      key={item.slug}
+                      href={`/solutions/${item.slug}`}
+                      className="rounded-[4px] border border-white/14 bg-white/[0.07] p-5 transition-all duration-250 hover:border-[#35b9bd]/50 hover:bg-white/[0.1]"
+                    >
+                      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#35b9bd]">
+                        {item.eyebrow}
+                      </p>
+                      <h3 className="mt-3 text-base font-semibold text-white">{item.shortTitle}</h3>
+                      <p className="mt-3 text-sm leading-6 text-[#c8d6de]">{item.summary}</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

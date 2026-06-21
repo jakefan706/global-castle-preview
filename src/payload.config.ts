@@ -1,5 +1,6 @@
 // @ts-check
 import { buildConfig } from 'payload'
+import type { Field, TextareaField } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
@@ -7,14 +8,16 @@ import sharp from 'sharp'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { Products } from './collections/Products'
-import { Categories } from './collections/Categories'
-import { Applications } from './collections/Applications'
-import { BlogPosts } from './collections/BlogPosts'
-import { Certifications } from './collections/Certifications'
-import { InquirySubmissions } from './collections/InquirySubmissions'
-import { Media } from './collections/Media'
-import { Users } from './collections/Users'
+import { Products } from './collections/Products.ts'
+import { Categories } from './collections/Categories.ts'
+import { Applications } from './collections/Applications.ts'
+import { BlogPosts } from './collections/BlogPosts.ts'
+import { Certifications } from './collections/Certifications.ts'
+import { InquirySubmissions } from './collections/InquirySubmissions.ts'
+import { Media } from './collections/Media.ts'
+import { Users } from './collections/Users.ts'
+import { ensureDefaultProductCategories } from './lib/ensure-default-product-categories.ts'
+import { createMetaDescriptionFromRichText } from './lib/richtext.ts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -62,9 +65,49 @@ export default buildConfig({
   plugins: [
     seoPlugin({
       collections: ['products', 'blog-posts'],
+      fields: ({ defaultFields }) =>
+        defaultFields.map((field) => {
+          if ('name' in field && field.name === 'description' && field.type === 'textarea') {
+            const descriptionField = field as TextareaField
+
+            return {
+              ...descriptionField,
+              admin: {
+                ...descriptionField.admin,
+                components: {
+                  ...descriptionField.admin?.components,
+                  Field: {
+                    clientProps: {
+                      hasGenerateDescriptionFn: true,
+                    },
+                    path: './app/(payload)/components/SafeMetaDescriptionField#default',
+                  },
+                },
+              },
+            } as TextareaField
+          }
+
+          return field
+        }) as Field[],
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `${(doc as Record<string, string>)?.title || (doc as Record<string, string>)?.name || ''} | Global Castle`,
-      generateDescription: ({ doc }) => (doc as Record<string, string>)?.summary || (doc as Record<string, string>)?.description || '',
+      generateDescription: ({ doc, collectionConfig }) => {
+        const typedDoc = doc as Record<string, unknown>
+
+        if (collectionConfig?.slug === 'blog-posts') {
+          return typeof typedDoc.summary === 'string' ? typedDoc.summary : ''
+        }
+
+        if (collectionConfig?.slug === 'products') {
+          return createMetaDescriptionFromRichText(typedDoc.description)
+        }
+
+        return typeof typedDoc.summary === 'string'
+          ? typedDoc.summary
+          : typeof typedDoc.description === 'string'
+            ? typedDoc.description
+            : ''
+      },
     }),
   ],
 
@@ -74,8 +117,12 @@ export default buildConfig({
   // 上传限制
   upload: {
     limits: {
-      fileSize: 10 * 1024 * 1024, // 10MB
+      fileSize: 25 * 1024 * 1024, // 25MB
     },
+  },
+
+  onInit: async (payload) => {
+    await ensureDefaultProductCategories(payload)
   },
 
   // TypeScript 类型输出

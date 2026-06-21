@@ -1,28 +1,28 @@
 export const CONTACT_HERO = {
   eyebrow: 'Project Inquiry Desk',
-  title: 'Start a custom drinkware project with a sourcing brief the factory can actually work from.',
+  title: 'Start Your Sourcing Program with UrbanEco.',
   description:
-    'Use this page to turn product requirements, branding direction, packaging needs, and timing expectations into a practical B2B inquiry program.',
+    'Use this desk to submit your project specifications, customization goals, and volume requirements. Our engineering team specializes in expanding your brand across premium drinkware, ceramics, and integrated tableware collections.',
   primaryCta: {
-    label: 'Open Inquiry Form',
+    label: 'Launch Project Inquiry',
     href: '#project-inquiry',
   },
   secondaryCta: {
-    label: 'Review Contact Methods',
-    href: '#contact-methods',
+    label: 'Download Briefing Guide',
+    href: '/resources#downloads',
   },
   promises: [
     {
       label: 'Response speed',
-      detail: 'Initial review within 24 hours for standard business inquiries.',
+      detail: 'Technical review and initial quote within 24 hours for standard business days.',
     },
     {
       label: 'MOQ and sample guidance',
-      detail: 'Early direction on quantity fit, sample path, and customization feasibility.',
+      detail: 'Early direction on quantity fit, rapid sampling lead-times, and material availability.',
     },
     {
       label: 'Export coordination',
-      detail: 'Support for shipping documents, labels, and packing alignment before dispatch.',
+      detail: 'Full support for flexible Incoterms (FOB, EXW, DDP), compliant documentation, and brand consistency.',
     },
   ],
 } as const

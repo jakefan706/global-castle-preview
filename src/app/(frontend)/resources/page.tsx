@@ -5,7 +5,7 @@ import ResourcesPage from '../components/resources/ResourcesPage'
 export const metadata: Metadata = {
   title: 'Resources | Global Castle',
   description:
-    'Explore Global Castle resources for custom drinkware sourcing, including branding guidance, MOQ and packaging planning, certifications, FAQs, and quarterly brochure slots.',
+    'Download live Global Castle catalogs, review compliance references, and access quick buyer support before your next drinkware sourcing inquiry.',
 }
 
 export default function ResourcesHubRoute() {

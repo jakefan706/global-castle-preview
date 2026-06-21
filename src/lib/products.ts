@@ -1,16 +1,22 @@
 import config from '@payload-config'
-import { Socket } from 'node:net'
-import { getPayload } from 'payload'
+import { getPayload, type Where } from 'payload'
+
+import { extractRichTextLines } from './richtext'
 
 type LooseObject = Record<string, unknown>
 
 type ProductRecord = LooseObject & {
+  _status?: string
   id?: number | string
   slug?: string
   name?: string
   itemNumber?: string
   material?: string
   customizeMOQ?: string
+  classic?: boolean
+  featured?: boolean
+  newArrival?: boolean
+  isPublished?: boolean
   category?: unknown
   applications?: unknown
   mainImage?: unknown
@@ -41,13 +47,13 @@ type NormalizedProduct = {
   logoMethods: string[]
   finishOptions: string[]
   packagingOptions: string[]
-  relatedCategories: Array<{ name: string; slug: string; image: string }>
+  relatedCategories: Array<{ name: string; slug: string; image: string; productSlug?: string }>
   inquiryMessage: string
   cardSceneImage: NormalizedMedia
-  cardBadge: {
+  cardBadges: Array<{
     label: string
     tone: 'orange' | 'blue'
-  } | null
+  }>
 }
 
 const FALLBACK_MAIN_IMAGE: NormalizedMedia = {
@@ -232,7 +238,7 @@ function createSampleProduct({
     relatedCategories: getRelatedCategories(relatedCategorySlugs),
     inquiryMessage,
     cardSceneImage: gallery[1] || getSquareMedia(image, `${name} scene view`),
-    cardBadge: null,
+    cardBadges: [],
   }
 }
 
@@ -272,10 +278,12 @@ const GC_ST_420_FALLBACK: NormalizedProduct = {
   inquiryMessage:
     'I am interested in GC-ST-420. Please share MOQ, customization options, packaging choices, and sample lead time.',
   cardSceneImage: FALLBACK_GALLERY[1] || FALLBACK_MAIN_IMAGE,
-  cardBadge: {
-    label: 'CLASSIC',
-    tone: 'blue',
-  },
+  cardBadges: [
+    {
+      label: 'CLASSIC',
+      tone: 'blue',
+    },
+  ],
 }
 
 const SAMPLE_PRODUCTS: NormalizedProduct[] = [
@@ -359,10 +367,12 @@ const SAMPLE_PRODUCTS: NormalizedProduct[] = [
     inquiryMessage:
       'I am interested in GC-PB-338. Please share MOQ, color options, printing methods, and packaging support.',
     }),
-    cardBadge: {
-      label: 'New',
-      tone: 'orange',
-    },
+    cardBadges: [
+      {
+        label: 'New',
+        tone: 'orange',
+      },
+    ],
   },
   createSampleProduct({
     itemNumber: 'GC-PC-244',
@@ -1105,8 +1115,6 @@ const SAMPLE_PRODUCTS: NormalizedProduct[] = [
   }),
 ]
 
-let databaseReachability: boolean | null = null
-
 function slugifyItemNumber(value: string | null | undefined) {
   return (value || '')
     .trim()
@@ -1120,41 +1128,13 @@ function isLooseObject(value: unknown): value is LooseObject {
 }
 
 async function canReachDatabase() {
-  if (databaseReachability !== null) {
-    return databaseReachability
-  }
-
   const connectionString = process.env.DATABASE_URL
 
   if (!connectionString) {
-    databaseReachability = false
-    return databaseReachability
+    return false
   }
 
-  try {
-    const url = new URL(connectionString)
-    const host = url.hostname || '127.0.0.1'
-    const port = Number(url.port || '5432')
-
-    databaseReachability = await new Promise<boolean>((resolve) => {
-      const socket = new Socket()
-      const finish = (value: boolean) => {
-        socket.removeAllListeners()
-        socket.destroy()
-        resolve(value)
-      }
-
-      socket.setTimeout(250)
-      socket.once('connect', () => finish(true))
-      socket.once('timeout', () => finish(false))
-      socket.once('error', () => finish(false))
-      socket.connect(port, host)
-    })
-  } catch {
-    databaseReachability = false
-  }
-
-  return databaseReachability
+  return true
 }
 
 function normalizeMedia(media: unknown, fallbackAlt: string): NormalizedMedia {
@@ -1179,7 +1159,106 @@ function normalizeMedia(media: unknown, fallbackAlt: string): NormalizedMedia {
   }
 }
 
+function buildCardBadges(product: ProductRecord): NormalizedProduct['cardBadges'] {
+  const badges: NormalizedProduct['cardBadges'] = []
+
+  if (product.newArrival === true) {
+    badges.push({
+      label: 'New',
+      tone: 'orange',
+    })
+  }
+
+  if (product.classic === true || product.featured === true) {
+    badges.push({
+      label: 'CLASSIC',
+      tone: 'blue',
+    })
+  }
+
+  return badges
+}
+
+function normalizeSpecLabel(label: string) {
+  const cleaned = label.trim().replace(/[:\-–]+$/, '')
+  return cleaned || 'Specification'
+}
+
+const SPEC_LABEL_ORDER = ['Capacity', 'Size', 'Lid Type', 'Material', 'Lid', 'Closure']
+
+function sortSpecs(specs: Array<{ label: string; value: string }>) {
+  return [...specs].sort((a, b) => {
+    const ai = SPEC_LABEL_ORDER.findIndex((l) => a.label.toLowerCase().startsWith(l.toLowerCase()))
+    const bi = SPEC_LABEL_ORDER.findIndex((l) => b.label.toLowerCase().startsWith(l.toLowerCase()))
+    const aOrder = ai === -1 ? 999 : ai
+    const bOrder = bi === -1 ? 999 : bi
+    if (aOrder !== bOrder) return aOrder - bOrder
+    return 0
+  })
+}
+
+function extractSpecsFromRichText(value: unknown) {
+  const parsed = extractRichTextLines(value)
+    .map((line) => {
+      const separatorMatch = line.match(/^([^:|]+?)\s*[:|]\s*(.+)$/)
+
+      if (separatorMatch) {
+        return {
+          label: normalizeSpecLabel(separatorMatch[1]),
+          value: separatorMatch[2].trim(),
+        }
+      }
+
+      const dashMatch = line.match(/^([^–-]+?)\s*[–-]\s*(.+)$/)
+
+      if (dashMatch) {
+        return {
+          label: normalizeSpecLabel(dashMatch[1]),
+          value: dashMatch[2].trim(),
+        }
+      }
+
+      return {
+        label: 'Specification',
+        value: line,
+      }
+    })
+    .filter((entry) => entry.value)
+
+  return sortSpecs(parsed)
+}
+
+/** Pull the capacity string (e.g. "16oz / 480ml") out of the specifications rich text */
+function extractCapacityFromSpecs(value: unknown): string {
+  const specs = extractRichTextLines(value)
+  for (const line of specs) {
+    const m = line.match(/^Capacity\s*[:|]\s*(.+)$/i)
+    if (m) return m[1].trim()
+  }
+  return ''
+}
+
+function mergeGalleryImages(mainImage: NormalizedMedia, gallery: NormalizedMedia[]) {
+  const merged = [mainImage, ...gallery].filter((image) => image.url)
+  const seen = new Set<string>()
+
+  return merged.filter((image) => {
+    if (seen.has(image.url)) {
+      return false
+    }
+
+    seen.add(image.url)
+    return true
+  })
+}
+
 function pickFeatureBullets(product: ProductRecord, capacityLabel: string, applications: string[]) {
+  const featuresFromCMS = extractRichTextLines(product.description)
+
+  if (featuresFromCMS.length) {
+    return featuresFromCMS
+  }
+
   if (product.itemNumber === 'GC-ST-420' || slugifyItemNumber(product.itemNumber) === 'gc-st-420') {
     return GC_ST_420_FALLBACK.featureBullets
   }
@@ -1242,6 +1321,12 @@ function normalizeApplications(value: unknown) {
 }
 
 function buildSpecs(product: ProductRecord, normalized: Omit<NormalizedProduct, 'specs'>) {
+  const specsFromCMS = extractSpecsFromRichText(product.specifications)
+
+  if (specsFromCMS.length) {
+    return specsFromCMS
+  }
+
   const specs = [
     { label: 'Item Number', value: normalized.itemNumber },
     { label: 'Category', value: normalized.categoryName },
@@ -1263,7 +1348,7 @@ function buildSpecs(product: ProductRecord, normalized: Omit<NormalizedProduct, 
     return GC_ST_420_FALLBACK.specs
   }
 
-  return specs
+  return sortSpecs(specs)
 }
 
 function normalizeProduct(product: ProductRecord): NormalizedProduct {
@@ -1272,19 +1357,24 @@ function normalizeProduct(product: ProductRecord): NormalizedProduct {
   const categoryName = getCategoryName(product.category)
   const categorySlug = getCategorySlug(product.category)
   const applications = normalizeApplications(product.applications)
-  const capacityLabel = ''
+  const capacityLabel = extractCapacityFromSpecs(product.specifications)
   const material = toMaterialLabel(product.material)
   const mainImage = normalizeMedia(product.mainImage, product.name || GC_ST_420_FALLBACK.name)
-  const gallery = Array.isArray(product.gallery) && product.gallery.length
-    ? product.gallery
-        .map((entry) =>
-          normalizeMedia(
-            isLooseObject(entry) ? entry.image : null,
-            product.name || GC_ST_420_FALLBACK.name,
-          ),
-        )
-        .slice(0, 8)
-    : GC_ST_420_FALLBACK.gallery
+  const galleryFromCMS =
+    Array.isArray(product.gallery) && product.gallery.length
+      ? product.gallery
+          .map((entry) =>
+            normalizeMedia(
+              isLooseObject(entry) ? entry.image : null,
+              product.name || GC_ST_420_FALLBACK.name,
+            ),
+          )
+          .slice(0, 8)
+      : []
+  const gallery = mergeGalleryImages(
+    mainImage,
+    galleryFromCMS.length ? galleryFromCMS : GC_ST_420_FALLBACK.gallery,
+  ).slice(0, 8)
 
   const baseProduct = {
     id: product.id ?? null,
@@ -1309,24 +1399,106 @@ function normalizeProduct(product: ProductRecord): NormalizedProduct {
     relatedCategories: RELATED_CATEGORY_FALLBACKS,
     inquiryMessage: `I am interested in ${itemNumber}. Please share MOQ, lead time, branding options, and packaging details.`,
     cardSceneImage: gallery[1] || mainImage,
-    cardBadge:
-      product.newArrival === true
-        ? {
-            label: 'New',
-            tone: 'orange',
-          }
-        : product.featured === true
-          ? {
-              label: 'CLASSIC',
-              tone: 'blue',
-            }
-          : null,
+    cardBadges: buildCardBadges(product),
   }
 
   return {
     ...baseProduct,
     specs: buildSpecs(product, baseProduct),
   }
+}
+
+/** Pick 4 random products from the same category, excluding self */
+function pickRelatedProducts(
+  allProducts: NormalizedProduct[],
+  selfSlug: string,
+  selfCategorySlug: string,
+): NormalizedProduct['relatedCategories'] {
+  const sameCategory = allProducts.filter(
+    (p) => p.categorySlug === selfCategorySlug && p.slug !== selfSlug,
+  )
+
+  // shuffle deterministically-ish (by slug hash) so it doesn't change on every request
+  const shuffled = [...sameCategory].sort((a, b) => {
+    const ha = hashString(a.slug + selfSlug)
+    const hb = hashString(b.slug + selfSlug)
+    return ha - hb
+  })
+
+  return shuffled.slice(0, 4).map((p) => ({
+    name: p.name,
+    slug: p.categorySlug,
+    image: p.mainImage.url,
+    productSlug: p.slug,
+  }))
+}
+
+function hashString(s: string): number {
+  let h = 0
+  for (let i = 0; i < s.length; i++) {
+    h = (Math.imul(31, h) + s.charCodeAt(i)) | 0
+  }
+  return h >>> 0
+}
+
+function getInternalOrigin() {
+  const explicitOrigin =
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || process.env.NEXT_PUBLIC_SITE_URL || ''
+
+  if (explicitOrigin.trim()) {
+    return explicitOrigin.replace(/\/+$/, '')
+  }
+
+  const port = process.env.PORT?.trim()
+
+  if (port) {
+    return `http://127.0.0.1:${port}`
+  }
+
+  return null
+}
+
+async function fetchProductsFromAPI() {
+  const origin = getInternalOrigin()
+
+  if (!origin) {
+    return null
+  }
+
+  try {
+    const response = await fetch(`${origin}/api/products?limit=100&depth=2`, {
+      cache: 'no-store',
+    })
+
+    if (!response.ok) {
+      return null
+    }
+
+    const payload = (await response.json()) as {
+      docs?: ProductRecord[]
+    }
+
+    if (!Array.isArray(payload.docs)) {
+      return null
+    }
+
+    return payload.docs.filter(
+      (doc) => isLooseObject(doc) && (doc.isPublished === true || doc._status === 'published'),
+    ) as ProductRecord[]
+  } catch {
+    return null
+  }
+}
+
+/** After normalizing all products, fill in relatedCategories with same-category products */
+function fillRelatedProducts(products: NormalizedProduct[]): NormalizedProduct[] {
+  return products.map((product) => ({
+    ...product,
+    relatedCategories:
+      pickRelatedProducts(products, product.slug, product.categorySlug).length > 0
+        ? pickRelatedProducts(products, product.slug, product.categorySlug)
+        : product.relatedCategories,
+  }))
 }
 
 let payloadPromise: ReturnType<typeof getPayload> | null = null
@@ -1345,11 +1517,49 @@ async function getPayloadClient() {
   return payloadPromise
 }
 
+function publishedProductWhere() {
+  const where: Where = {
+    or: [
+      {
+        isPublished: {
+          equals: true,
+        },
+      } as Where,
+      {
+        and: [
+          {
+            isPublished: {
+              exists: false,
+            },
+          } as Where,
+          {
+            _status: {
+              equals: 'published',
+            },
+          } as Where,
+        ],
+      } as Where,
+    ],
+  }
+
+  return where
+}
+
 export async function getAllProductSlugs() {
   try {
     const payload = await getPayloadClient()
     if (!payload) {
-      return SAMPLE_PRODUCTS.map((product) => product.slug)
+      const docsFromAPI = await fetchProductsFromAPI()
+
+      if (!docsFromAPI?.length) {
+        return SAMPLE_PRODUCTS.map((product) => product.slug)
+      }
+
+      const apiSlugs = docsFromAPI
+        .map((doc) => slugifyItemNumber(typeof doc.itemNumber === 'string' ? doc.itemNumber : ''))
+        .filter(Boolean)
+
+      return Array.from(new Set([...apiSlugs, ...SAMPLE_PRODUCTS.map((product) => product.slug)]))
     }
 
     const result = await payload.find({
@@ -1357,6 +1567,7 @@ export async function getAllProductSlugs() {
       limit: 100,
       depth: 0,
       pagination: false,
+      where: publishedProductWhere(),
       select: {
         itemNumber: true,
       },
@@ -1374,7 +1585,17 @@ export async function getAllProductSlugs() {
 
     return Array.from(new Set([...slugs, ...SAMPLE_PRODUCTS.map((product) => product.slug)]))
   } catch {
-    return SAMPLE_PRODUCTS.map((product) => product.slug)
+    const docsFromAPI = await fetchProductsFromAPI()
+
+    if (!docsFromAPI?.length) {
+      return SAMPLE_PRODUCTS.map((product) => product.slug)
+    }
+
+    const apiSlugs = docsFromAPI
+      .map((doc) => slugifyItemNumber(typeof doc.itemNumber === 'string' ? doc.itemNumber : ''))
+      .filter(Boolean)
+
+    return Array.from(new Set([...apiSlugs, ...SAMPLE_PRODUCTS.map((product) => product.slug)]))
   }
 }
 
@@ -1385,41 +1606,27 @@ export async function getProductBySlug(slug: string) {
     return null
   }
 
-  try {
-    const payload = await getPayloadClient()
-    if (!payload) {
-      return SAMPLE_PRODUCTS.find((product) => product.slug === normalizedSlug) || null
-    }
-
-    const result = await payload.find({
-      collection: 'products',
-      limit: 100,
-      depth: 2,
-      pagination: false,
-    })
-
-    const docs = Array.isArray(result.docs) ? result.docs : []
-    const matched = docs.find(
-      (doc) =>
-        isLooseObject(doc) &&
-        slugifyItemNumber(typeof doc.itemNumber === 'string' ? doc.itemNumber : '') === normalizedSlug,
-    )
-
-    if (matched) {
-      return normalizeProduct(matched as ProductRecord)
-    }
-  } catch {
-    // Fall through to the hard-coded fallback.
-  }
-
-  return SAMPLE_PRODUCTS.find((product) => product.slug === normalizedSlug) || null
+  // getProductIndex already fills relatedCategories — reuse it
+  const allProducts = await getProductIndex()
+  const found = allProducts.find((p) => p.slug === normalizedSlug)
+  return found || null
 }
 
 export async function getProductIndex() {
   try {
     const payload = await getPayloadClient()
     if (!payload) {
-      return SAMPLE_PRODUCTS
+      const docsFromAPI = await fetchProductsFromAPI()
+
+      if (!docsFromAPI?.length) {
+        return SAMPLE_PRODUCTS
+      }
+
+      const normalizedDocs = docsFromAPI.map((doc) => normalizeProduct(doc))
+      const existingSlugs = new Set(normalizedDocs.map((product) => product.slug))
+      const missingSamples = SAMPLE_PRODUCTS.filter((product) => !existingSlugs.has(product.slug))
+
+      return fillRelatedProducts([...normalizedDocs, ...missingSamples])
     }
 
     const result = await payload.find({
@@ -1427,6 +1634,7 @@ export async function getProductIndex() {
       limit: 100,
       depth: 1,
       pagination: false,
+      where: publishedProductWhere(),
     })
 
     const docs = Array.isArray(result.docs)
@@ -1440,8 +1648,18 @@ export async function getProductIndex() {
     const existingSlugs = new Set(docs.map((product) => product.slug))
     const missingSamples = SAMPLE_PRODUCTS.filter((product) => !existingSlugs.has(product.slug))
 
-    return [...docs, ...missingSamples]
+    return fillRelatedProducts([...docs, ...missingSamples])
   } catch {
-    return SAMPLE_PRODUCTS
+    const docsFromAPI = await fetchProductsFromAPI()
+
+    if (!docsFromAPI?.length) {
+      return SAMPLE_PRODUCTS
+    }
+
+    const normalizedDocs = docsFromAPI.map((doc) => normalizeProduct(doc))
+    const existingSlugs = new Set(normalizedDocs.map((product) => product.slug))
+    const missingSamples = SAMPLE_PRODUCTS.filter((product) => !existingSlugs.has(product.slug))
+
+    return fillRelatedProducts([...normalizedDocs, ...missingSamples])
   }
 }

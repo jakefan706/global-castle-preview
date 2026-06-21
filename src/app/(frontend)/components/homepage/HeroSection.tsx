@@ -16,6 +16,7 @@ export default function HeroSection() {
   const [currentBanner, setCurrentBanner] = useState(0)
   const [previousBanner, setPreviousBanner] = useState<number | null>(null)
   const [scrollParallax, setScrollParallax] = useState({ media: 0, content: 0 })
+  const [enableParallax, setEnableParallax] = useState(false)
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -39,6 +40,29 @@ export default function HeroSection() {
   }, [previousBanner])
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)')
+
+    const syncParallaxState = () => {
+      const nextEnabled = mediaQuery.matches
+
+      setEnableParallax(nextEnabled)
+
+      if (!nextEnabled) {
+        setScrollParallax({ media: 0, content: 0 })
+      }
+    }
+
+    syncParallaxState()
+    mediaQuery.addEventListener('change', syncParallaxState)
+
+    return () => {
+      mediaQuery.removeEventListener('change', syncParallaxState)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!enableParallax) return
+
     let frame = 0
     let currentMedia = 0
     let currentContent = 0
@@ -52,12 +76,12 @@ export default function HeroSection() {
       const travelBase = Math.max(Math.min(rect.height, viewportHeight), 1)
       const rawProgress = Math.min(Math.max((-rect.top) / (travelBase * 0.85), 0), 1.15)
 
-      const targetMedia = rawProgress * -180
+      const targetMedia = rawProgress * -72
       const delayedProgress = rawProgress <= 0.32 ? 0 : (rawProgress - 0.32) / 0.68
-      const targetContent = Math.min(delayedProgress, 1) * -96
+      const targetContent = Math.min(delayedProgress, 1) * -28
 
-      currentMedia += (targetMedia - currentMedia) * 0.16
-      currentContent += (targetContent - currentContent) * 0.12
+      currentMedia += (targetMedia - currentMedia) * 0.2
+      currentContent += (targetContent - currentContent) * 0.18
 
       const mediaDone = Math.abs(targetMedia - currentMedia) < 0.2
       const contentDone = Math.abs(targetContent - currentContent) < 0.2
@@ -89,13 +113,13 @@ export default function HeroSection() {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
     }
-  }, [])
+  }, [enableParallax])
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[66vh] items-center justify-center overflow-hidden lg:min-h-[68vh]">
       <div
         className="absolute inset-0 will-change-transform"
-        style={{ transform: `translate3d(0, ${scrollParallax.media}px, 0)` }}
+        style={{ transform: `translate3d(0, ${enableParallax ? scrollParallax.media : 0}px, 0)` }}
       >
         {previousBanner !== null ? (
           <div key={`previous-${previousBanner}`} className="hero-zoom-slide-previous absolute inset-0 overflow-hidden">
@@ -125,7 +149,7 @@ export default function HeroSection() {
 
       <div
         className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-center will-change-transform sm:px-6 lg:px-8 lg:py-28"
-        style={{ transform: `translate3d(0, ${scrollParallax.content}px, 0)` }}
+        style={{ transform: `translate3d(0, ${enableParallax ? scrollParallax.content : 0}px, 0)` }}
       >
         <h1 className="hero-title hero-title-readable mb-6 text-4xl font-bold leading-tight text-[#e6eaee] sm:text-5xl lg:text-6xl xl:text-[5.25rem] text-balance">
           Your Strategic OEM/ODM Partner

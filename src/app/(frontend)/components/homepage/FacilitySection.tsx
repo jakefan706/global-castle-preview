@@ -9,16 +9,34 @@ import { useScrollReveal } from '../../hooks/use-scroll-reveal'
 export default function FacilitySection() {
   const [sectionRef, isVisible] = useScrollReveal<HTMLElement>({ threshold: 0.15 })
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [autoRotate, setAutoRotate] = useState(false)
   const trackRef = useRef<HTMLDivElement>(null)
   const carouselSlides = [...FACILITY_SLIDES, ...FACILITY_SLIDES]
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)')
+
+    const syncAutoRotate = () => {
+      setAutoRotate(mediaQuery.matches)
+    }
+
+    syncAutoRotate()
+    mediaQuery.addEventListener('change', syncAutoRotate)
+
+    return () => {
+      mediaQuery.removeEventListener('change', syncAutoRotate)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!autoRotate) return
+
     const id = window.setInterval(() => {
       setCurrentSlide((current) => (current + 1) % FACILITY_SLIDES.length)
-    }, 3200)
+    }, 5200)
 
     return () => window.clearInterval(id)
-  }, [])
+  }, [autoRotate])
 
   useEffect(() => {
     const track = trackRef.current
@@ -28,9 +46,9 @@ export default function FacilitySection() {
 
     track.scrollTo({
       left: target.offsetLeft,
-      behavior: 'smooth',
+      behavior: autoRotate ? 'smooth' : 'auto',
     })
-  }, [currentSlide])
+  }, [autoRotate, currentSlide])
 
   return (
     <section ref={sectionRef} className="overflow-hidden bg-white py-20 lg:py-28">
@@ -86,20 +104,6 @@ export default function FacilitySection() {
               )
             })}
           </div>
-        </div>
-
-        <div className="mt-6 flex items-center justify-center gap-2">
-          {FACILITY_SLIDES.map((slide, index) => (
-            <button
-              key={slide.title}
-              type="button"
-              aria-label={`Go to ${slide.title}`}
-              onClick={() => setCurrentSlide(index)}
-              className={`h-1.5 rounded-[4px] transition-all duration-300 ${
-                index === currentSlide ? 'w-7 bg-[#00868b]' : 'w-1.5 bg-[#c7d2de]'
-              }`}
-            />
-          ))}
         </div>
       </div>
     </section>

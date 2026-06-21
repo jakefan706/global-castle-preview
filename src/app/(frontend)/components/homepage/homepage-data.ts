@@ -35,40 +35,53 @@ export const STATS = [
 ] as const
 
 export const CERTIFICATIONS = [
-  { name: 'FDA', logo: '/images/certifications/fda.png' },
-  { name: 'LFGB', logo: '/images/certifications/lfgb.png' },
-  { name: 'CE', logo: '/images/certifications/ce.png' },
-  { name: 'ISO 9001', logo: '/images/certifications/iso.png' },
-  { name: 'BSCI', logo: '/images/certifications/bsci.png' },
-  { name: 'SGS', logo: '/images/certifications/sgs.png' },
+  { name: 'FDA', logo: '/images/compliance-icons/FDA.jpg?v=20260509-2145' },
+  { name: 'Cup Fork', logo: '/images/compliance-icons/cup and fork.jpeg?v=20260509-2145' },
+  { name: 'FAMA', logo: '/images/compliance-icons/FAMA.png?v=20260509-2145' },
+  { name: 'BPA Free', logo: '/images/compliance-icons/BPA free.jpg?v=20260509-2145' },
+  { name: 'GRS', logo: '/images/compliance-icons/GRS.png?v=20260509-2145' },
+  { name: 'Recyclable', logo: '/images/compliance-icons/recyclable.png?v=20260509-2145' },
+  { name: 'ISO 9001', logo: '/images/compliance-icons/ISO9001.jpg?v=20260509-2145' },
+  { name: 'BSCI', logo: '/images/compliance-icons/BSCI.png?v=20260509-2145' },
+  { name: 'Sedex', logo: '/images/compliance-icons/sedex.jpg?v=20260509-2145' },
+  { name: 'FSC', logo: '/images/compliance-icons/FSC.svg?v=20260509-2145' },
 ] as const
 
 export const PARTNERS = [
-  { name: 'Partner 1', logo: '/images/partners/partner-1.png' },
-  { name: 'Partner 2', logo: '/images/partners/partner-2.png' },
-  { name: 'Partner 3', logo: '/images/partners/partner-3.png' },
-  { name: 'Partner 4', logo: '/images/partners/partner-4.png' },
-  { name: 'Partner 5', logo: '/images/partners/partner-5.png' },
-  { name: 'Partner 6', logo: '/images/partners/partner-6.png' },
-  { name: 'Partner 7', logo: '/images/partners/partner-7.png' },
-  { name: 'Partner 8', logo: '/images/partners/partner-8.png' },
+  { name: 'Customer 1', logo: '/images/partners/customer1.svg?v=20260509-2215' },
+  { name: 'Customer 2', logo: '/images/partners/customer2.png?v=20260509-2215' },
+  { name: 'Customer 3', logo: '/images/partners/customer3.webp?v=20260509-2215' },
+  { name: 'Customer 4', logo: '/images/partners/customer4.jpg?v=20260509-2215' },
+  { name: 'Customer 5', logo: '/images/partners/customer5.png?v=20260509-2215' },
+  { name: 'Customer 6', logo: '/images/partners/customer6.svg?v=20260509-2215' },
+  { name: 'Customer 7', logo: '/images/partners/customer7.png?v=20260509-2215' },
+  { name: 'Customer 8', logo: '/images/partners/customer8.webp?v=20260509-2215' },
+  { name: 'Customer 9', logo: '/images/partners/customer9.svg?v=20260509-2215' },
 ] as const
 
 export const FACILITY_SLIDES = [
   {
-    title: 'Painting Line',
-    image: '/images/banner-sample-2560x900.jpg',
+    title: 'Injection Molding',
+    image: '/images/process/injection.jpg',
   },
   {
-    title: 'Machining',
-    image: '/images/products/steel-bottles.jpg',
+    title: 'Welding',
+    image: '/images/process/welding.jpg',
   },
   {
-    title: 'Surface Printing',
-    image: '/images/products/tumblers.jpg',
+    title: 'Polishing',
+    image: '/images/process/polishing.jpg',
   },
   {
-    title: 'Assembly & Packing',
-    image: '/images/products/gift-sets.jpg',
+    title: 'Painting',
+    image: '/images/process/painting.jpg',
+  },
+  {
+    title: 'Vacuum Process',
+    image: '/images/process/vacuum.jpg',
+  },
+  {
+    title: 'Quality Check',
+    image: '/images/process/check.jpg',
   },
 ] as const

@@ -1,0 +1,189 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e175]:
+    - button "Open Menu" [ref=e177] [cursor=pointer]:
+      - generic "Open" [ref=e179]:
+        - img [ref=e180]
+    - generic [ref=e182]:
+      - complementary [ref=e183]:
+        - navigation [ref=e185]:
+          - generic [ref=e186]:
+            - img "Global Castle" [ref=e187]
+            - generic [ref=e188]:
+              - generic [ref=e189]: Global Castle
+              - generic [ref=e190]: B2B drinkware CMS
+          - generic [ref=e191]:
+            - button "Collections" [ref=e192] [cursor=pointer]:
+              - generic [ref=e193]: Collections
+              - img [ref=e195]
+            - generic [ref=e199]:
+              - link "Users" [ref=e200] [cursor=pointer]:
+                - /url: /admin/collections/users
+                - generic [ref=e201]: Users
+              - link "Products" [ref=e202] [cursor=pointer]:
+                - /url: /admin/collections/products
+                - generic [ref=e204]: Products
+              - link "Categories" [ref=e205] [cursor=pointer]:
+                - /url: /admin/collections/categories
+                - generic [ref=e206]: Categories
+              - link "Applications" [ref=e207] [cursor=pointer]:
+                - /url: /admin/collections/applications
+                - generic [ref=e208]: Applications
+              - link "Blog Posts" [ref=e209] [cursor=pointer]:
+                - /url: /admin/collections/blog-posts
+                - generic [ref=e210]: Blog Posts
+              - link "Certifications" [ref=e211] [cursor=pointer]:
+                - /url: /admin/collections/certifications
+                - generic [ref=e212]: Certifications
+              - link "Inquiry Submissions" [ref=e213] [cursor=pointer]:
+                - /url: /admin/collections/inquiry-submissions
+                - generic [ref=e214]: Inquiry Submissions
+              - link "Media" [ref=e215] [cursor=pointer]:
+                - /url: /admin/collections/media
+                - generic [ref=e216]: Media
+          - link "Log out" [ref=e218] [cursor=pointer]:
+            - /url: /admin/logout
+            - img [ref=e219]
+      - generic [ref=e223]:
+        - banner [ref=e224]:
+          - generic [ref=e227]:
+            - navigation [ref=e229]:
+              - link [ref=e230] [cursor=pointer]:
+                - /url: /admin
+                - generic "Dashboard" [ref=e231]:
+                  - img [ref=e232]
+              - generic [ref=e235]: /
+              - link "Products" [ref=e236] [cursor=pointer]:
+                - /url: /admin/collections/products
+                - generic [ref=e237]: Products
+              - generic [ref=e238]: /
+              - generic [ref=e239]: Create New
+            - link "Account" [ref=e240] [cursor=pointer]:
+              - /url: /admin/account
+              - img "yas" [ref=e241]
+        - heading "[Untitled]" [level=1] [ref=e244]
+        - main [ref=e245]:
+          - generic [ref=e246]:
+            - generic [ref=e248]:
+              - list [ref=e250]:
+                - listitem [ref=e251]:
+                  - paragraph [ref=e252]: Creating new Product
+              - button "Save" [ref=e256] [cursor=pointer]:
+                - generic:
+                  - generic: Save
+            - generic [ref=e260]:
+              - generic [ref=e263]:
+                - generic [ref=e264]:
+                  - generic [ref=e265]:
+                    - text: Product Name
+                    - generic [ref=e266]: "*"
+                  - textbox "Product Name *" [ref=e268]
+                - generic [ref=e269]:
+                  - generic [ref=e270]:
+                    - text: Item Number
+                    - generic [ref=e271]: "*"
+                  - generic [ref=e272]:
+                    - textbox "Item Number *" [ref=e273]
+                    - generic [ref=e274]: 产品编号，如 SS-1525
+                - generic [ref=e275]:
+                  - generic [ref=e276]:
+                    - text: Main Image
+                    - generic [ref=e277]: "*"
+                  - generic [ref=e280]:
+                    - generic [ref=e281]:
+                      - button "Create New" [ref=e282] [cursor=pointer]:
+                        - generic:
+                          - generic: Create New
+                      - generic [ref=e283]: Or
+                      - button "Choose from existing" [ref=e284] [cursor=pointer]:
+                        - generic:
+                          - generic: Choose from existing
+                    - paragraph [ref=e285]: Or Drag and drop a file
+                - generic [ref=e286]:
+                  - generic [ref=e287]:
+                    - text: Category
+                    - generic [ref=e288]: "*"
+                  - generic [ref=e290]:
+                    - generic [ref=e291]:
+                      - log [ref=e293]
+                      - generic [ref=e294]:
+                        - generic [ref=e296]:
+                          - generic [ref=e297]: Select a value
+                          - combobox [ref=e299]
+                        - button [ref=e301] [cursor=pointer]:
+                          - img [ref=e302]
+                    - button "Add new Category" [ref=e305] [cursor=pointer]:
+                      - img [ref=e306]
+                - generic [ref=e308]:
+                  - generic [ref=e309]: Material
+                  - generic [ref=e311]:
+                    - log [ref=e313]
+                    - generic [ref=e314]:
+                      - generic [ref=e316]:
+                        - generic [ref=e317]: Select a value
+                        - combobox [ref=e319]
+                      - button [ref=e321] [cursor=pointer]:
+                        - img [ref=e322]
+                - generic [ref=e325]:
+                  - heading "SEO" [level=3] [ref=e328]
+                  - generic [ref=e329]:
+                    - generic [ref=e331]: 0/3 checks are passing
+                    - generic [ref=e332]:
+                      - generic [ref=e333]:
+                        - generic [ref=e334]:
+                          - text: Title —
+                          - button "Auto-generate" [ref=e335] [cursor=pointer]
+                        - generic [ref=e336]:
+                          - text: This should be between 50 and 60 characters. For help in writing quality meta titles, see
+                          - link "best practices" [ref=e337] [cursor=pointer]:
+                            - /url: https://developers.google.com/search/docs/advanced/appearance/title-link#page-titles
+                          - text: .
+                      - textbox "Title" [ref=e341]
+                      - generic [ref=e343]:
+                        - generic [ref=e344]: Missing
+                        - generic [ref=e346]: 0/50-60 chars, 50 to go
+                    - generic [ref=e348]:
+                      - generic [ref=e349]:
+                        - generic [ref=e350]:
+                          - text: Description —
+                          - button "Auto-generate" [ref=e351] [cursor=pointer]
+                        - generic [ref=e352]:
+                          - text: This should be between 100 and 150 characters. For help in writing quality meta descriptions, see
+                          - link "best practices" [ref=e353] [cursor=pointer]:
+                            - /url: https://developers.google.com/search/docs/advanced/appearance/snippet#meta-descriptions
+                      - textbox "Description" [ref=e358]
+                      - generic [ref=e360]:
+                        - generic [ref=e361]: Missing
+                        - generic [ref=e363]: 0/100-150 chars, 100 to go
+                    - generic [ref=e365]:
+                      - generic [ref=e367]: Meta Image
+                      - generic [ref=e372]:
+                        - generic [ref=e373]:
+                          - button "Create New" [ref=e374] [cursor=pointer]:
+                            - generic:
+                              - generic: Create New
+                          - generic [ref=e375]: Or
+                          - button "Choose from existing" [ref=e376] [cursor=pointer]:
+                            - generic:
+                              - generic: Choose from existing
+                        - paragraph [ref=e377]: Or Drag and drop a file
+                      - generic [ref=e379]: No image
+                    - generic [ref=e380]:
+                      - generic [ref=e381]: Preview
+                      - generic [ref=e382]: Exact result listings may vary based on content and search relevancy.
+                      - generic:
+                        - generic: https://...
+                        - heading [level=4]:
+                          - link:
+                            - /url: /
+                        - paragraph
+              - generic [ref=e387]:
+                - generic [ref=e388]:
+                  - checkbox "Featured" [ref=e390]
+                  - generic [ref=e391]: Featured
+                - generic [ref=e392]: 首页推荐
+        - status [ref=e393]
+  - status [ref=e36]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]:
+    - img [ref=e8]
+  - alert [ref=e37]: Creating - Product - Global Castle Admin

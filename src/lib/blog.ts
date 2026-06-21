@@ -1,12 +1,12 @@
 import config from '@payload-config'
-import { Socket } from 'node:net'
-import { getPayload } from 'payload'
+import { getPayload, type Where } from 'payload'
 
 type LooseObject = Record<string, unknown>
 
 type BlogCategory = 'industry-guide' | 'quality-testing' | 'company-news'
 
 type BlogRecord = LooseObject & {
+  _status?: string
   id?: number | string
   title?: string
   summary?: string
@@ -14,16 +14,21 @@ type BlogRecord = LooseObject & {
   category?: unknown
   publishedDate?: string
   featured?: boolean
+  isPublished?: boolean
   coverImage?: unknown
+  content?: unknown
 }
 
 type NormalizedMedia = {
   alt: string
+  height?: number
   url: string
+  width?: number
 }
 
 export type NormalizedBlogPost = {
   id: number | string | null
+  slug: string
   title: string
   summary: string
   author: string
@@ -31,6 +36,7 @@ export type NormalizedBlogPost = {
   publishedDate: string
   featured: boolean
   coverImage: NormalizedMedia
+  content: unknown
 }
 
 export type BlogIndexData = {
@@ -48,9 +54,9 @@ const BLOG_CATEGORIES: BlogCategory[] = [
 ]
 
 const CATEGORY_LABELS: Record<BlogCategory, string> = {
-  'industry-guide': 'Industry Guide',
-  'quality-testing': 'Quality & Testing',
-  'company-news': 'Company News',
+  'industry-guide': 'Industry Trends',
+  'quality-testing': 'Technical & Compliance',
+  'company-news': 'Company Updates',
 }
 
 const FALLBACK_IMAGES: Record<BlogCategory, string> = {
@@ -75,49 +81,69 @@ const EMPTY_INDEX: BlogIndexData = {
   hasPosts: false,
 }
 
-let databaseReachability: boolean | null = null
 let payloadPromise: ReturnType<typeof getPayload> | null = null
+
+function getInternalOrigin() {
+  const explicitOrigin =
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || process.env.NEXT_PUBLIC_SITE_URL || ''
+
+  if (explicitOrigin.trim()) {
+    return explicitOrigin.replace(/\/+$/, '')
+  }
+
+  const port = process.env.PORT?.trim()
+
+  if (port) {
+    return `http://127.0.0.1:${port}`
+  }
+
+  return null
+}
+
+async function fetchBlogPostsFromAPI() {
+  const origin = getInternalOrigin()
+
+  if (!origin) {
+    return null
+  }
+
+  try {
+    const response = await fetch(`${origin}/api/blog-posts?limit=100&depth=1`, {
+      cache: 'no-store',
+    })
+
+    if (!response.ok) {
+      return null
+    }
+
+    const payload = (await response.json()) as {
+      docs?: BlogRecord[]
+    }
+
+    if (!Array.isArray(payload.docs)) {
+      return null
+    }
+
+    return payload.docs.filter(
+      (doc) => isLooseObject(doc) && (doc.isPublished === true || doc._status === 'published'),
+    ) as BlogRecord[]
+  } catch {
+    return null
+  }
+}
 
 function isLooseObject(value: unknown): value is LooseObject {
   return typeof value === 'object' && value !== null
 }
 
 async function canReachDatabase() {
-  if (databaseReachability !== null) {
-    return databaseReachability
-  }
-
   const connectionString = process.env.DATABASE_URL
 
   if (!connectionString) {
-    databaseReachability = false
-    return databaseReachability
+    return false
   }
 
-  try {
-    const url = new URL(connectionString)
-    const host = url.hostname || '127.0.0.1'
-    const port = Number(url.port || '5432')
-
-    databaseReachability = await new Promise<boolean>((resolve) => {
-      const socket = new Socket()
-      const finish = (value: boolean) => {
-        socket.removeAllListeners()
-        socket.destroy()
-        resolve(value)
-      }
-
-      socket.setTimeout(250)
-      socket.once('connect', () => finish(true))
-      socket.once('timeout', () => finish(false))
-      socket.once('error', () => finish(false))
-      socket.connect(port, host)
-    })
-  } catch {
-    databaseReachability = false
-  }
-
-  return databaseReachability
+  return true
 }
 
 async function getPayloadClient() {
@@ -160,7 +186,9 @@ function normalizeMedia(media: unknown, category: BlogCategory, title: string): 
 
   return {
     alt: typeof media.alt === 'string' && media.alt.trim() ? media.alt.trim() : `${title} cover image`,
+    height: typeof media.height === 'number' ? media.height : undefined,
     url: typeof url === 'string' ? url : FALLBACK_IMAGES[category],
+    width: typeof media.width === 'number' ? media.width : undefined,
   }
 }
 
@@ -186,6 +214,26 @@ function normalizeSummary(value: unknown, category: BlogCategory) {
   return `${CATEGORY_LABELS[category]} content summary coming soon.`
 }
 
+function slugifyText(value: string | null | undefined) {
+  if (!value) {
+    return ''
+  }
+
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function createBlogSlug(doc: BlogRecord, title: string) {
+  const titleSlug = slugifyText(title) || 'article'
+  const idPart =
+    typeof doc.id === 'number' || typeof doc.id === 'string' ? String(doc.id).trim() : ''
+
+  return idPart ? `${idPart}-${titleSlug}` : titleSlug
+}
+
 function normalizePost(doc: BlogRecord): NormalizedBlogPost {
   const category = toBlogCategory(doc.category)
   const title =
@@ -193,6 +241,7 @@ function normalizePost(doc: BlogRecord): NormalizedBlogPost {
 
   return {
     id: typeof doc.id === 'number' || typeof doc.id === 'string' ? doc.id : null,
+    slug: createBlogSlug(doc, title),
     title,
     summary: normalizeSummary(doc.summary, category),
     author: typeof doc.author === 'string' ? doc.author.trim() : '',
@@ -200,6 +249,7 @@ function normalizePost(doc: BlogRecord): NormalizedBlogPost {
     publishedDate: normalizeDate(doc.publishedDate),
     featured: doc.featured === true,
     coverImage: normalizeMedia(doc.coverImage, category, title),
+    content: doc.content ?? null,
   }
 }
 
@@ -247,12 +297,46 @@ export function getBlogCategories() {
   return BLOG_CATEGORIES
 }
 
+function publishedBlogWhere() {
+  const where: Where = {
+    or: [
+      {
+        isPublished: {
+          equals: true,
+        },
+      } as Where,
+      {
+        and: [
+          {
+            isPublished: {
+              exists: false,
+            },
+          } as Where,
+          {
+            _status: {
+              equals: 'published',
+            },
+          } as Where,
+        ],
+      } as Where,
+    ],
+  }
+
+  return where
+}
+
 export async function getBlogIndex(): Promise<BlogIndexData> {
   try {
     const payload = await getPayloadClient()
 
     if (!payload) {
-      return EMPTY_INDEX
+      const docsFromAPI = await fetchBlogPostsFromAPI()
+
+      if (!docsFromAPI?.length) {
+        return EMPTY_INDEX
+      }
+
+      return buildIndex(docsFromAPI.map((doc) => normalizePost(doc)))
     }
 
     const result = await payload.find({
@@ -260,6 +344,7 @@ export async function getBlogIndex(): Promise<BlogIndexData> {
       limit: 100,
       depth: 1,
       pagination: false,
+      where: publishedBlogWhere(),
     })
 
     const docs = Array.isArray(result.docs)
@@ -272,6 +357,50 @@ export async function getBlogIndex(): Promise<BlogIndexData> {
 
     return buildIndex(docs)
   } catch {
-    return EMPTY_INDEX
+    const docsFromAPI = await fetchBlogPostsFromAPI()
+
+    if (!docsFromAPI?.length) {
+      return EMPTY_INDEX
+    }
+
+    return buildIndex(docsFromAPI.map((doc) => normalizePost(doc)))
+  }
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<NormalizedBlogPost | null> {
+  const normalizedSlug = slug.trim().toLowerCase()
+
+  if (!normalizedSlug) {
+    return null
+  }
+
+  try {
+    const payload = await getPayloadClient()
+
+    if (!payload) {
+      const docsFromAPI = await fetchBlogPostsFromAPI()
+      const posts = docsFromAPI?.map((doc) => normalizePost(doc)) || []
+
+      return posts.find((post) => post.slug === normalizedSlug) || null
+    }
+
+    const result = await payload.find({
+      collection: 'blog-posts',
+      limit: 100,
+      depth: 1,
+      pagination: false,
+      where: publishedBlogWhere(),
+    })
+
+    const docs = Array.isArray(result.docs)
+      ? result.docs.filter(isLooseObject).map((doc) => normalizePost(doc as BlogRecord))
+      : []
+
+    return docs.find((post) => post.slug === normalizedSlug) || null
+  } catch {
+    const docsFromAPI = await fetchBlogPostsFromAPI()
+    const posts = docsFromAPI?.map((doc) => normalizePost(doc)) || []
+
+    return posts.find((post) => post.slug === normalizedSlug) || null
   }
 }

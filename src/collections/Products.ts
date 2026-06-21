@@ -2,9 +2,17 @@ import type { CollectionConfig } from 'payload'
 
 export const Products: CollectionConfig = {
   slug: 'products',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'itemNumber', 'category', 'material', 'featured'],
+    defaultColumns: ['mainImage', 'name', 'itemNumber', 'isPublished', 'category', 'material', 'featured'],
+    components: {
+      edit: {
+        beforeDocumentControls: ['./app/(payload)/components/AdminDraftRecovery#default'],
+      },
+    },
   },
   fields: [
     {
@@ -26,33 +34,35 @@ export const Products: CollectionConfig = {
     {
       name: 'description',
       type: 'richText',
-      label: 'Description',
+      label: 'Features',
       admin: {
-        description: '产品详细描述，支持图文混排，用于详情页叙事段落',
+        description: '产品卖点与特征说明，前台 Features 模块直接读取这里的内容。',
       },
     },
     {
       name: 'customizeMOQ',
       type: 'text',
-      label: 'Customize MOQ',
+      label: 'Min. Order',
       admin: {
-        description: '详情页展示的定制起订量，例如 500pcs',
+        description: '详情页和产品卡片展示的起订量，例如 500pcs',
       },
     },
-    // 图片
     {
       name: 'mainImage',
       type: 'upload',
       relationTo: 'media',
       required: true,
       label: 'Main Image',
+      admin: {
+        description: 'Fallback uploader. If the quick image manager is unavailable, upload the main product image here.',
+      },
     },
     {
       name: 'gallery',
       type: 'array',
       label: 'Gallery',
       admin: {
-        description: '多角度产品图片',
+        description: 'Fallback gallery uploader for additional product images.',
       },
       fields: [
         {
@@ -60,25 +70,30 @@ export const Products: CollectionConfig = {
           type: 'upload',
           relationTo: 'media',
           required: true,
+          label: 'Image',
         },
       ],
     },
-    // 关联字段
+    {
+      name: 'productImagesManager',
+      type: 'ui',
+      label: 'Product Images',
+      admin: {
+        components: {
+          Field: './app/(payload)/components/ProductImageManager#default',
+        },
+      },
+    },
     {
       name: 'category',
       type: 'relationship',
       relationTo: 'categories',
       required: true,
       label: 'Category',
+      admin: {
+        allowCreate: false,
+      },
     },
-    {
-      name: 'applications',
-      type: 'relationship',
-      relationTo: 'applications',
-      hasMany: true,
-      label: 'Applications',
-    },
-    // 选项字段
     {
       name: 'material',
       type: 'select',
@@ -93,24 +108,23 @@ export const Products: CollectionConfig = {
       ],
     },
     {
-      name: 'priceRange',
-      type: 'select',
-      label: 'Price Range',
-      options: [
-        { label: 'Budget', value: 'budget' },
-        { label: 'Mid-Range', value: 'mid-range' },
-        { label: 'Premium', value: 'premium' },
-      ],
-    },
-    {
       name: 'specifications',
       type: 'richText',
-      label: 'Specifications',
+      label: 'Technical Specifications',
       admin: {
-        description: '规格参数表',
+        description: '前台 Technical specifications 模块直接读取这里的内容。',
       },
     },
-    // 标记
+    {
+      name: 'isPublished',
+      type: 'checkbox',
+      label: 'Published',
+      defaultValue: true,
+      admin: {
+        position: 'sidebar',
+        description: '关闭后仅在后台保留，不在前台产品页显示。',
+      },
+    },
     {
       name: 'featured',
       type: 'checkbox',
@@ -122,12 +136,23 @@ export const Products: CollectionConfig = {
       },
     },
     {
-      name: 'newArrival',
+      name: 'classic',
       type: 'checkbox',
-      label: 'New Arrival',
+      label: 'Classic',
       defaultValue: false,
       admin: {
         position: 'sidebar',
+        description: '产品卡片显示蓝色 CLASSIC 标签',
+      },
+    },
+    {
+      name: 'newArrival',
+      type: 'checkbox',
+      label: 'New',
+      defaultValue: false,
+      admin: {
+        position: 'sidebar',
+        description: '产品卡片显示橙色 New 标签',
       },
     },
   ],

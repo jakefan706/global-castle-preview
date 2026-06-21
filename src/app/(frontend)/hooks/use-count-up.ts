@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type UseCountUpOptions = {
   start?: number
@@ -17,6 +17,7 @@ export function useCountUp({
 }: UseCountUpOptions): [number, () => void] {
   const [count, setCount] = useState(start)
   const [shouldStart, setShouldStart] = useState(startOnMount)
+  const lastValueRef = useRef(start)
 
   const trigger = () => setShouldStart(true)
 
@@ -33,10 +34,16 @@ export function useCountUp({
       const easeOut = 1 - Math.pow(1 - progress, 3)
       const currentCount = Math.floor(start + (end - start) * easeOut)
 
-      setCount(currentCount)
+      if (currentCount !== lastValueRef.current) {
+        lastValueRef.current = currentCount
+        setCount(currentCount)
+      }
 
       if (progress < 1) {
         animationFrame = requestAnimationFrame(animate)
+      } else if (lastValueRef.current !== end) {
+        lastValueRef.current = end
+        setCount(end)
       }
     }
 

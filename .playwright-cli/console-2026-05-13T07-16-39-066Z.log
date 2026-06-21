@@ -1,0 +1,31 @@
+[     517ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[     593ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[     776ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[     779ms] [WARNING] Image with src "/logo-teal.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio. @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[     845ms] [LOG] [Fast Refresh] done in 185ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[    1227ms] [WARNING] Image with src "/logo-teal.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  244368ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  244492ms] [LOG] [Fast Refresh] done in 168ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  244507ms] [LOG] %c%s%c Generating import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  244644ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  245470ms] [LOG] [Fast Refresh] done in 125ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  246201ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  246370ms] [LOG] [Fast Refresh] done in 270ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  246858ms] [LOG] %c%s%c Writing import map to background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   /Users/abcd/Vibecoding/website/global-castle/src/app/(payload)/admin/importMap.js @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  248210ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  248225ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  253869ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  253920ms] [LOG] [Fast Refresh] done in 69ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  253923ms] [LOG] %c%s%c Generating import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  253984ms] [LOG] %c%s%c No new imports found, skipping writing import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  293616ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  293660ms] [LOG] [Fast Refresh] done in 45ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  293665ms] [LOG] %c%s%c Generating import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  293770ms] [LOG] %c%s%c No new imports found, skipping writing import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  356498ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  356580ms] [LOG] [Fast Refresh] done in 35ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  356591ms] [LOG] %c%s%c Generating import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  356687ms] [LOG] %c%s%c No new imports found, skipping writing import map background: #e6e6e6;background: light-dark(rgba(0,0,0,0.1), rgba(255,255,255,0.25));color: #000000;color: light-dark(#000000, #ffffff);border-radius: 2px  Server   @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  377156ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
+[  377185ms] [LOG] [Fast Refresh] done in 130ms @ http://localhost:3000/_next/static/chunks/0t5o_next_dist_0g3kv3q._.js:2431
