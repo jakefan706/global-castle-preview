@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useEffectEvent, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 
 type GalleryImage = {
@@ -18,78 +18,37 @@ export default function ProductGallery({
   const gallery = images.length ? images : [{ alt: title, url: '/images/products/tumblers.jpg' }]
   const [activeIndex, setActiveIndex] = useState(0)
   const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [transitionImage, setTransitionImage] = useState<GalleryImage | null>(null)
-  const [lightboxTransitionImage, setLightboxTransitionImage] = useState<GalleryImage | null>(null)
   const activeImage = gallery[activeIndex] || gallery[0]
   const totalImages = gallery.length
 
-  const selectImage = (index: number, animateMain = false, animateLightbox = false) => {
-    if (index === activeIndex) return
+  const selectImage = useCallback((index: number) => {
+    setActiveIndex((prev) => (prev === index ? prev : index))
+  }, [])
 
-    if (animateLightbox) {
-      setLightboxTransitionImage(activeImage)
-    }
+  const goToPrevious = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + totalImages) % totalImages)
+  }, [totalImages])
 
-    if (animateMain) {
-      setTransitionImage(activeImage)
-    }
-
-    setActiveIndex(index)
-  }
-
-  const goToPrevious = (animateLightbox = false) => {
-    selectImage((activeIndex - 1 + totalImages) % totalImages, false, animateLightbox)
-  }
-
-  const goToNext = (animateLightbox = false) => {
-    selectImage((activeIndex + 1) % totalImages, false, animateLightbox)
-  }
-
-  const handleLightboxKeyDown = useEffectEvent((event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      setLightboxOpen(false)
-    }
-
-    if (event.key === 'ArrowLeft') {
-      selectImage((activeIndex - 1 + totalImages) % totalImages, false, true)
-    }
-
-    if (event.key === 'ArrowRight') {
-      selectImage((activeIndex + 1) % totalImages, false, true)
-    }
-  })
+  const goToNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % totalImages)
+  }, [totalImages])
 
   useEffect(() => {
     if (!lightboxOpen) return
 
-    window.addEventListener('keydown', handleLightboxKeyDown)
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setLightboxOpen(false)
+      } else if (event.key === 'ArrowLeft') {
+        goToPrevious()
+      } else if (event.key === 'ArrowRight') {
+        goToNext()
+      }
+    }
 
-    return () => window.removeEventListener('keydown', handleLightboxKeyDown)
-  }, [lightboxOpen])
-
-  useEffect(() => {
-    if (!transitionImage) return
-
-    const timer = window.setTimeout(() => {
-      setTransitionImage(null)
-    }, 420)
-
-    return () => window.clearTimeout(timer)
-  }, [transitionImage])
-
-  useEffect(() => {
-    if (!lightboxTransitionImage) return
-
-    const timer = window.setTimeout(() => {
-      setLightboxTransitionImage(null)
-    }, 520)
-
-    return () => window.clearTimeout(timer)
-  }, [lightboxTransitionImage])
-
-  const handleThumbnailSelect = (index: number) => {
-    selectImage(index, true)
-  }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [lightboxOpen, goToPrevious, goToNext])
 
   return (
     <>
@@ -100,18 +59,6 @@ export default function ProductGallery({
           className="group relative block aspect-square w-full cursor-pointer overflow-hidden rounded-[4px] bg-[#eef4f7] shadow-[0_18px_44px_rgba(12,27,48,0.09)]"
           aria-label={`Open enlarged view of ${activeImage.alt}`}
         >
-          {transitionImage ? (
-            <div className="absolute inset-0">
-              <Image
-                src={transitionImage.url}
-                alt={transitionImage.alt}
-                fill
-                sizes="(min-width: 1024px) 42vw, 100vw"
-                className="object-contain p-4"
-              />
-            </div>
-          ) : null}
-
           <div key={activeImage.url} className="gc-gallery-main-fade absolute inset-0">
             <Image
               src={activeImage.url}
@@ -139,7 +86,7 @@ export default function ProductGallery({
               <button
                 key={`${image.url}-${index}`}
                 type="button"
-                onClick={() => handleThumbnailSelect(index)}
+                onClick={() => selectImage(index)}
                 className={`group relative aspect-square cursor-pointer overflow-hidden rounded-[4px] border transition-all duration-250 ${
                   selected
                     ? 'border-[#00868b] shadow-[0_0_0_3px_rgba(0, 134, 139,0.18)]'
@@ -188,7 +135,7 @@ export default function ProductGallery({
           >
             <button
               type="button"
-              onClick={() => goToPrevious(true)}
+              onClick={goToPrevious}
               className="absolute left-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#081320]/42 text-white transition-all duration-200 hover:bg-[#081320]/60"
               aria-label="Show previous image"
             >
@@ -199,7 +146,7 @@ export default function ProductGallery({
 
             <button
               type="button"
-              onClick={() => goToNext(true)}
+              onClick={goToNext}
               className="absolute right-4 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#081320]/42 text-white transition-all duration-200 hover:bg-[#081320]/60"
               aria-label="Show next image"
             >
@@ -211,18 +158,6 @@ export default function ProductGallery({
             <div className="absolute left-5 top-5 z-10 rounded-full bg-[#081320]/42 px-3 py-1.5 text-xs font-semibold tracking-[0.18em] text-white/92">
               {String(activeIndex + 1).padStart(2, '0')} / {String(totalImages).padStart(2, '0')}
             </div>
-
-            {lightboxTransitionImage ? (
-              <div className="absolute inset-0">
-                <Image
-                  src={lightboxTransitionImage.url}
-                  alt={lightboxTransitionImage.alt}
-                  fill
-                  sizes="92vw"
-                  className="object-contain"
-                />
-              </div>
-            ) : null}
 
             <div key={`${activeImage.url}-lightbox`} className="gc-gallery-crossfade absolute inset-0">
               <Image
